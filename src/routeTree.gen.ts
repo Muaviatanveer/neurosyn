@@ -9,38 +9,280 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TechnologyRouteImport } from './routes/technology'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as ProductsRouteImport } from './routes/products'
+import { Route as InvestorsRouteImport } from './routes/investors'
+import { Route as IndustriesRouteImport } from './routes/industries'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CaseStudiesRouteImport } from './routes/case-studies'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProductsIndexRouteImport } from './routes/products.index'
+import { Route as ProductsSapRouteImport } from './routes/products.sap'
+import { Route as ProductsKidsRouteImport } from './routes/products.kids'
+import { Route as ProductsDevRouteImport } from './routes/products.dev'
+import { Route as ProductsAeroRouteImport } from './routes/products.aero'
 
+const TechnologyRoute = TechnologyRouteImport.update({
+  id: '/technology',
+  path: '/technology',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsRoute = ProductsRouteImport.update({
+  id: '/products',
+  path: '/products',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InvestorsRoute = InvestorsRouteImport.update({
+  id: '/investors',
+  path: '/investors',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesRoute = IndustriesRouteImport.update({
+  id: '/industries',
+  path: '/industries',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CaseStudiesRoute = CaseStudiesRouteImport.update({
+  id: '/case-studies',
+  path: '/case-studies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProductsIndexRoute = ProductsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ProductsRoute,
+} as any)
+const ProductsSapRoute = ProductsSapRouteImport.update({
+  id: '/sap',
+  path: '/sap',
+  getParentRoute: () => ProductsRoute,
+} as any)
+const ProductsKidsRoute = ProductsKidsRouteImport.update({
+  id: '/kids',
+  path: '/kids',
+  getParentRoute: () => ProductsRoute,
+} as any)
+const ProductsDevRoute = ProductsDevRouteImport.update({
+  id: '/dev',
+  path: '/dev',
+  getParentRoute: () => ProductsRoute,
+} as any)
+const ProductsAeroRoute = ProductsAeroRouteImport.update({
+  id: '/aero',
+  path: '/aero',
+  getParentRoute: () => ProductsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/case-studies': typeof CaseStudiesRoute
+  '/contact': typeof ContactRoute
+  '/industries': typeof IndustriesRoute
+  '/investors': typeof InvestorsRoute
+  '/products': typeof ProductsRouteWithChildren
+  '/services': typeof ServicesRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/technology': typeof TechnologyRoute
+  '/products/aero': typeof ProductsAeroRoute
+  '/products/dev': typeof ProductsDevRoute
+  '/products/kids': typeof ProductsKidsRoute
+  '/products/sap': typeof ProductsSapRoute
+  '/products/': typeof ProductsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/case-studies': typeof CaseStudiesRoute
+  '/contact': typeof ContactRoute
+  '/industries': typeof IndustriesRoute
+  '/investors': typeof InvestorsRoute
+  '/services': typeof ServicesRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/technology': typeof TechnologyRoute
+  '/products/aero': typeof ProductsAeroRoute
+  '/products/dev': typeof ProductsDevRoute
+  '/products/kids': typeof ProductsKidsRoute
+  '/products/sap': typeof ProductsSapRoute
+  '/products': typeof ProductsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/case-studies': typeof CaseStudiesRoute
+  '/contact': typeof ContactRoute
+  '/industries': typeof IndustriesRoute
+  '/investors': typeof InvestorsRoute
+  '/products': typeof ProductsRouteWithChildren
+  '/services': typeof ServicesRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/technology': typeof TechnologyRoute
+  '/products/aero': typeof ProductsAeroRoute
+  '/products/dev': typeof ProductsDevRoute
+  '/products/kids': typeof ProductsKidsRoute
+  '/products/sap': typeof ProductsSapRoute
+  '/products/': typeof ProductsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/case-studies'
+    | '/contact'
+    | '/industries'
+    | '/investors'
+    | '/products'
+    | '/services'
+    | '/sitemap.xml'
+    | '/technology'
+    | '/products/aero'
+    | '/products/dev'
+    | '/products/kids'
+    | '/products/sap'
+    | '/products/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/case-studies'
+    | '/contact'
+    | '/industries'
+    | '/investors'
+    | '/services'
+    | '/sitemap.xml'
+    | '/technology'
+    | '/products/aero'
+    | '/products/dev'
+    | '/products/kids'
+    | '/products/sap'
+    | '/products'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/case-studies'
+    | '/contact'
+    | '/industries'
+    | '/investors'
+    | '/products'
+    | '/services'
+    | '/sitemap.xml'
+    | '/technology'
+    | '/products/aero'
+    | '/products/dev'
+    | '/products/kids'
+    | '/products/sap'
+    | '/products/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  CaseStudiesRoute: typeof CaseStudiesRoute
+  ContactRoute: typeof ContactRoute
+  IndustriesRoute: typeof IndustriesRoute
+  InvestorsRoute: typeof InvestorsRoute
+  ProductsRoute: typeof ProductsRouteWithChildren
+  ServicesRoute: typeof ServicesRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  TechnologyRoute: typeof TechnologyRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/technology': {
+      id: '/technology'
+      path: '/technology'
+      fullPath: '/technology'
+      preLoaderRoute: typeof TechnologyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products': {
+      id: '/products'
+      path: '/products'
+      fullPath: '/products'
+      preLoaderRoute: typeof ProductsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/investors': {
+      id: '/investors'
+      path: '/investors'
+      fullPath: '/investors'
+      preLoaderRoute: typeof InvestorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries': {
+      id: '/industries'
+      path: '/industries'
+      fullPath: '/industries'
+      preLoaderRoute: typeof IndustriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/case-studies': {
+      id: '/case-studies'
+      path: '/case-studies'
+      fullPath: '/case-studies'
+      preLoaderRoute: typeof CaseStudiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,22 +290,76 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/products/': {
+      id: '/products/'
+      path: '/'
+      fullPath: '/products/'
+      preLoaderRoute: typeof ProductsIndexRouteImport
+      parentRoute: typeof ProductsRoute
+    }
+    '/products/sap': {
+      id: '/products/sap'
+      path: '/sap'
+      fullPath: '/products/sap'
+      preLoaderRoute: typeof ProductsSapRouteImport
+      parentRoute: typeof ProductsRoute
+    }
+    '/products/kids': {
+      id: '/products/kids'
+      path: '/kids'
+      fullPath: '/products/kids'
+      preLoaderRoute: typeof ProductsKidsRouteImport
+      parentRoute: typeof ProductsRoute
+    }
+    '/products/dev': {
+      id: '/products/dev'
+      path: '/dev'
+      fullPath: '/products/dev'
+      preLoaderRoute: typeof ProductsDevRouteImport
+      parentRoute: typeof ProductsRoute
+    }
+    '/products/aero': {
+      id: '/products/aero'
+      path: '/aero'
+      fullPath: '/products/aero'
+      preLoaderRoute: typeof ProductsAeroRouteImport
+      parentRoute: typeof ProductsRoute
+    }
   }
 }
 
+interface ProductsRouteChildren {
+  ProductsAeroRoute: typeof ProductsAeroRoute
+  ProductsDevRoute: typeof ProductsDevRoute
+  ProductsKidsRoute: typeof ProductsKidsRoute
+  ProductsSapRoute: typeof ProductsSapRoute
+  ProductsIndexRoute: typeof ProductsIndexRoute
+}
+
+const ProductsRouteChildren: ProductsRouteChildren = {
+  ProductsAeroRoute: ProductsAeroRoute,
+  ProductsDevRoute: ProductsDevRoute,
+  ProductsKidsRoute: ProductsKidsRoute,
+  ProductsSapRoute: ProductsSapRoute,
+  ProductsIndexRoute: ProductsIndexRoute,
+}
+
+const ProductsRouteWithChildren = ProductsRoute._addFileChildren(
+  ProductsRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  CaseStudiesRoute: CaseStudiesRoute,
+  ContactRoute: ContactRoute,
+  IndustriesRoute: IndustriesRoute,
+  InvestorsRoute: InvestorsRoute,
+  ProductsRoute: ProductsRouteWithChildren,
+  ServicesRoute: ServicesRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
+  TechnologyRoute: TechnologyRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
