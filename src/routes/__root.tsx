@@ -75,21 +75,25 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "NeuroSyn — Engineering the Next Generation of Enterprise Intelligence" },
+      { title: "NeuroSyn — Enterprise AI, Built for Reality" },
       {
         name: "description",
         content:
-          "NeuroSyn builds enterprise AI operating systems that automate software engineering, enterprise operations, and industrial intelligence through secure, explainable, production-ready AI.",
+          "AI operating systems that automate software engineering, enterprise operations, and industrial decision-making.",
       },
       { name: "author", content: "NeuroSyn" },
       { property: "og:title", content: "NeuroSyn — Enterprise AI, Built for Reality" },
       {
         property: "og:description",
         content:
-          "Enterprise AI operating systems for software engineering, enterprise operations, and industrial intelligence.",
+          "AI operating systems that automate software engineering, enterprise operations, and industrial decision-making.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "NeuroSyn — Enterprise AI, Built for Reality" },
+      { name: "twitter:description", content: "AI operating systems that automate software engineering, enterprise operations, and industrial decision-making." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/31355564-e285-4010-89a3-578f09e7ca9c/id-preview-e1ef8cd7--de53c5cc-7087-4206-a251-62fcb3d2c20e.lovable.app-1784139811575.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/31355564-e285-4010-89a3-578f09e7ca9c/id-preview-e1ef8cd7--de53c5cc-7087-4206-a251-62fcb3d2c20e.lovable.app-1784139811575.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
