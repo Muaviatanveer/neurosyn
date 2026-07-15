@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TechnologyRouteImport } from './routes/technology'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as ProductsRouteImport } from './routes/products'
 import { Route as InvestorsRouteImport } from './routes/investors'
@@ -27,6 +28,11 @@ import { Route as ProductsAeroRouteImport } from './routes/products.aero'
 const TechnologyRoute = TechnologyRouteImport.update({
   id: '/technology',
   path: '/technology',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesRoute = ServicesRouteImport.update({
@@ -104,6 +110,7 @@ export interface FileRoutesByFullPath {
   '/investors': typeof InvestorsRoute
   '/products': typeof ProductsRouteWithChildren
   '/services': typeof ServicesRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/technology': typeof TechnologyRoute
   '/products/aero': typeof ProductsAeroRoute
   '/products/dev': typeof ProductsDevRoute
@@ -119,6 +126,7 @@ export interface FileRoutesByTo {
   '/industries': typeof IndustriesRoute
   '/investors': typeof InvestorsRoute
   '/services': typeof ServicesRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/technology': typeof TechnologyRoute
   '/products/aero': typeof ProductsAeroRoute
   '/products/dev': typeof ProductsDevRoute
@@ -136,6 +144,7 @@ export interface FileRoutesById {
   '/investors': typeof InvestorsRoute
   '/products': typeof ProductsRouteWithChildren
   '/services': typeof ServicesRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/technology': typeof TechnologyRoute
   '/products/aero': typeof ProductsAeroRoute
   '/products/dev': typeof ProductsDevRoute
@@ -154,6 +163,7 @@ export interface FileRouteTypes {
     | '/investors'
     | '/products'
     | '/services'
+    | '/sitemap.xml'
     | '/technology'
     | '/products/aero'
     | '/products/dev'
@@ -169,6 +179,7 @@ export interface FileRouteTypes {
     | '/industries'
     | '/investors'
     | '/services'
+    | '/sitemap.xml'
     | '/technology'
     | '/products/aero'
     | '/products/dev'
@@ -185,6 +196,7 @@ export interface FileRouteTypes {
     | '/investors'
     | '/products'
     | '/services'
+    | '/sitemap.xml'
     | '/technology'
     | '/products/aero'
     | '/products/dev'
@@ -202,6 +214,7 @@ export interface RootRouteChildren {
   InvestorsRoute: typeof InvestorsRoute
   ProductsRoute: typeof ProductsRouteWithChildren
   ServicesRoute: typeof ServicesRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TechnologyRoute: typeof TechnologyRoute
 }
 
@@ -212,6 +225,13 @@ declare module '@tanstack/react-router' {
       path: '/technology'
       fullPath: '/technology'
       preLoaderRoute: typeof TechnologyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services': {
@@ -337,6 +357,7 @@ const rootRouteChildren: RootRouteChildren = {
   InvestorsRoute: InvestorsRoute,
   ProductsRoute: ProductsRouteWithChildren,
   ServicesRoute: ServicesRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   TechnologyRoute: TechnologyRoute,
 }
 export const routeTree = rootRouteImport
