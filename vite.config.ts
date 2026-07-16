@@ -12,4 +12,10 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  // Pass raw Vite server config under the "vite" key here:
+  vite: {
+    server: {
+      allowedHosts: true,
+    },
+  },
 });
