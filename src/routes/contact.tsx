@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Section, PageHeader, Reveal, GlassCard } from "../components/site/ui";
+// 1. Import the email server function
+import { sendContactEmail } from "../lib/email";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -24,6 +26,44 @@ const inquiries = [
 
 function ContactPage() {
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  // 2. Form submission handler
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
+
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get("name") as string;
+    const company = formData.get("company") as string;
+    const email = formData.get("email") as string;
+    const industry = formData.get("industry") as string;
+    const message = formData.get("message") as string;
+
+    try {
+      // Send the query data, formatting company/industry inside the body of the email
+const result = await sendContactEmail({
+  data: {
+    name,
+    email,
+    message: `Company: ${company}\nIndustry: ${industry || "N/A"}\n\nMessage:\n${message}`,
+  }
+});
+
+      if (result.success) {
+        setSent(true);
+      } else {
+        setError(result.error || "Something went wrong. Please try again.");
+      }
+    } catch (err) {
+      setError("Failed to send message. Please check your connection and try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <>
       <Section>
@@ -44,13 +84,7 @@ function ContactPage() {
                   <p className="mt-3 text-muted-foreground">Our team will be in touch shortly.</p>
                 </div>
               ) : (
-                <form
-                  className="grid gap-4"
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    setSent(true);
-                  }}
-                >
+                <form className="grid gap-4" onSubmit={handleSubmit}>
                   <div className="grid gap-4 md:grid-cols-2">
                     <Field label="Name" name="name" required />
                     <Field label="Company" name="company" required />
@@ -62,16 +96,23 @@ function ContactPage() {
                   <div className="grid gap-2">
                     <label className="text-xs uppercase tracking-widest text-muted-foreground">Message</label>
                     <textarea
+                      name="message" // 3. Added name attribute
                       required
                       rows={5}
                       className="rounded-lg border border-border bg-white/[0.02] px-4 py-3 text-sm outline-none transition focus:border-brand"
                     />
                   </div>
+                  
+                  {error && (
+                    <p className="text-sm text-red-500 mt-2">{error}</p>
+                  )}
+
                   <button
                     type="submit"
-                    className="mt-2 rounded-md bg-white px-5 py-3 text-sm font-medium text-black transition hover:bg-white/90"
+                    disabled={loading} // 4. Disable when sending
+                    className="mt-2 rounded-md bg-white px-5 py-3 text-sm font-medium text-black transition hover:bg-white/90 disabled:opacity-50"
                   >
-                    Send message →
+                    {loading ? "Sending..." : "Send message →"}
                   </button>
                 </form>
               )}
