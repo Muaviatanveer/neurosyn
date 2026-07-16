@@ -8,7 +8,7 @@
   "build": "vite build",
   "build:dev": "vite build --mode development",
   "preview": "vite preview",
-  "start": "tanstack-start start", 
+  "start": "bun ./node_modules/.bin/tanstack-start start",
   "lint": "eslint .",
   "format": "prettier --write ."
 },
