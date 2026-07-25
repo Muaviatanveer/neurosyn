@@ -5,77 +5,69 @@ export const Route = createFileRoute("/products/dev")({
   head: () => ({
     meta: [
       { title: "NeuroSyn-Dev — AI Engineering Operating System" },
-      { name: "description", content: "Autonomous engineering workflows with multi-agent reasoning, verification, and deployment." },
+      { name: "description", content: "Metacognitive software engineering system designed to automate, build, compile, test, and self-heal codebases inside isolated runtimes." },
       { property: "og:title", content: "NeuroSyn-Dev" },
-      { property: "og:description", content: "AI Engineering Operating System." },
+      { property: "og:description", content: "Autonomous AI Engineering Operating System." },
     ],
   }),
   component: () => (
     <ProductPage
-      eyebrow="Product 02"
+      eyebrow="Product 02 · Metacognitive Engineering OS"
       name="NeuroSyn-Dev"
-      tagline="AI Engineering Operating System."
+      tagline="Autonomous Coding, Multi-Agent Debates, and Sandbox Verification."
+      demoVideoUrl="https://drive.google.com/file/d/1OnTfLcLJu7pFFQaqNxPdNC19GdgSrfOu/preview"
       description={
         <>
           <p>
-            NeuroSyn-Dev enables engineering teams to build, review, verify, and deploy software
-            using autonomous AI workflows.
+            NeuroSyn-Dev is an autonomous, metacognitive software engineering operating system engineered to plan, build, compile, test, and audit codebase modifications locally on AMD ROCm/GPU hardware or secure cloud networks.
           </p>
           <p>
-            Instead of relying on a single coding assistant, NeuroSyn-Dev coordinates multiple
-            specialized reasoning engines that plan architecture, generate code, validate
-            implementations, debate engineering trade-offs, and verify outputs before production
-            deployment.
+            By mounting isolated local Docker sockets to spin up containerized runtimes (Python, Node, OpenJDK), the platform validates, compiles, and self-heals code patches and architecture designs before deploying directly to production targets.
           </p>
         </>
       }
       stats={[
-        { k: "81%", v: "Cloud Cost Reduction" },
-        { k: "5", v: "Cognitive Engines" },
-        { k: "16+", v: "Engineering Modules" },
-        { k: "Multi-Agent", v: "Verification" },
+        { k: "AMD ROCm", v: "GPU Infrastructure" },
+        { k: "5", v: "Orchestrated Engines" },
+        { k: "512MB", v: "Container RAM Limits" },
+        { k: "Self-Heal", v: "Self-Repair Mode" },
       ]}
       features={[
-        "Autonomous Code Generation",
-        "Architecture Planning",
-        "Repository Analysis",
-        "Engineering Strategy",
-        "Code Verification",
-        "Sandbox Testing",
-        "Explainable AI Decisions",
-        "Engineering Analytics",
-        "Deployment Automation",
-        "Technical Debt Detection",
-        "AI CTO Insights",
-        "Future Bug Prediction",
-        "Knowledge Graph",
-        "Engineering Memory",
-        "Decision Replay",
-        "Sprint Planning",
+        "Autonomous Diagnostic Repair Loops",
+        "Greenfield Progressive Repository Generation",
+        "Sentinel CTO Code Scanner & Scorecard Generator",
+        "Docker Sandbox Execution Environment (Node/Python/Java)",
+        "Dependency Self-Healing (dynamic container module installations)",
+        "Multi-Agent Debater Council (Security, QA, Architecture, Performance)",
+        "synapseFabric Problem-Understanding Orchestrator",
+        "Institutional Memory Search (Jaccard string similarity checks)",
+        "Real-Time Log Autoscroller & Custom Regex Syntax Highlighter",
+        "Event-Stream Aggregator (SSE /api/task/stream)",
+        "Wildcard Route SPA Fallback & Static File Server Integration",
+        "Restricted Shell Container Commands (e.g. py_compile, tsc)"
       ]}
       benefits={[
-        "Reduce software development time",
-        "Lower cloud AI infrastructure costs",
-        "Improve engineering quality",
-        "Increase deployment confidence",
-        "Support hybrid infrastructure",
+        "Reduces software engineering bug backlogs with self-healing sandboxes",
+        "Prevents infinite loop crashes via severe host RAM and CPU quota capping",
+        "Performs static code auditing against complex structural patterns",
+        "Enforces SOLID conformance and segregates logical agent dependencies",
+        "Saves prompt tokens by storing historically validated solutions"
       ]}
       extra={[
         {
-          title: "Technology Highlights",
+          title: "Architecture & Integration Substrates",
           items: [
-            "Hybrid Local + Cloud AI",
-            "AMD GPU Acceleration",
-            "Multi-Agent Architecture",
-            "Sandbox Verification",
-            "Enterprise Security",
-            "Cost-Aware Routing",
-            "Production Pipelines",
+            "Local Ollama & vLLM Engines",
+            "Fireworks AI Cloud Integrations",
+            "Mongoose/MongoDB Schema Persistence",
+            "Google & GitHub OAuth Integrations",
+            "Dockerode Runtime Containers",
+            "Vercel Serverless Function Guards"
           ],
         },
       ]}
-      status="Actively seeking strategic venture partners and enterprise design partners."
-      cta={{ label: "Talk to Our Team", to: "/contact" }}
+      status="Available for enterprise DevOps, solutions architects, and engineering team evaluations."
+      cta={{ label: "Deploy Engineering Sandbox", to: "/contact" }}
     />
   ),
 });

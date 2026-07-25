@@ -5,65 +5,70 @@ export const Route = createFileRoute("/products/aero")({
   head: () => ({
     meta: [
       { title: "NeuroSyn-Aero — Industrial AI for Aerospace Diagnostics" },
-      { name: "description", content: "Physics-informed AI, Bayesian diagnostics, and digital twins for predictive maintenance." },
+      { name: "description", content: "High-density telemetry processing and multi-engine cognitive reasoning designed for aerospace diagnostics and prognostic fleet intelligence." },
       { property: "og:title", content: "NeuroSyn-Aero" },
-      { property: "og:description", content: "Industrial AI for Aerospace Diagnostics." },
+      { property: "og:description", content: "Aerospace Diagnostics & Airworthiness Verification." },
     ],
   }),
   component: () => (
     <ProductPage
-      eyebrow="Product 03"
+      eyebrow="Product 03 · Telemetry & Airworthiness Engine"
       name="NeuroSyn-Aero"
-      tagline="Industrial AI for Aerospace Diagnostics."
+      tagline="Physics-Informed Digital Twins and Multi-Specialist Engineering Debates."
+      demoVideoUrl="https://drive.google.com/file/d/1CKWSOBrEwr4KkKD0E-Im2U1ZxWur-msT/preview"
       description={
         <>
           <p>
-            NeuroSyn-Aero is an AI-powered decision intelligence platform that transforms
-            industrial telemetry into explainable maintenance recommendations.
+            NeuroSyn-Aero is an enterprise-grade, high-density telemetry processing and multi-engine cognitive reasoning platform engineered for aerospace diagnostics, airworthiness verification, and prognostic fleet intelligence.
           </p>
           <p>
-            Designed as an intelligence layer for aerospace and other high-value industrial assets,
-            it combines deterministic physics, sensor analytics, and AI reasoning to help
-            engineering teams identify anomalies, prioritize maintenance, and improve operational
-            reliability.
+            Acting as a decision support cockpit, it monitors physical flight assets, captures rotational/structural anomalies, runs dialectical multi-agent debates among virtual aerospace specialists, and compiles real-time, audit-ready recommendations.
           </p>
         </>
       }
       features={[
-        "Predictive Maintenance",
-        "Operational Intelligence",
-        "Fleet Analytics",
-        "Digital Twin Monitoring",
-        "Telemetry Analysis",
-        "Failure Prediction",
-        "Maintenance Planning",
-        "Explainable Diagnostics",
+        "Propulsion & Structural Telemetry Frame Processing",
+        "5-Dimensional Kalman Filter State-Space Observer (Digital Twin)",
+        "Adaptive 3-Tier AI Reasoning Flywheel (ADRE)",
+        "Forensic Causal Graphs & Academic Evidence Panels",
+        "Counterfactual (What-If) Simulator (BearingFrictionSim)",
+        "Multi-Agent Engineering Debate Panel (Promise.all)",
+        "MetaEvaluator Service (Divergence & Self-Critique Engine)",
+        "Bayesian Hypothesis Tester (5 standard failure modes)",
+        "Prognostic Lifecycle Extrapolation Timeline",
+        "Decoupled Compliance Verification Layer (Ethics/Governance)",
+        "Socket.io Web Socket Telemetry Stream Replays",
+        "Jaccard Match Semantic Cache Checks (Jaccard >= 0.95)"
       ]}
       benefits={[
-        "Improve asset reliability",
-        "Minimize unplanned downtime",
-        "Prioritize high-impact maintenance",
-        "Ground decisions in physics + evidence",
-        "Enhance existing monitoring stacks",
+        "Minimizes flight aborts and unscheduled aircraft maintenance events",
+        "Transforms unmeasurable latent variables (bearing wear, rotor stress) into calculated metrics",
+        "Provides traceable causal chains backed by raw sensor readings and ArXiv citations",
+        "Reconciles conflicting maintenance, operations, and cost profiles into a Decision Impact Matrix",
+        "Optimizes telemetry ingest times via local LowDB memory vector caches"
       ]}
       extra={[
         {
-          title: "Enterprise Features",
+          title: "Target Subsystems & Physical Solvers",
           items: [
-            "Physics-Informed AI",
-            "Digital Twin Engine",
-            "Bayesian Diagnostics",
-            "Sensor Trust Validation",
-            "Engineering Copilot",
-            "Cross-Fleet Intelligence",
-            "Interactive Reports",
-            "Executive Dashboards",
+            "Quantix Telemetry Subsystem",
+            "ThirdEye Diagnostics Cascade",
+            "Aura Deep Reasoning Engine (ADRE)",
+            "Neo4j Graph Database Models",
+            "Vibration Kurtosis Observers",
+            "Academic Literature Search (Tavily/ArXiv API)"
           ],
         },
       ]}
-      industries={["Aerospace", "Manufacturing", "Energy", "Heavy Industry", "Defense", "Transportation"]}
-      status="Engaging with venture capital partners, aerospace collaborators, and enterprise pilot opportunities."
-      cta={{ label: "Partner With NeuroSyn-Aero", to: "/contact" }}
+      industries={[
+        "Commercial Air Cargo",
+        "Aerospace & Defense Operators",
+        "UAV & Unmanned Aerial Systems",
+        "Gas Turbine Fleet Managers",
+        "Airworthiness Inspection & Auditing"
+      ]}
+      status="Actively engaging with mission control directors, commercial aviation teams, and aerospace research partners."
+      cta={{ label: "Request Aerospace Pilot", to: "/contact" }}
     />
   ),
 });

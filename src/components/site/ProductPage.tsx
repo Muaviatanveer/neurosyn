@@ -6,6 +6,7 @@ export interface ProductPageProps {
   name: string;
   tagline: string;
   description: ReactNode;
+  demoVideoUrl?: string; // Added optional video URL
   features: string[];
   benefits: string[];
   extra?: { title: string; items: string[] }[];
@@ -33,6 +34,24 @@ export function ProductPage(p: ProductPageProps) {
         <Reveal delay={3}>
           <div className="mt-8 max-w-3xl space-y-4 text-lg text-muted-foreground">{p.description}</div>
         </Reveal>
+
+        {/* Dynamic Video Section */}
+        {p.demoVideoUrl && (
+          <Reveal delay={3.5}>
+            <div className="mt-12 overflow-hidden rounded-2xl border border-border bg-background/50 p-2 shadow-2xl backdrop-blur-xl">
+              <div className="aspect-video w-full overflow-hidden rounded-xl bg-black">
+                <iframe
+                  src={p.demoVideoUrl}
+                  className="h-full w-full border-0"
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                  title={`${p.name} Demonstration Video`}
+                />
+              </div>
+            </div>
+          </Reveal>
+        )}
+
         <Reveal delay={4}>
           <div className="mt-10 flex flex-wrap gap-3">
             <CTAButton to={p.cta.to}>{p.cta.label}</CTAButton>
@@ -65,7 +84,7 @@ export function ProductPage(p: ProductPageProps) {
             </Reveal>
             <ul className="mt-8 grid gap-3 sm:grid-cols-2">
               {p.features.map((f, i) => (
-                <Reveal key={f} delay={i * 0.5}>
+                <Reveal key={f} delay={i * 0.2}>
                   <div className="flex items-start gap-3 rounded-xl border border-border bg-white/[0.02] p-4 text-sm">
                     <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
                     <span>{f}</span>
@@ -84,7 +103,7 @@ export function ProductPage(p: ProductPageProps) {
             </Reveal>
             <ul className="mt-8 space-y-3">
               {p.benefits.map((b, i) => (
-                <Reveal key={b} delay={i * 0.5}>
+                <Reveal key={b} delay={i * 0.2}>
                   <GlassCard className="!p-4">
                     <div className="flex items-center gap-3 text-sm">
                       <span className="font-display text-brand">→</span>
@@ -103,7 +122,7 @@ export function ProductPage(p: ProductPageProps) {
           <Reveal><Eyebrow>{ex.title}</Eyebrow></Reveal>
           <div className="mt-10 flex flex-wrap gap-3">
             {ex.items.map((it, i) => (
-              <Reveal key={it} delay={i * 0.3}>
+              <Reveal key={it} delay={i * 0.1}>
                 <div className="rounded-full border border-border bg-white/[0.03] px-4 py-2 text-sm text-foreground/90">
                   {it}
                 </div>
@@ -118,7 +137,7 @@ export function ProductPage(p: ProductPageProps) {
           <Reveal><Eyebrow>Industries</Eyebrow></Reveal>
           <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
             {p.industries.map((ind, i) => (
-              <Reveal key={ind} delay={i * 0.4}>
+              <Reveal key={ind} delay={i * 0.1}>
                 <GlassCard className="!p-4 text-center text-sm">{ind}</GlassCard>
               </Reveal>
             ))}

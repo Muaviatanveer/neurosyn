@@ -21,8 +21,8 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProductsIndexRouteImport } from './routes/products.index'
 import { Route as ProductsSapRouteImport } from './routes/products.sap'
-import { Route as ProductsKidsRouteImport } from './routes/products.kids'
 import { Route as ProductsDevRouteImport } from './routes/products.dev'
+import { Route as ProductsCopilotRouteImport } from './routes/products.copilot'
 import { Route as ProductsAeroRouteImport } from './routes/products.aero'
 
 const TechnologyRoute = TechnologyRouteImport.update({
@@ -85,14 +85,14 @@ const ProductsSapRoute = ProductsSapRouteImport.update({
   path: '/sap',
   getParentRoute: () => ProductsRoute,
 } as any)
-const ProductsKidsRoute = ProductsKidsRouteImport.update({
-  id: '/kids',
-  path: '/kids',
-  getParentRoute: () => ProductsRoute,
-} as any)
 const ProductsDevRoute = ProductsDevRouteImport.update({
   id: '/dev',
   path: '/dev',
+  getParentRoute: () => ProductsRoute,
+} as any)
+const ProductsCopilotRoute = ProductsCopilotRouteImport.update({
+  id: '/copilot',
+  path: '/copilot',
   getParentRoute: () => ProductsRoute,
 } as any)
 const ProductsAeroRoute = ProductsAeroRouteImport.update({
@@ -113,8 +113,8 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/technology': typeof TechnologyRoute
   '/products/aero': typeof ProductsAeroRoute
+  '/products/copilot': typeof ProductsCopilotRoute
   '/products/dev': typeof ProductsDevRoute
-  '/products/kids': typeof ProductsKidsRoute
   '/products/sap': typeof ProductsSapRoute
   '/products/': typeof ProductsIndexRoute
 }
@@ -129,8 +129,8 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/technology': typeof TechnologyRoute
   '/products/aero': typeof ProductsAeroRoute
+  '/products/copilot': typeof ProductsCopilotRoute
   '/products/dev': typeof ProductsDevRoute
-  '/products/kids': typeof ProductsKidsRoute
   '/products/sap': typeof ProductsSapRoute
   '/products': typeof ProductsIndexRoute
 }
@@ -147,8 +147,8 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/technology': typeof TechnologyRoute
   '/products/aero': typeof ProductsAeroRoute
+  '/products/copilot': typeof ProductsCopilotRoute
   '/products/dev': typeof ProductsDevRoute
-  '/products/kids': typeof ProductsKidsRoute
   '/products/sap': typeof ProductsSapRoute
   '/products/': typeof ProductsIndexRoute
 }
@@ -166,8 +166,8 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/technology'
     | '/products/aero'
+    | '/products/copilot'
     | '/products/dev'
-    | '/products/kids'
     | '/products/sap'
     | '/products/'
   fileRoutesByTo: FileRoutesByTo
@@ -182,8 +182,8 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/technology'
     | '/products/aero'
+    | '/products/copilot'
     | '/products/dev'
-    | '/products/kids'
     | '/products/sap'
     | '/products'
   id:
@@ -199,8 +199,8 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/technology'
     | '/products/aero'
+    | '/products/copilot'
     | '/products/dev'
-    | '/products/kids'
     | '/products/sap'
     | '/products/'
   fileRoutesById: FileRoutesById
@@ -304,18 +304,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductsSapRouteImport
       parentRoute: typeof ProductsRoute
     }
-    '/products/kids': {
-      id: '/products/kids'
-      path: '/kids'
-      fullPath: '/products/kids'
-      preLoaderRoute: typeof ProductsKidsRouteImport
-      parentRoute: typeof ProductsRoute
-    }
     '/products/dev': {
       id: '/products/dev'
       path: '/dev'
       fullPath: '/products/dev'
       preLoaderRoute: typeof ProductsDevRouteImport
+      parentRoute: typeof ProductsRoute
+    }
+    '/products/copilot': {
+      id: '/products/copilot'
+      path: '/copilot'
+      fullPath: '/products/copilot'
+      preLoaderRoute: typeof ProductsCopilotRouteImport
       parentRoute: typeof ProductsRoute
     }
     '/products/aero': {
@@ -330,16 +330,16 @@ declare module '@tanstack/react-router' {
 
 interface ProductsRouteChildren {
   ProductsAeroRoute: typeof ProductsAeroRoute
+  ProductsCopilotRoute: typeof ProductsCopilotRoute
   ProductsDevRoute: typeof ProductsDevRoute
-  ProductsKidsRoute: typeof ProductsKidsRoute
   ProductsSapRoute: typeof ProductsSapRoute
   ProductsIndexRoute: typeof ProductsIndexRoute
 }
 
 const ProductsRouteChildren: ProductsRouteChildren = {
   ProductsAeroRoute: ProductsAeroRoute,
+  ProductsCopilotRoute: ProductsCopilotRoute,
   ProductsDevRoute: ProductsDevRoute,
-  ProductsKidsRoute: ProductsKidsRoute,
   ProductsSapRoute: ProductsSapRoute,
   ProductsIndexRoute: ProductsIndexRoute,
 }

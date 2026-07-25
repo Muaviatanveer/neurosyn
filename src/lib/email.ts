@@ -15,6 +15,7 @@ export const sendContactEmail = createServerFn({ method: 'POST' })
         subject: `New Query from ${data.name}`,
         text: `Name: ${data.name}\nEmail: ${data.email}\n\nMessage:\n${data.message}`,
       });
+      
 
       return { success: true, data: response };
     } catch (error) {

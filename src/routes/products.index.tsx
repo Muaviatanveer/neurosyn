@@ -7,7 +7,7 @@ export const Route = createFileRoute("/products/")({
       { title: "Products — NeuroSyn" },
       { name: "description", content: "Four operating systems. One enterprise intelligence platform." },
       { property: "og:title", content: "NeuroSyn Products" },
-      { property: "og:description", content: "SAP, Dev, Aero, and Kids — production-grade AI operating systems." },
+      { property: "og:description", content: "SAP, Dev, Aero, and Copilot — production-grade AI operating systems." },
     ],
   }),
   component: ProductsIndex,
@@ -36,11 +36,11 @@ const products = [
     status: "Engaging with Aerospace Partners",
   },
   {
-    to: "/products/kids",
-    name: "NeuroSyn-Kids",
-    tag: "The AI Builder for the Next Generation",
-    desc: "Natural-language software creation for young innovators — build, learn, and publish in a safe AI environment.",
-    status: "Coming Soon",
+    to: "/products/copilot", // Updated
+    name: "NeuroSyn-Copilot", // Updated
+    tag: "Repository Analysis & System Architecture", // Updated
+    desc: "Run automated, multi-agent analysis workflows on business telemetry datasets and unstructured text documents locally and securely.", // Updated
+    status: "Pilot Integrations Available", // Updated
   },
 ];
 

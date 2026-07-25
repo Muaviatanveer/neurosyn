@@ -22,7 +22,7 @@ export function Footer() {
               <li><Link to="/products/sap" className="text-foreground/80 hover:text-foreground">NeuroSyn-SAP</Link></li>
               <li><Link to="/products/dev" className="text-foreground/80 hover:text-foreground">NeuroSyn-Dev</Link></li>
               <li><Link to="/products/aero" className="text-foreground/80 hover:text-foreground">NeuroSyn-Aero</Link></li>
-              <li><Link to="/products/kids" className="text-foreground/80 hover:text-foreground">NeuroSyn-Kids</Link></li>
+              <li><Link to="/products/copilot" className="text-foreground/80 hover:text-foreground">NeuroSyn-Copilot</Link></li> {/* Updated */}
             </ul>
           </div>
           <div>

@@ -18,7 +18,7 @@ export const Route = createFileRoute("/")({
 });
 
 const metrics = [
-  { k: "3", v: "Production Products" },
+  { k: "4", v: "Production Products" }, // Updated from 3 to 4
   { k: "Enterprise", v: "Ready Deployments" },
   { k: "AI Native", v: "Multi-Agent Core" },
   { k: "Pilots", v: "Live Integrations" },
@@ -44,10 +44,10 @@ const products = [
     desc: "Physics-informed models, telemetry analytics, and explainable diagnostics for predictive maintenance across high-value assets.",
   },
   {
-    to: "/products/kids",
-    name: "NeuroSyn-Kids",
-    tag: "The AI Builder for the Next Generation",
-    desc: "Natural-language software creation for young innovators — build websites, games, and applications with guided AI.",
+    to: "/products/copilot", // Updated
+    name: "NeuroSyn-Copilot", // Updated
+    tag: "Repository Analysis & System Architecture", // Updated
+    desc: "Self-contained Engineering Intelligence Operating System executing automated, local multi-agent analysis workflows on unstructured business datasets.", // Updated
   },
 ];
 
