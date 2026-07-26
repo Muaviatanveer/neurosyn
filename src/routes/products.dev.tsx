@@ -15,7 +15,7 @@ export const Route = createFileRoute("/products/dev")({
       eyebrow="Product 02 · Metacognitive Engineering OS"
       name="NeuroSyn-Dev"
       tagline="Autonomous Coding, Multi-Agent Debates, and Sandbox Verification."
-      demoVideoUrl="https://drive.google.com/file/d/1OnTfLcLJu7pFFQaqNxPdNC19GdgSrfOu/preview"
+      demoVideoUrl="https://drive.google.com/file/d/177VtmFqdKIfCiUTNCkLKDTCoyClBn85u/preview"
       description={
         <>
           <p>
