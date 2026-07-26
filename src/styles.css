@@ -249,6 +249,48 @@
   animation: breathe 4s ease-in-out infinite;
 }
 
+/* ============= Legacy compatibility (do not use in new code) ============= */
+:root {
+  --brand: #7DF7E5;
+  --brand-2: #A8F3FF;
+  --brand-3: #6FA8FF;
+}
+@theme inline {
+  --color-brand: var(--brand);
+  --color-brand-2: var(--brand-2);
+  --color-brand-3: var(--brand-3);
+}
+@utility text-gradient {
+  background: linear-gradient(180deg, #FFFFFF 0%, #B8BCC6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+@utility text-brand-gradient {
+  background: linear-gradient(180deg, #F7F8FA 0%, #7DF7E5 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+@utility glass {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+@utility grid-bg {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+@utility animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
 @keyframes scan-y {
   0% { transform: translateY(-100%); opacity: 0; }
   10% { opacity: 1; }
