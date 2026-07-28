@@ -541,9 +541,9 @@ const XIcon = (p: React.SVGProps<SVGSVGElement>) => (
 );
 
 const socials = [
-  { name: "LinkedIn", handle: "in/muavia-tanveer", href: "https://www.linkedin.com/", Icon: LinkedinIcon },
-  { name: "GitHub", handle: "@muaviatanveer", href: "https://github.com/", Icon: GithubIcon },
-  { name: "X", handle: "@muaviatanveer", href: "https://x.com/", Icon: XIcon },
+  { name: "LinkedIn", handle: "in/muavia-tanveer-9a6856328", href: "https://www.linkedin.com/in/muavia-tanveer-9a6856328/", Icon: LinkedinIcon },
+  { name: "GitHub", handle: "@Muaviatanveer", href: "https://github.com/Muaviatanveer/Muaviatanveer", Icon: GithubIcon },
+  { name: "X", handle: "@muaviakha83", href: "https://x.com/muaviakha83", Icon: XIcon },
   { name: "Email", handle: "muaviatanveer27@gmail.com", href: "mailto:muaviatanveer27@gmail.com", Icon: Mail },
   { name: "Call", handle: "Book a slot below", href: "#book", Icon: Phone },
 ];
