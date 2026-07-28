@@ -123,7 +123,7 @@ function PortraitFrame() {
         className="relative aspect-[4/5] overflow-hidden rounded-[6px] border border-[var(--line-strong)] bg-[var(--surface)]"
       >
         <img
-          src={muaviaAsset.url}
+          src="/muavia.jpeg"
           alt="Portrait of Muavia Tanveer, Founder of NeuroSyn AI"
           className="h-full w-full object-cover"
           loading="eager"
