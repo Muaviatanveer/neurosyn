@@ -13,6 +13,7 @@ import { Route as TechnologyRouteImport } from './routes/technology'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as ProductsRouteImport } from './routes/products'
+import { Route as MuaviaRouteImport } from './routes/muavia'
 import { Route as InvestorsRouteImport } from './routes/investors'
 import { Route as IndustriesRouteImport } from './routes/industries'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -43,6 +44,11 @@ const ServicesRoute = ServicesRouteImport.update({
 const ProductsRoute = ProductsRouteImport.update({
   id: '/products',
   path: '/products',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MuaviaRoute = MuaviaRouteImport.update({
+  id: '/muavia',
+  path: '/muavia',
   getParentRoute: () => rootRouteImport,
 } as any)
 const InvestorsRoute = InvestorsRouteImport.update({
@@ -108,6 +114,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/industries': typeof IndustriesRoute
   '/investors': typeof InvestorsRoute
+  '/muavia': typeof MuaviaRoute
   '/products': typeof ProductsRouteWithChildren
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -125,6 +132,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/industries': typeof IndustriesRoute
   '/investors': typeof InvestorsRoute
+  '/muavia': typeof MuaviaRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/technology': typeof TechnologyRoute
@@ -142,6 +150,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/industries': typeof IndustriesRoute
   '/investors': typeof InvestorsRoute
+  '/muavia': typeof MuaviaRoute
   '/products': typeof ProductsRouteWithChildren
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -161,6 +170,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/industries'
     | '/investors'
+    | '/muavia'
     | '/products'
     | '/services'
     | '/sitemap.xml'
@@ -178,6 +188,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/industries'
     | '/investors'
+    | '/muavia'
     | '/services'
     | '/sitemap.xml'
     | '/technology'
@@ -194,6 +205,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/industries'
     | '/investors'
+    | '/muavia'
     | '/products'
     | '/services'
     | '/sitemap.xml'
@@ -212,6 +224,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   IndustriesRoute: typeof IndustriesRoute
   InvestorsRoute: typeof InvestorsRoute
+  MuaviaRoute: typeof MuaviaRoute
   ProductsRoute: typeof ProductsRouteWithChildren
   ServicesRoute: typeof ServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -246,6 +259,13 @@ declare module '@tanstack/react-router' {
       path: '/products'
       fullPath: '/products'
       preLoaderRoute: typeof ProductsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/muavia': {
+      id: '/muavia'
+      path: '/muavia'
+      fullPath: '/muavia'
+      preLoaderRoute: typeof MuaviaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/investors': {
@@ -355,6 +375,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   IndustriesRoute: IndustriesRoute,
   InvestorsRoute: InvestorsRoute,
+  MuaviaRoute: MuaviaRoute,
   ProductsRoute: ProductsRouteWithChildren,
   ServicesRoute: ServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
@@ -363,13 +384,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
