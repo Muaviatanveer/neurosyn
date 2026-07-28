@@ -4,9 +4,6 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import {
   ArrowRight,
   ArrowDown,
-  Linkedin,
-  Github,
-  Twitter,
   Mail,
   Phone,
   Download,
