@@ -123,7 +123,7 @@ function PortraitFrame() {
         className="relative aspect-[4/5] overflow-hidden rounded-[6px] border border-[var(--line-strong)] bg-[var(--surface)]"
       >
         <img
-          src={muaviaAsset.url}
+          src="/muavia.jpeg"
           alt="Portrait of Muavia Tanveer, Founder of NeuroSyn AI"
           className="h-full w-full object-cover"
           loading="eager"
@@ -514,11 +514,13 @@ function CV() {
             </p>
           </div>
           <a
-            href="mailto:muaviatanveer27@gmail.com?subject=CV%20Request%20—%20Muavia%20Tanveer"
+            href="https://muaviatanveer.github.io/portfolio/NeuroSyn_Portfolio_Muavia_Tanveer%20(1).pdf"
+            target="_blank"
+            rel="noreferrer"
             className="group inline-flex items-center gap-3 rounded-[4px] border border-[var(--line-strong)] px-5 py-3 text-sm font-medium text-foreground transition-all hover:bg-foreground hover:text-background"
           >
             <Download className="h-4 w-4" />
-            Request CV
+            Download CV
           </a>
         </Panel>
       </Reveal>
@@ -539,9 +541,9 @@ const XIcon = (p: React.SVGProps<SVGSVGElement>) => (
 );
 
 const socials = [
-  { name: "LinkedIn", handle: "in/muavia-tanveer", href: "https://www.linkedin.com/", Icon: LinkedinIcon },
-  { name: "GitHub", handle: "@muaviatanveer", href: "https://github.com/", Icon: GithubIcon },
-  { name: "X", handle: "@muaviatanveer", href: "https://x.com/", Icon: XIcon },
+  { name: "LinkedIn", handle: "in/muavia-tanveer-9a6856328", href: "https://www.linkedin.com/in/muavia-tanveer-9a6856328/", Icon: LinkedinIcon },
+  { name: "GitHub", handle: "@Muaviatanveer", href: "https://github.com/Muaviatanveer/Muaviatanveer", Icon: GithubIcon },
+  { name: "X", handle: "@muaviakha83", href: "https://x.com/muaviakha83", Icon: XIcon },
   { name: "Email", handle: "muaviatanveer27@gmail.com", href: "mailto:muaviatanveer27@gmail.com", Icon: Mail },
   { name: "Call", handle: "Book a slot below", href: "#book", Icon: Phone },
 ];
