@@ -10,6 +10,7 @@ const links = [
   { to: "/case-studies", label: "Field Notes" },
   { to: "/about", label: "About" },
   { to: "/investors", label: "Investors" },
+  { to: "/muavia", label: "Founder" },
 ] as const;
 
 function Logo() {
