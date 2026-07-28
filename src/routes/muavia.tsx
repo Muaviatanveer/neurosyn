@@ -514,9 +514,8 @@ function CV() {
             </p>
           </div>
           <a
-            href="https://muaviatanveer.github.io/portfolio/NeuroSyn_Portfolio_Muavia_Tanveer%20(1).pdf"
-            target="_blank"
-            rel="noreferrer"
+            href="/muavia-cv.pdf"
+            download="Muavia_Tanveer_CV.pdf"
             className="group inline-flex items-center gap-3 rounded-[4px] border border-[var(--line-strong)] px-5 py-3 text-sm font-medium text-foreground transition-all hover:bg-foreground hover:text-background"
           >
             <Download className="h-4 w-4" />
