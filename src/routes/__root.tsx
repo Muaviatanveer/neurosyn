@@ -4,10 +4,12 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
+import { ArrowLeft } from "lucide-react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -126,6 +128,20 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
+function BackToHome() {
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  if (pathname === "/") return null;
+  return (
+    <Link
+      to="/"
+      className="fixed bottom-6 left-6 z-50 inline-flex items-center gap-2 rounded-full border border-[var(--line)] bg-card/90 px-4 py-2 text-sm font-medium shadow-lg backdrop-blur transition-colors hover:bg-card"
+    >
+      <ArrowLeft className="h-4 w-4" />
+      Back to Home
+    </Link>
+  );
+}
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
@@ -137,6 +153,7 @@ function RootComponent() {
         <Outlet />
       </main>
       <Footer />
+      <BackToHome />
     </QueryClientProvider>
   );
 }

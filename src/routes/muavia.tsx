@@ -13,7 +13,7 @@ import {
   Clock,
 } from "lucide-react";
 import { Section, Reveal, Eyebrow, Panel } from "../components/site/ui";
-import muaviaAsset from "../assets/muavia.jpeg.asset.json";
+import muaviaAsset from "../assets/muavia-portrait.png.asset.json";
 import { askMuavia } from "../lib/muavia-ai";
 import { requestMeeting } from "../lib/muavia-booking";
 
@@ -123,9 +123,9 @@ function PortraitFrame() {
         className="relative aspect-[4/5] overflow-hidden rounded-[6px] border border-[var(--line-strong)] bg-[var(--surface)]"
       >
         <img
-          src="/muavia.jpeg"
+          src={muaviaAsset.url}
           alt="Portrait of Muavia Tanveer, Founder of NeuroSyn AI"
-          className="h-full w-full object-cover"
+          className="h-full w-full object-contain object-bottom"
           loading="eager"
         />
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
