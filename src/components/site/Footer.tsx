@@ -14,6 +14,7 @@ const columns = [
     title: "Company",
     items: [
       { to: "/about", label: "About" },
+      { to: "/muavia", label: "Founder" },
       { to: "/services", label: "Services" },
       { to: "/technology", label: "Technology" },
       { to: "/investors", label: "Investors" },
@@ -32,7 +33,6 @@ const columns = [
 export function Footer() {
   return (
     <footer className="relative border-t border-[var(--line-strong)] bg-background">
-      <div className="ticks-x border-b border-[var(--line)]" />
       <div className="mx-auto grid max-w-[1440px] gap-12 px-6 py-16 md:grid-cols-12 md:px-10 md:py-24">
         <div className="md:col-span-5">
           <div className="flex items-center gap-3">
@@ -43,14 +43,9 @@ export function Footer() {
             <span className="font-display text-[15px] font-medium tracking-tight">NEUROSYN</span>
           </div>
           <p className="mt-6 max-w-md text-sm leading-relaxed text-[var(--text-secondary)]">
-            An operating system for intelligence. Reasoning, structured as infrastructure.
+            AI and software engineering for organizations building what comes next.
           </p>
-          <div className="mt-8 flex items-center gap-3">
-            <span className="h-1.5 w-1.5 rounded-full bg-[var(--mint)] shadow-[0_0_8px_var(--mint)]" />
-            <span className="font-mono text-[10px] tracking-[0.2em] text-[var(--text-muted)]">
-              ALL SYSTEMS · OPERATIONAL
-            </span>
-          </div>
+          <p className="mt-8 font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--text-muted)]">Software · AI · Cloud · Data · Automation</p>
         </div>
         {columns.map((col) => (
           <div key={col.title} className="md:col-span-2">
@@ -74,7 +69,7 @@ export function Footer() {
           <ul className="mt-5 space-y-3 text-sm">
             <li>
               <Link to="/contact" className="text-[var(--text-secondary)] hover:text-foreground">
-                Request access
+                Start a project
               </Link>
             </li>
           </ul>
@@ -82,7 +77,7 @@ export function Footer() {
       </div>
       <div className="mx-auto flex max-w-[1440px] flex-col items-start justify-between gap-3 border-t border-[var(--line)] px-6 py-6 font-mono text-[11px] tracking-[0.14em] text-[var(--text-muted)] md:flex-row md:items-center md:px-10">
         <p>© 2026 NEUROSYN — ALL RIGHTS RESERVED</p>
-        <p>ENGINEERING · ENTERPRISE · INTELLIGENCE</p>
+        <p>AI & SOFTWARE ENGINEERING COMPANY</p>
       </div>
     </footer>
   );

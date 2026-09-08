@@ -47,7 +47,7 @@ export function CTAButton({
     "group inline-flex items-center gap-3 px-5 py-3 text-sm font-medium transition-all duration-[180ms] ease-[cubic-bezier(0.22,1,0.36,1)]";
   const styles =
     variant === "primary"
-      ? "bg-foreground text-background hover:bg-[var(--quantum)] hover:text-[#09090B]"
+      ? "bg-primary text-primary-foreground hover:opacity-90"
       : "hairline text-foreground hover:border-[var(--line-strong)] hover:bg-[var(--surface)]";
   const inner = (
     <>

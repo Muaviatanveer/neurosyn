@@ -64,55 +64,55 @@
   --color-graphite-4: #3A3F47;
 
   --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 :root {
   --radius: 8px;
 
-  /* Backgrounds */
-  --background: #09090B;
-  --foreground: #F7F8FA;
+  /* Navy Trust — enterprise editorial */
+  --background: oklch(0.992 0.003 255);
+  --foreground: oklch(0.23 0.06 260);
 
-  --surface: #111114;
-  --surface-2: #141417;
-  --surface-3: #1B1C20;
+  --surface: oklch(0.97 0.01 255);
+  --surface-2: oklch(0.945 0.018 255);
+  --surface-3: oklch(0.91 0.03 255);
 
-  --card: #111114;
-  --card-foreground: #F7F8FA;
-  --popover: #141417;
-  --popover-foreground: #F7F8FA;
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.23 0.06 260);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.23 0.06 260);
 
-  --primary: #F7F8FA;
-  --primary-foreground: #09090B;
-  --secondary: #1B1C20;
-  --secondary-foreground: #F7F8FA;
-  --muted: #141417;
-  --muted-foreground: #BABDC5;
-  --accent: #7DF7E5;
-  --accent-foreground: #09090B;
+  --primary: oklch(0.23 0.06 260);
+  --primary-foreground: oklch(0.98 0.005 255);
+  --secondary: oklch(0.93 0.02 255);
+  --secondary-foreground: oklch(0.23 0.06 260);
+  --muted: oklch(0.96 0.01 255);
+  --muted-foreground: oklch(0.49 0.035 255);
+  --accent: oklch(0.51 0.09 250);
+  --accent-foreground: oklch(1 0 0);
 
   --destructive: #FF7A7A;
   --destructive-foreground: #09090B;
 
   /* Lines */
-  --border: rgba(255, 255, 255, 0.08);
-  --line: rgba(255, 255, 255, 0.06);
-  --line-strong: rgba(255, 255, 255, 0.16);
-  --input: rgba(255, 255, 255, 0.10);
-  --ring: #7DF7E5;
+  --border: oklch(0.88 0.02 255);
+  --line: oklch(0.91 0.015 255);
+  --line-strong: oklch(0.79 0.03 255);
+  --input: oklch(0.88 0.02 255);
+  --ring: oklch(0.51 0.09 250);
 
   /* Text */
-  --text-secondary: #BABDC5;
-  --text-muted: #7D828E;
-  --text-disabled: #5D626C;
+  --text-secondary: oklch(0.45 0.035 255);
+  --text-muted: oklch(0.58 0.025 255);
+  --text-disabled: oklch(0.7 0.02 255);
 
   /* Accent system */
-  --quantum: #7DF7E5;
-  --ice: #A8F3FF;
-  --mint: #72FFC5;
-  --data: #6FA8FF;
+  --quantum: oklch(0.51 0.09 250);
+  --ice: oklch(0.72 0.06 245);
+  --mint: oklch(0.58 0.10 175);
+  --data: oklch(0.56 0.12 255);
 
   /* Status */
   --signal-success: #72FFC5;
@@ -121,7 +121,7 @@
   --signal-info: #7DA8FF;
 }
 
-.dark { color-scheme: dark; }
+.dark { color-scheme: light; }
 
 @layer base {
   * { border-color: var(--color-line); }
@@ -131,6 +131,7 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     font-feature-settings: "ss01", "cv11";
+    scroll-behavior: smooth;
   }
   body {
     background-color: var(--background);
@@ -139,12 +140,12 @@
   }
   h1, h2, h3, h4 {
     font-family: var(--font-display);
-    letter-spacing: -0.03em;
+    letter-spacing: 0;
     font-weight: 500;
   }
   ::selection {
-    background: var(--quantum);
-    color: #09090B;
+    background: var(--foreground);
+    color: var(--background);
   }
 }
 
@@ -222,7 +223,7 @@
 }
 
 @utility text-instrument {
-  background: linear-gradient(180deg, #FFFFFF 0%, #B8BCC6 100%);
+  background: linear-gradient(180deg, var(--foreground) 0%, var(--text-secondary) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -251,9 +252,9 @@
 
 /* ============= Legacy compatibility (do not use in new code) ============= */
 :root {
-  --brand: #7DF7E5;
-  --brand-2: #A8F3FF;
-  --brand-3: #6FA8FF;
+  --brand: oklch(0.51 0.09 250);
+  --brand-2: oklch(0.43 0.09 255);
+  --brand-3: oklch(0.32 0.07 260);
 }
 @theme inline {
   --color-brand: var(--brand);
@@ -261,13 +262,13 @@
   --color-brand-3: var(--brand-3);
 }
 @utility text-gradient {
-  background: linear-gradient(180deg, #FFFFFF 0%, #B8BCC6 100%);
+  background: linear-gradient(180deg, var(--foreground) 0%, var(--text-secondary) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 @utility text-brand-gradient {
-  background: linear-gradient(180deg, #F7F8FA 0%, #7DF7E5 100%);
+  background: linear-gradient(180deg, var(--foreground) 0%, var(--brand) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

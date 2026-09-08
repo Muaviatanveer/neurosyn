@@ -1,353 +1,184 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { motion } from "framer-motion";
-import { NeuralSphere } from "../components/site/NeuralSphere";
-import { Section, Eyebrow, CTAButton, Reveal, Panel } from "../components/site/ui";
+import { ArrowRight, Check, Cloud, Code2, Database, Factory, Layers3, Sparkles } from "lucide-react";
+import { CTAButton, Reveal } from "../components/site/ui";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "NeuroSyn — The Operating System for Intelligence" },
-      {
-        name: "description",
-        content:
-          "Reasoning, structured as infrastructure. NeuroSyn builds enterprise AI operating systems for engineering, operations, and industrial diagnostics.",
-      },
-      { property: "og:title", content: "NeuroSyn — The Operating System for Intelligence" },
-      {
-        property: "og:description",
-        content: "Reasoning, structured as infrastructure. Built for precision, not noise.",
-      },
+      { title: "AI & Software Engineering Company — NeuroSyn" },
+      { name: "description", content: "NeuroSyn designs, builds, deploys, and scales enterprise software, AI systems, cloud platforms, automation, and data products." },
+      { property: "og:title", content: "NeuroSyn — AI & Software Engineering" },
+      { property: "og:description", content: "We build intelligent software that moves businesses forward." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Home,
 });
 
-const modules = [
-  { id: "01", name: "Reasoning", desc: "Deliberate multi-step inference." },
-  { id: "02", name: "Memory", desc: "Structured long-context recall." },
-  { id: "03", name: "Planning", desc: "Constraint-aware task graphs." },
-  { id: "04", name: "Vision", desc: "Multi-modal perception." },
-  { id: "05", name: "Research", desc: "Autonomous information synthesis." },
-  { id: "06", name: "Verification", desc: "Deterministic evidence checks." },
-  { id: "07", name: "Execution", desc: "Governed action into systems." },
+const services = [
+  [Sparkles, "AI & Machine Learning", "Custom AI systems, LLM applications, retrieval systems, multi-agent workflows, and intelligent automation."],
+  [Code2, "Software Development", "Web applications, SaaS platforms, enterprise systems, and custom software built for real operating environments."],
+  [Cloud, "Cloud & DevOps", "Cloud architecture, deployment, CI/CD, infrastructure, and scalable backend systems."],
+  [Database, "Data & Analytics", "Data platforms, dashboards, analytics pipelines, and intelligent decision systems."],
+  [Factory, "Enterprise Solutions", "ERP and SAP integrations, workflow automation, and enterprise modernization."],
+  [Layers3, "Product Engineering", "From idea and architecture to MVP, production deployment, and long-term development."],
+] as const;
+
+const advantages = [
+  ["Full-Cycle Engineering", "Strategy, design, development, deployment, and maintenance under one accountable team."],
+  ["AI-Native Expertise", "We architect AI where it creates measurable value—not as an add-on or a marketing feature."],
+  ["Enterprise-Ready", "Security, scalability, integrations, and maintainability are designed in from day one."],
+  ["Built Around Your Business", "Every solution is shaped around your workflows, users, systems, and objectives."],
 ];
 
-const capabilities = [
-  {
-    tag: "SAP · ERP",
-    name: "NeuroSyn-SAP",
-    desc: "Continuous auditing, anomaly detection, and executive reporting inside existing enterprise environments.",
-    status: "PILOT",
-    to: "/products/sap",
-  },
-  {
-    tag: "ENGINEERING",
-    name: "NeuroSyn-Dev",
-    desc: "Coordinated reasoning across architecture, generation, verification, and deployment.",
-    status: "PARTNERS",
-    to: "/products/dev",
-  },
-  {
-    tag: "AEROSPACE",
-    name: "NeuroSyn-Aero",
-    desc: "Physics-informed diagnostics and predictive maintenance for high-value industrial assets.",
-    status: "PARTNERS",
-    to: "/products/aero",
-  },
-  {
-    tag: "COPILOT",
-    name: "NeuroSyn-Copilot",
-    desc: "Multi-agent analysis over unstructured business telemetry and documents, executed locally.",
-    status: "PILOT",
-    to: "/products/copilot",
-  },
+const work = [
+  ["Enterprise AI & SAP Intelligence", "Enterprise environment", "AI · SAP · Data · Automation", "Continuous audit and anomaly detection designed around existing finance workflows."],
+  ["AI Engineering Platform", "Design-partner engagement", "AI · Software Engineering · Cloud", "Coordinated architecture, code verification, and deployment across hybrid environments."],
+  ["Industrial Intelligence", "Aerospace and industrial systems", "Telemetry · ML · Digital Twins", "Physics-informed diagnostics that turn complex telemetry into explainable maintenance decisions."],
 ];
 
-const metrics = [
-  { k: "12ms", v: "Median Latency", d: "orchestration overhead" },
-  { k: "07", v: "Reasoning Modules", d: "operational" },
-  { k: "99.98%", v: "Verified Outputs", d: "sandbox-checked" },
-  { k: "24/7", v: "Continuous Ops", d: "no drift" },
-];
+const products = [
+  ["NeuroSyn-SAP", "Enterprise Intelligence", "/products/sap"],
+  ["NeuroSyn-Dev", "AI Engineering", "/products/dev"],
+  ["NeuroSyn-Aero", "Industrial Intelligence", "/products/aero"],
+  ["NeuroSyn-Copilot", "Document & Repository Intelligence", "/products/copilot"],
+] as const;
 
-const proof = [
-  ["Explainable", "Every output traces to its evidence."],
-  ["Governed", "Human-in-the-loop, by design."],
-  ["Hybrid", "Local and cloud compute, cost-routed."],
-  ["Verifiable", "Deterministic checks on every action."],
-];
+const industries = ["Financial Services", "Healthcare", "Education", "Manufacturing", "Aerospace & Defense", "Energy", "Government", "Technology"];
+
+function Label({ children }: { children: React.ReactNode }) {
+  return <p className="font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-[var(--brand)]">{children}</p>;
+}
 
 function Home() {
   return (
     <>
-      {/* HERO */}
-      <Section className="!pt-32 !pb-24 md:!pt-40">
-        <div className="grid items-start gap-16 lg:grid-cols-12">
-          <div className="lg:col-span-7">
-            <Reveal>
-              <Eyebrow index="00">System · Overview</Eyebrow>
-            </Reveal>
+      <section className="border-b border-[var(--line)] px-6 pb-20 pt-20 md:px-10 md:pb-28 md:pt-28">
+        <div className="mx-auto grid max-w-[1360px] gap-14 lg:grid-cols-12 lg:items-end">
+          <div className="lg:col-span-8">
+            <Reveal><Label>AI & Software Engineering Company</Label></Reveal>
             <Reveal delay={1}>
-              <h1 className="mt-10 font-display text-[52px] font-medium leading-[0.98] tracking-[-0.035em] md:text-[92px]">
-                <span className="text-instrument">The Operating System</span>
-                <br />
-                <span className="text-[var(--text-secondary)]">for </span>
-                <span className="text-instrument">Intelligence.</span>
+              <h1 className="mt-8 max-w-[950px] font-display text-[54px] font-medium leading-[0.98] md:text-[82px] lg:text-[104px]">
+                We build software that moves businesses forward.
               </h1>
             </Reveal>
-            <Reveal delay={2}>
-              <p className="mt-8 max-w-[46ch] text-[17px] leading-relaxed text-[var(--text-secondary)]">
-                Reasoning, structured as infrastructure. NeuroSyn coordinates
-                perception, memory, planning, and verification into a single
-                intelligence surface — engineered for precision, not noise.
-              </p>
-            </Reveal>
-            <Reveal delay={3}>
-              <div className="mt-10 flex flex-wrap items-center gap-3">
-                <CTAButton to="/products">Enter the System</CTAButton>
-                <CTAButton to="/contact" variant="ghost">Request Access</CTAButton>
-              </div>
-            </Reveal>
-            <Reveal delay={4}>
-              <div className="mt-14 flex items-center gap-6 font-mono text-[10px] tracking-[0.18em] text-[var(--text-muted)]">
-                <span>V · 2.0</span>
-                <span className="h-px w-8 bg-[var(--line)]" />
-                <span>BUILD · 2026.Q1</span>
-                <span className="h-px w-8 bg-[var(--line)]" />
-                <span className="text-[var(--mint)]">OPERATIONAL</span>
-              </div>
-            </Reveal>
           </div>
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-4 lg:pb-2">
             <Reveal delay={2}>
-              <NeuralSphere />
+              <p className="max-w-xl text-[18px] leading-[1.65] text-[var(--text-secondary)]">
+                NeuroSyn helps organizations design, build, deploy, and scale intelligent digital products—from enterprise platforms and automation systems to custom AI solutions.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <CTAButton to="/contact">Start a Project</CTAButton>
+                <CTAButton to="/services" variant="ghost">Explore Our Services</CTAButton>
+              </div>
             </Reveal>
           </div>
         </div>
+        <div className="mx-auto mt-20 max-w-[1360px] border-t border-[var(--line-strong)] pt-5 font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--text-muted)]">
+          AI Engineering · Software Development · Cloud · Automation · Data · Consulting
+        </div>
+      </section>
 
-        {/* Telemetry bar */}
-        <Reveal delay={5}>
-          <div className="mt-24 grid grid-cols-2 divide-x divide-[var(--line)] border-y border-[var(--line-strong)] md:grid-cols-4">
-            {metrics.map((m) => (
-              <div key={m.v} className="p-6">
-                <div className="font-display text-3xl font-medium text-instrument md:text-4xl">
-                  {m.k}
-                </div>
-                <div className="mt-3 label-mono">{m.v}</div>
-                <div className="mt-1 text-[11px] text-[var(--text-muted)]">{m.d}</div>
+      <section className="border-b border-[var(--line)] bg-card px-6 py-10 md:px-10">
+        <div className="mx-auto flex max-w-[1360px] flex-col gap-8 md:flex-row md:items-center md:justify-between">
+          <p className="text-sm font-medium text-[var(--text-secondary)]">Organizations in our network and engagement history</p>
+          <div className="flex flex-wrap items-center gap-x-10 gap-y-4 font-display text-xl font-semibold text-foreground md:gap-x-16">
+            <span>AAKS</span><span>IJAIKE</span><span>KSOL</span><span>Polarions</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="services" className="px-6 py-24 md:px-10 md:py-32">
+        <div className="mx-auto max-w-[1360px]">
+          <Reveal><Label>What we do</Label></Reveal>
+          <div className="mt-6 grid gap-8 border-b border-[var(--line-strong)] pb-14 lg:grid-cols-2 lg:items-end">
+            <Reveal delay={1}><h2 className="font-display text-5xl font-medium leading-[1.05] md:text-7xl">From strategy to production.</h2></Reveal>
+            <Reveal delay={2}><p className="max-w-xl text-lg leading-relaxed text-[var(--text-secondary)] lg:justify-self-end">A senior engineering partner for software, AI, cloud, data, and enterprise modernization.</p></Reveal>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3">
+            {services.map(([Icon, title, text], i) => (
+              <Reveal key={title} delay={i * 0.4} className="border-b border-[var(--line)] lg:[&:not(:nth-child(3n))]:border-r lg:[&:nth-last-child(-n+3)]:border-b-0">
+                <article className="group h-full p-7 transition-colors hover:bg-card md:p-9">
+                  <Icon className="h-5 w-5 text-[var(--brand)]" strokeWidth={1.5} aria-hidden="true" />
+                  <h3 className="mt-10 text-2xl font-medium">{title}</h3>
+                  <p className="mt-4 text-[15px] leading-relaxed text-[var(--text-secondary)]">{text}</p>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-primary px-6 py-24 text-primary-foreground md:px-10 md:py-32">
+        <div className="mx-auto grid max-w-[1360px] gap-16 lg:grid-cols-12">
+          <div className="lg:col-span-5">
+            <Label>Why NeuroSyn</Label>
+            <h2 className="mt-7 font-display text-5xl font-medium leading-[1.04] md:text-7xl">Engineering, not just outsourcing.</h2>
+          </div>
+          <div className="lg:col-span-7 lg:border-l lg:border-primary-foreground/20 lg:pl-14">
+            {advantages.map(([title, text], i) => (
+              <div key={title} className="grid gap-4 border-t border-primary-foreground/20 py-7 sm:grid-cols-[48px_1fr]">
+                <span className="font-mono text-xs text-primary-foreground/50">0{i + 1}</span>
+                <div><h3 className="text-xl font-medium">{title}</h3><p className="mt-2 max-w-xl leading-relaxed text-primary-foreground/70">{text}</p></div>
               </div>
             ))}
           </div>
-        </Reveal>
-      </Section>
-
-      {/* ARCHITECTURE */}
-      <Section>
-        <div className="grid gap-14 lg:grid-cols-12">
-          <div className="lg:col-span-4">
-            <Reveal>
-              <Eyebrow index="01">Architecture</Eyebrow>
-            </Reveal>
-            <Reveal delay={1}>
-              <h2 className="mt-8 font-display text-4xl font-medium leading-[1.05] tracking-[-0.03em] text-instrument md:text-5xl">
-                An assembly of reasoning primitives.
-              </h2>
-            </Reveal>
-            <Reveal delay={2}>
-              <p className="mt-6 max-w-md text-[15px] leading-relaxed text-[var(--text-secondary)]">
-                Seven cooperating modules. Each observable, each governed, each replaceable.
-                The system composes them into workflows the way an engineer composes a circuit.
-              </p>
-            </Reveal>
-          </div>
-          <div className="lg:col-span-8">
-            <div className="grid gap-px bg-[var(--line)] sm:grid-cols-2 lg:grid-cols-3">
-              {modules.map((m, i) => (
-                <Reveal key={m.id} delay={i * 0.5}>
-                  <div className="group h-full bg-background p-6 transition-colors duration-[180ms] hover:bg-[var(--surface)]">
-                    <div className="flex items-center justify-between">
-                      <span className="font-mono text-[10px] tracking-[0.2em] text-[var(--text-muted)]">
-                        MOD · {m.id}
-                      </span>
-                      <span className="h-1 w-1 rounded-full bg-[var(--quantum)] opacity-60 transition-opacity group-hover:opacity-100" />
-                    </div>
-                    <h3 className="mt-8 font-display text-xl font-medium">{m.name}</h3>
-                    <p className="mt-2 text-sm text-[var(--text-secondary)]">{m.desc}</p>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-          </div>
         </div>
-      </Section>
+      </section>
 
-      {/* CAPABILITIES / PRODUCTS */}
-      <Section>
-        <div className="mb-14 flex flex-col justify-between gap-8 md:flex-row md:items-end">
+      <section className="px-6 py-24 md:px-10 md:py-32">
+        <div className="mx-auto max-w-[1360px]">
+          <div className="flex flex-col justify-between gap-8 border-b border-[var(--line-strong)] pb-12 md:flex-row md:items-end">
+            <div><Label>Selected work</Label><h2 className="mt-6 font-display text-5xl font-medium md:text-7xl">What we've built.</h2></div>
+            <Link to="/case-studies" className="inline-flex items-center gap-2 text-sm font-semibold">View all case studies <ArrowRight className="h-4 w-4" /></Link>
+          </div>
           <div>
-            <Reveal>
-              <Eyebrow index="02">Modules · Products</Eyebrow>
-            </Reveal>
-            <Reveal delay={1}>
-              <h2 className="mt-8 max-w-2xl font-display text-4xl font-medium leading-[1.05] tracking-[-0.03em] text-instrument md:text-5xl">
-                Four operating systems.
-                <br />
-                One intelligence surface.
-              </h2>
-            </Reveal>
+            {work.map(([title, context, tags, text], i) => (
+              <article key={title} className="group grid gap-6 border-b border-[var(--line)] py-10 transition-colors hover:bg-card md:grid-cols-12 md:px-5">
+                <div className="font-mono text-xs text-[var(--text-muted)] md:col-span-1">0{i + 1}</div>
+                <div className="md:col-span-5"><h3 className="text-3xl font-medium">{title}</h3><p className="mt-2 text-sm text-[var(--text-muted)]">{context}</p></div>
+                <p className="max-w-md leading-relaxed text-[var(--text-secondary)] md:col-span-4">{text}</p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-[var(--brand)] md:col-span-2 md:text-right">{tags}</p>
+              </article>
+            ))}
           </div>
-          <Reveal delay={2}>
-            <Link
-              to="/products"
-              className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.18em] text-[var(--text-secondary)] hover:text-foreground"
-            >
-              ALL PRODUCTS
-              <span className="transition-transform duration-[180ms] group-hover:translate-x-0.5">→</span>
-            </Link>
-          </Reveal>
         </div>
+      </section>
 
-        <div className="grid gap-px bg-[var(--line)] md:grid-cols-2">
-          {capabilities.map((c, i) => (
-            <Reveal key={c.name} delay={i * 0.5}>
-              <Link to={c.to} className="block h-full">
-                <div className="group relative h-full bg-background p-8 transition-colors duration-[180ms] hover:bg-[var(--surface)] md:p-10">
-                  <div className="flex items-center justify-between">
-                    <span className="font-mono text-[10px] tracking-[0.2em] text-[var(--text-muted)]">
-                      {c.tag}
-                    </span>
-                    <span className="rounded-[3px] border border-[var(--line-strong)] px-2 py-0.5 font-mono text-[10px] tracking-[0.18em] text-[var(--quantum)]">
-                      {c.status}
-                    </span>
-                  </div>
-                  <h3 className="mt-12 font-display text-3xl font-medium tracking-[-0.02em] md:text-[36px]">
-                    {c.name}
-                  </h3>
-                  <p className="mt-4 max-w-md text-[15px] leading-relaxed text-[var(--text-secondary)]">
-                    {c.desc}
-                  </p>
-                  <div className="mt-10 flex items-center gap-3 text-sm text-[var(--text-secondary)] transition-colors group-hover:text-[var(--quantum)]">
-                    <span className="h-px w-8 bg-[var(--line-strong)] transition-all group-hover:w-12 group-hover:bg-[var(--quantum)]" />
-                    <span>Enter module</span>
-                  </div>
-                </div>
+      <section className="border-y border-[var(--line)] bg-card px-6 py-24 md:px-10">
+        <div className="mx-auto grid max-w-[1360px] gap-14 lg:grid-cols-12">
+          <div className="lg:col-span-5"><Label>Industries</Label><h2 className="mt-6 font-display text-4xl font-medium md:text-6xl">Domain context matters.</h2><p className="mt-5 max-w-md leading-relaxed text-[var(--text-secondary)]">We design around the constraints, workflows, and standards of the environments where software must perform.</p></div>
+          <div className="grid gap-x-10 sm:grid-cols-2 lg:col-span-7">
+            {industries.map((industry) => <div key={industry} className="flex items-center gap-3 border-t border-[var(--line)] py-5"><Check className="h-4 w-4 text-[var(--brand)]" /><span className="font-medium">{industry}</span></div>)}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6 py-24 md:px-10 md:py-32">
+        <div className="mx-auto max-w-[1360px]">
+          <div className="grid gap-8 lg:grid-cols-2"><div><Label>Proprietary technology</Label><h2 className="mt-6 font-display text-5xl font-medium md:text-7xl">We also build our own technology.</h2></div><p className="max-w-xl self-end text-lg leading-relaxed text-[var(--text-secondary)]">Beyond client engineering, NeuroSyn develops proprietary AI systems for complex enterprise and industrial problems.</p></div>
+          <div className="mt-16 grid border-l border-t border-[var(--line)] md:grid-cols-2">
+            {products.map(([name, type, to], i) => (
+              <Link key={name} to={to} className="group border-b border-r border-[var(--line)] p-8 transition-colors hover:bg-card md:p-10">
+                <span className="font-mono text-[10px] text-[var(--text-muted)]">0{i + 1}</span>
+                <h3 className="mt-12 text-3xl font-medium">{name}</h3>
+                <div className="mt-3 flex items-center justify-between text-[var(--text-secondary)]"><span>{type}</span><ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" /></div>
               </Link>
-            </Reveal>
-          ))}
-        </div>
-      </Section>
-
-      {/* LIVE INTELLIGENCE */}
-      <Section>
-        <div className="grid gap-14 lg:grid-cols-12">
-          <div className="lg:col-span-5">
-            <Reveal>
-              <Eyebrow index="03">Live · Intelligence</Eyebrow>
-            </Reveal>
-            <Reveal delay={1}>
-              <h2 className="mt-8 font-display text-4xl font-medium leading-[1.05] tracking-[-0.03em] text-instrument md:text-5xl">
-                A quiet system, always thinking.
-              </h2>
-            </Reveal>
-            <Reveal delay={2}>
-              <p className="mt-6 max-w-md text-[15px] leading-relaxed text-[var(--text-secondary)]">
-                Modules run continuously — observing, verifying, and routing decisions
-                across the enterprise. Every action is logged, every inference is auditable.
-              </p>
-            </Reveal>
-          </div>
-          <div className="lg:col-span-7">
-            <Panel className="p-0" hover={false}>
-              <div className="flex items-center justify-between border-b border-[var(--line)] px-5 py-3">
-                <div className="flex items-center gap-3">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[var(--mint)] shadow-[0_0_8px_var(--mint)] breathe" />
-                  <span className="label-mono">runtime · stream</span>
-                </div>
-                <span className="font-mono text-[10px] tracking-[0.18em] text-[var(--text-muted)]">
-                  UTC · 04:12:08
-                </span>
-              </div>
-              <div className="divide-y divide-[var(--line)] font-mono text-[12px]">
-                {[
-                  ["04:12:04", "reasoning", "resolved plan #4821 · 6 steps · 240ms"],
-                  ["04:12:03", "verify", "sandbox pass · 12/12 assertions"],
-                  ["04:12:02", "memory", "context window compacted · 32k → 8k"],
-                  ["04:12:00", "vision", "extracted 41 entities from 3 documents"],
-                  ["04:11:58", "planning", "constraint graph updated · edges +7"],
-                ].map(([t, m, msg]) => (
-                  <div key={t} className="grid grid-cols-[80px_100px_1fr] items-center gap-4 px-5 py-3">
-                    <span className="text-[var(--text-muted)]">{t}</span>
-                    <span className="text-[var(--quantum)]">{m}</span>
-                    <span className="text-[var(--text-secondary)]">{msg}</span>
-                  </div>
-                ))}
-              </div>
-              <div className="flow-line" />
-            </Panel>
+            ))}
           </div>
         </div>
-      </Section>
+      </section>
 
-      {/* PROOF */}
-      <Section>
-        <div className="grid gap-14 lg:grid-cols-12">
-          <div className="lg:col-span-4">
-            <Reveal>
-              <Eyebrow index="04">Principles</Eyebrow>
-            </Reveal>
-            <Reveal delay={1}>
-              <h2 className="mt-8 font-display text-4xl font-medium leading-[1.05] tracking-[-0.03em] text-instrument md:text-5xl">
-                Built for precision, not noise.
-              </h2>
-            </Reveal>
-          </div>
-          <div className="lg:col-span-8">
-            <div className="grid gap-px bg-[var(--line)] sm:grid-cols-2">
-              {proof.map(([t, d], i) => (
-                <Reveal key={t} delay={i * 0.5}>
-                  <div className="h-full bg-background p-8">
-                    <div className="flex items-baseline gap-3">
-                      <span className="font-mono text-[10px] tracking-[0.2em] text-[var(--text-muted)]">
-                        0{i + 1}
-                      </span>
-                      <h3 className="font-display text-xl font-medium">{t}</h3>
-                    </div>
-                    <p className="mt-4 text-sm leading-relaxed text-[var(--text-secondary)]">{d}</p>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-          </div>
+      <section className="bg-primary px-6 py-24 text-primary-foreground md:px-10 md:py-32">
+        <div className="mx-auto max-w-[1000px] text-center">
+          <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-primary-foreground/60">Start a conversation</p>
+          <h2 className="mt-7 font-display text-5xl font-medium leading-[1.04] md:text-7xl">Have a software challenge?</h2>
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-primary-foreground/70">Tell us what you're building. We'll help you define the technology, architecture, and path to production.</p>
+          <div className="mt-10 flex flex-wrap justify-center gap-3"><Link to="/contact" className="rounded-[3px] bg-background px-6 py-3.5 text-sm font-semibold text-foreground">Start a Project</Link><Link to="/contact" className="rounded-[3px] border border-primary-foreground/30 px-6 py-3.5 text-sm font-semibold">Talk to Our Team</Link></div>
         </div>
-      </Section>
-
-      {/* CTA */}
-      <Section>
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="relative overflow-hidden border border-[var(--line-strong)] bg-[var(--surface)] p-12 md:p-20"
-        >
-          <div className="absolute inset-x-0 top-0 flow-line" />
-          <div className="absolute inset-x-0 bottom-0 flow-line" />
-          <div className="mx-auto max-w-3xl text-center">
-            <span className="label-mono">Access · Program</span>
-            <h2 className="mt-8 font-display text-4xl font-medium leading-[1.05] tracking-[-0.03em] text-instrument md:text-6xl">
-              An interface that feels awake.
-            </h2>
-            <p className="mx-auto mt-6 max-w-xl text-[15px] leading-relaxed text-[var(--text-secondary)]">
-              Pilot programs, strategic partnerships, and investor conversations are open.
-              We work with a small number of teams at a time.
-            </p>
-            <div className="mt-10 flex flex-wrap justify-center gap-3">
-              <CTAButton to="/contact">Request Access</CTAButton>
-              <CTAButton to="/investors" variant="ghost">Talk to Founders</CTAButton>
-            </div>
-          </div>
-        </motion.div>
-      </Section>
+      </section>
     </>
   );
 }
