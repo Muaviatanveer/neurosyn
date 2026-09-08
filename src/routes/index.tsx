@@ -1,6 +1,54 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Check, Cloud, Code2, Database, Factory, Layers3, Sparkles } from "lucide-react";
+import { useQuery } from "@tanstack/react-query";
+import { useServerFn } from "@tanstack/react-start";
+import { ArrowRight, Check, Cloud, Code2, Database, Factory, Layers3, Sparkles, Star } from "lucide-react";
 import { CTAButton, Reveal } from "../components/site/ui";
+import { listTestimonials } from "../lib/testimonials.functions";
+
+function Testimonials() {
+  const load = useServerFn(listTestimonials);
+  const { data } = useQuery({ queryKey: ["testimonials"], queryFn: () => load() });
+  const list = (data?.testimonials ?? []).slice(0, 3);
+
+  return (
+    <section className="border-y border-[var(--line)] px-6 py-24 md:px-10 md:py-32">
+      <div className="mx-auto max-w-[1360px]">
+        <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
+          <div>
+            <Label>Testimonials</Label>
+            <h2 className="mt-6 font-display text-5xl font-medium md:text-7xl">What our partners say.</h2>
+          </div>
+          <Link to="/testimonials" className="inline-flex items-center gap-2 text-sm font-semibold">
+            {list.length ? "Read all reviews" : "Leave a review"} <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+        {list.length === 0 ? (
+          <p className="mt-12 max-w-2xl leading-relaxed text-[var(--text-secondary)]">
+            Worked with NeuroSyn? Share your experience — approved reviews appear here.
+          </p>
+        ) : (
+          <div className="mt-14 grid gap-px bg-[var(--line)] md:grid-cols-3">
+            {list.map((t) => (
+              <figure key={t.id} className="bg-background p-8">
+                <div className="flex gap-1">
+                  {Array.from({ length: t.rating }).map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-[var(--brand)] text-[var(--brand)]" strokeWidth={1.5} />
+                  ))}
+                </div>
+                <blockquote className="mt-6 text-lg leading-relaxed">“{t.quote}”</blockquote>
+                <figcaption className="mt-6 text-sm">
+                  <span className="font-medium">{t.name}</span>
+                  <span className="block text-[var(--text-muted)]">{[t.role, t.organization].filter(Boolean).join(" · ")}</span>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
+
 
 export const Route = createFileRoute("/")({
   head: () => ({

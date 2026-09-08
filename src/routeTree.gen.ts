@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TestimonialsRouteImport } from './routes/testimonials'
 import { Route as TechnologyRouteImport } from './routes/technology'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
@@ -26,6 +27,11 @@ import { Route as ProductsDevRouteImport } from './routes/products.dev'
 import { Route as ProductsCopilotRouteImport } from './routes/products.copilot'
 import { Route as ProductsAeroRouteImport } from './routes/products.aero'
 
+const TestimonialsRoute = TestimonialsRouteImport.update({
+  id: '/testimonials',
+  path: '/testimonials',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TechnologyRoute = TechnologyRouteImport.update({
   id: '/technology',
   path: '/technology',
@@ -119,6 +125,7 @@ export interface FileRoutesByFullPath {
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/technology': typeof TechnologyRoute
+  '/testimonials': typeof TestimonialsRoute
   '/products/aero': typeof ProductsAeroRoute
   '/products/copilot': typeof ProductsCopilotRoute
   '/products/dev': typeof ProductsDevRoute
@@ -136,6 +143,7 @@ export interface FileRoutesByTo {
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/technology': typeof TechnologyRoute
+  '/testimonials': typeof TestimonialsRoute
   '/products/aero': typeof ProductsAeroRoute
   '/products/copilot': typeof ProductsCopilotRoute
   '/products/dev': typeof ProductsDevRoute
@@ -155,6 +163,7 @@ export interface FileRoutesById {
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/technology': typeof TechnologyRoute
+  '/testimonials': typeof TestimonialsRoute
   '/products/aero': typeof ProductsAeroRoute
   '/products/copilot': typeof ProductsCopilotRoute
   '/products/dev': typeof ProductsDevRoute
@@ -175,6 +184,7 @@ export interface FileRouteTypes {
     | '/services'
     | '/sitemap.xml'
     | '/technology'
+    | '/testimonials'
     | '/products/aero'
     | '/products/copilot'
     | '/products/dev'
@@ -192,6 +202,7 @@ export interface FileRouteTypes {
     | '/services'
     | '/sitemap.xml'
     | '/technology'
+    | '/testimonials'
     | '/products/aero'
     | '/products/copilot'
     | '/products/dev'
@@ -210,6 +221,7 @@ export interface FileRouteTypes {
     | '/services'
     | '/sitemap.xml'
     | '/technology'
+    | '/testimonials'
     | '/products/aero'
     | '/products/copilot'
     | '/products/dev'
@@ -229,10 +241,18 @@ export interface RootRouteChildren {
   ServicesRoute: typeof ServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TechnologyRoute: typeof TechnologyRoute
+  TestimonialsRoute: typeof TestimonialsRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/testimonials': {
+      id: '/testimonials'
+      path: '/testimonials'
+      fullPath: '/testimonials'
+      preLoaderRoute: typeof TestimonialsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/technology': {
       id: '/technology'
       path: '/technology'
@@ -380,6 +400,7 @@ const rootRouteChildren: RootRouteChildren = {
   ServicesRoute: ServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TechnologyRoute: TechnologyRoute,
+  TestimonialsRoute: TestimonialsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
