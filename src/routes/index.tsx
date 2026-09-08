@@ -195,6 +195,10 @@ function Home() {
         </div>
       </section>
 
+      <Testimonials />
+
+
+
       <section className="border-y border-[var(--line)] bg-card px-6 py-24 md:px-10">
         <div className="mx-auto grid max-w-[1360px] gap-14 lg:grid-cols-12">
           <div className="lg:col-span-5"><Label>Industries</Label><h2 className="mt-6 font-display text-4xl font-medium md:text-6xl">Domain context matters.</h2><p className="mt-5 max-w-md leading-relaxed text-[var(--text-secondary)]">We design around the constraints, workflows, and standards of the environments where software must perform.</p></div>
