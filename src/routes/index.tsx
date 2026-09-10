@@ -20,6 +20,9 @@ import { CTAButton, Reveal } from "../components/site/ui";
 import { EnterpriseDashboardPreview } from "../components/site/EnterpriseDashboardPreview";
 import { TiltCard } from "../components/site/TiltCard";
 import { GeometricCore, type ProductEngineId } from "../components/site/GeometricCore";
+import { InteractiveSolutionConsole } from "../components/site/InteractiveSolutionConsole";
+import { ProjectConfigurator } from "../components/site/ProjectConfigurator";
+import { DeliveryTimelineStepper } from "../components/site/DeliveryTimelineStepper";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -318,40 +321,34 @@ function Home() {
             </p>
           </div>
 
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((svc, i) => {
-              const Icon = svc.icon;
-              return (
-                <Reveal key={svc.title} delay={i * 0.1}>
-                  <TiltCard maxTilt={2.5} scale={1.008} className="h-full">
-                    <div className="group flex h-full flex-col justify-between rounded-xl border border-slate-200/90 bg-white p-7 transition-all duration-200 hover:border-slate-300 hover:shadow-md">
-                      <div>
-                        <div className="flex h-11 w-11 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 text-slate-800 transition-colors group-hover:bg-slate-100 group-hover:text-[#0891B2]">
-                          <Icon className="h-5 w-5" strokeWidth={1.75} />
-                        </div>
-                        <h3 className="mt-5 font-display text-xl font-semibold text-slate-900">
-                          {svc.title}
-                        </h3>
-                        <p className="mt-3 text-sm leading-relaxed text-slate-600">
-                          {svc.description}
-                        </p>
-                      </div>
+          <div className="mt-12">
+            <InteractiveSolutionConsole />
+          </div>
+        </div>
+      </section>
 
-                      <div className="mt-6 border-t border-slate-100 pt-4">
-                        <div className="space-y-1.5 text-xs text-slate-500">
-                          {svc.deliverables.map((item) => (
-                            <div key={item} className="flex items-center gap-2">
-                              <span className="h-1 w-1 rounded-full bg-[#06B6D4]" />
-                              <span>{item}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </TiltCard>
-                </Reveal>
-              );
-            })}
+      {/* ========================================================================= */}
+      {/* 4. SPRINT DELIVERY ROADMAP (Interactive 4-Phase Stepper)                  */}
+      {/* ========================================================================= */}
+      <section className="border-b border-slate-200 bg-[#FFFFFF] px-6 py-20 md:px-10 md:py-28">
+        <div className="mx-auto max-w-[1360px]">
+          <div className="flex flex-col justify-between gap-6 border-b border-slate-200 pb-10 md:flex-row md:items-end">
+            <div>
+              <div className="inline-flex items-center gap-2 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-[#0891B2]">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#06B6D4]" />
+                How We Deliver
+              </div>
+              <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl md:text-5xl">
+                Structured sprints. Zero ambiguity.
+              </h2>
+            </div>
+            <p className="max-w-md text-base text-slate-600">
+              Click through our 4-phase delivery process to inspect tangible deliverables and verification checkpoints at each stage.
+            </p>
+          </div>
+
+          <div className="mt-12">
+            <DeliveryTimelineStepper />
           </div>
         </div>
       </section>
@@ -516,7 +513,16 @@ function Home() {
       </section>
 
       {/* ========================================================================= */}
-      {/* 7. FINAL CALL TO ACTION                                                    */}
+      {/* 7. PROJECT CONFIGURATOR (Interactive Scope & Architecture Estimator)      */}
+      {/* ========================================================================= */}
+      <section className="border-t border-slate-200 bg-[#FFFFFF] px-6 py-20 md:px-10 md:py-28">
+        <div className="mx-auto max-w-[1360px]">
+          <ProjectConfigurator />
+        </div>
+      </section>
+
+      {/* ========================================================================= */}
+      {/* 8. FINAL CALL TO ACTION                                                    */}
       {/* ========================================================================= */}
       <section className="relative bg-slate-950 px-6 py-20 text-white md:px-10 md:py-28 overflow-hidden">
         <div className="mx-auto max-w-[900px] text-center relative">
