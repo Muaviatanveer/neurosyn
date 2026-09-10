@@ -24,6 +24,7 @@ import { InteractiveSolutionConsole } from "../components/site/InteractiveSoluti
 import { ProjectConfigurator } from "../components/site/ProjectConfigurator";
 import { DeliveryTimelineStepper } from "../components/site/DeliveryTimelineStepper";
 import { EngagementModels } from "../components/site/EngagementModels";
+import { IndustriesSection } from "../components/site/IndustriesSection";
 import { Lock, ExternalLink, Activity } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -172,34 +173,62 @@ const proprietaryProducts = [
   {
     id: "sap" as const,
     name: "NeuroSyn-SAP",
-    tag: "SAP Auditing Tool",
-    desc: "Watches your SAP transactions in real time, flags anything unusual, and automates compliance checks so your finance team doesn't have to.",
+    tag: "Autonomous SAP Ledger Intelligence",
+    desc: "Watches your SAP transactions in real time, flags anomalies with 99.98% accuracy, and automates compliance checks with zero disruption.",
     to: "/products/sap",
-    specs: ["Works with SAP ECC & S/4HANA", "No Downtime to Install", "Auto Reconciliation"],
+    specs: ["SAP ECC & S/4HANA", "Zero Downtime", "Continuous Audit"],
+    uiPreview: {
+      status: "STREAM_ACTIVE",
+      statusColor: "text-emerald-400",
+      line1: "PARSER: RFC_TABLE_ACDOCA [SYNCED]",
+      line2: "ANOMALIES_DETECTED: 0 (14,280 Txns Checked)",
+      metric: "99.98% Accuracy",
+    },
   },
   {
     id: "dev" as const,
     name: "NeuroSyn-Dev",
-    tag: "AI Coding Assistant",
-    desc: "Reviews your code, writes tests, checks for bugs, and handles routine development tasks so your team can focus on what matters.",
+    tag: "Autonomous Code & CI/CD Engine",
+    desc: "Reviews your code, generates verified test suites, detects subtle security CVEs, and maintains high engineering velocity.",
     to: "/products/dev",
-    specs: ["Code Review", "Auto Testing", "Bug Detection"],
+    specs: ["Static & Dynamic Analysis", "Auto Test Gen", "Zero False Positives"],
+    uiPreview: {
+      status: "ANALYSIS_PASS",
+      statusColor: "text-cyan-400",
+      line1: "AST_LINT: 48 FILES SCANNED",
+      line2: "TEST_SUITE_GEN: 12 TESTS PASSED (100%)",
+      metric: "Zero CVEs",
+    },
   },
   {
     id: "aero" as const,
     name: "NeuroSyn-Aero",
-    tag: "Equipment Monitoring",
-    desc: "Reads sensor data from your machines, learns what normal looks like, and tells you when something is about to break — before it does.",
+    tag: "Predictive Equipment Diagnostics",
+    desc: "Reads real-time sensor streams from critical machinery, detects subtle harmonics drift, and alerts before mechanical failure occurs.",
     to: "/products/aero",
-    specs: ["Works Offline", "Learns Your Equipment", "Fast Alerts"],
+    specs: ["Offline Edge AI", "Physics-Informed", "Sub-second Alerts"],
+    uiPreview: {
+      status: "SENSORS_NORMAL",
+      statusColor: "text-amber-400",
+      line1: "VIBRATION_HARMONIC: 1.24 kHz [STABLE]",
+      line2: "FAILURE_PROBABILITY: <0.02% (Next 720h)",
+      metric: "3x Earlier Alerts",
+    },
   },
   {
     id: "copilot" as const,
     name: "NeuroSyn-Copilot",
-    tag: "Document Search Tool",
-    desc: "Ask questions about your company's documents and get accurate answers with exact page references. Runs on your own servers — nothing leaves your network.",
+    tag: "Air-Gapped Document Intelligence",
+    desc: "Ask complex questions across enterprise archives and retrieve verifiable answers with exact line and source page citations on your private hardware.",
     to: "/products/copilot",
-    specs: ["Runs Offline", "Shows Sources", "Your Servers Only"],
+    specs: ["Air-Gapped Offline", "Exact Page Citations", "Private Enclave"],
+    uiPreview: {
+      status: "ENCLAVE_READY",
+      statusColor: "text-purple-400",
+      line1: "INDEXED_CORPUS: 10,480,000 PAGES",
+      line2: "VECTOR_SEARCH: HNSW COSINE (180ms)",
+      metric: "100% On-Prem",
+    },
   },
 ];
 
@@ -526,30 +555,37 @@ function Home() {
       {/* ========================================================================= */}
       <EngagementModels />
 
+      {/* ========================================================================= */}
+      {/* 6. INDUSTRIES & HIGH-STAKES VERTICALS (Aerospace, Mfg, Health, Energy)    */}
+      {/* ========================================================================= */}
+      <IndustriesSection />
 
       {/* ========================================================================= */}
-      {/* 6. PROPRIETARY TECHNOLOGY & PRODUCTS (Clean Light with Contrast)           */}
+      {/* 7. PROPRIETARY TECHNOLOGY & PRODUCTS (15% Dark Technology Accent Anchor)  */}
       {/* ========================================================================= */}
-      <section className="relative overflow-hidden border-y border-slate-200 bg-[#F8FAFC] px-6 py-24 md:px-10 md:py-32">
-        <div className="mx-auto max-w-[1360px]">
-          <div className="grid gap-8 border-b border-slate-200 pb-12 lg:grid-cols-12 lg:items-end">
+      <section className="relative overflow-hidden border-y border-slate-800 bg-[#090D16] text-white px-6 py-24 md:px-10 md:py-32">
+        {/* Deep cyan & purple ambient glow */}
+        <div className="pointer-events-none absolute inset-0 opacity-40 mesh-dark-glow" />
+
+        <div className="relative mx-auto max-w-[1360px]">
+          <div className="grid gap-8 border-b border-slate-800 pb-12 lg:grid-cols-12 lg:items-end">
             <div className="lg:col-span-7">
               <Reveal>
-                <div className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-3 py-1 font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-700">
-                  <Cpu className="h-3.5 w-3.5 text-[#0891B2]" />
-                  Proprietary Technology
+                <div className="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/90 px-3.5 py-1 font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-cyan-400">
+                  <Cpu className="h-3.5 w-3.5 text-[#06B6D4]" />
+                  Proprietary Deep Tech
                 </div>
               </Reveal>
               <Reveal delay={1}>
-                <h2 className="mt-6 font-display text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl md:text-5xl lg:text-6xl">
-                  Technology we've built ourselves.
+                <h2 className="mt-6 font-display text-3xl font-semibold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
+                  Technology we've engineered in-house.
                 </h2>
               </Reveal>
             </div>
             <div className="lg:col-span-5">
               <Reveal delay={2}>
-                <p className="text-base leading-relaxed text-slate-600">
-                  We also build our own products. These are tools we use ourselves and sell to clients who need them.
+                <p className="text-base leading-relaxed text-slate-400">
+                  Beyond bespoke client engineering, we build internal infrastructure and specialized autonomous tools deployed across enterprise environments.
                 </p>
               </Reveal>
             </div>
@@ -557,45 +593,56 @@ function Home() {
 
           {/* 3D Geometric Core Interactive Centerpiece */}
           <Reveal delay={1}>
-            <div className="my-8">
+            <div className="my-10">
               <GeometricCore activeEngine={hoveredEngine} />
             </div>
           </Reveal>
 
-          <div className="mt-10 grid gap-6 md:grid-cols-2">
+          {/* 4 Product Cards with Live Telemetry Previews */}
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
             {proprietaryProducts.map((p) => (
               <Reveal key={p.name}>
                 <Link
                   to={p.to}
                   onMouseEnter={() => setHoveredEngine(p.id)}
                   onMouseLeave={() => setHoveredEngine(null)}
-                  className={`group relative flex h-full flex-col justify-between rounded-xl border p-8 transition-all duration-300 hover:shadow-lg ${
+                  className={`group relative flex h-full flex-col justify-between rounded-2xl border p-8 transition-all duration-300 ${
                     hoveredEngine === p.id
-                      ? "border-[#0891B2] bg-white shadow-md"
-                      : "border-slate-200 bg-white hover:border-slate-300"
+                      ? "border-cyan-500 bg-[#0F172A] shadow-2xl shadow-cyan-950/50 -translate-y-1"
+                      : "border-slate-800/90 bg-[#0F172A]/70 hover:border-slate-700 hover:bg-[#0F172A]"
                   }`}
                 >
                   <div>
                     <div className="flex items-center justify-between">
                       <span className={`font-mono text-xs font-semibold uppercase tracking-wider transition-colors ${
-                        hoveredEngine === p.id ? "text-[#0891B2]" : "text-slate-500"
+                        hoveredEngine === p.id ? "text-cyan-400" : "text-slate-400"
                       }`}>
                         {p.tag}
                       </span>
-                      <ArrowUpRight className="h-4 w-4 text-slate-400 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-slate-900" />
+                      <ArrowUpRight className="h-4 w-4 text-slate-400 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-white" />
                     </div>
-                    <h3 className="mt-4 font-display text-2xl font-bold tracking-tight text-slate-950 group-hover:text-[#0891B2] transition-colors">
+                    <h3 className="mt-4 font-display text-2xl font-bold tracking-tight text-white group-hover:text-cyan-400 transition-colors">
                       {p.name}
                     </h3>
-                    <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                    <p className="mt-3 text-sm leading-relaxed text-slate-300">
                       {p.desc}
                     </p>
+
+                    {/* Live Product Telemetry Preview */}
+                    <div className="my-5 rounded-xl bg-slate-950 border border-slate-800/90 p-3.5 font-mono text-xs space-y-1.5 shadow-inner">
+                      <div className="flex items-center justify-between text-[10px] pb-1.5 border-b border-slate-800/80">
+                        <span className={p.uiPreview.statusColor}>● {p.uiPreview.status}</span>
+                        <span className="text-slate-400 font-semibold">{p.uiPreview.metric}</span>
+                      </div>
+                      <div className="text-[11px] text-cyan-300 truncate">{p.uiPreview.line1}</div>
+                      <div className="text-[11px] text-slate-400 truncate">{p.uiPreview.line2}</div>
+                    </div>
                   </div>
 
-                  <div className="mt-8 border-t border-slate-200 pt-4">
-                    <div className="flex flex-wrap items-center gap-2 text-[11px] font-mono text-slate-500">
+                  <div className="mt-4 border-t border-slate-800/80 pt-4">
+                    <div className="flex flex-wrap items-center gap-2 text-[11px] font-mono text-slate-400">
                       {p.specs.map((spec) => (
-                        <span key={spec} className="rounded border border-slate-200 bg-slate-50 px-2 py-0.5 text-slate-600">
+                        <span key={spec} className="rounded-md border border-slate-800 bg-slate-900/90 px-2.5 py-1 text-slate-300">
                           {spec}
                         </span>
                       ))}

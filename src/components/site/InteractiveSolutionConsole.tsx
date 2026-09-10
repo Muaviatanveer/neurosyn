@@ -14,7 +14,184 @@ import {
   Server,
   Zap,
   Lock,
+  Terminal,
+  Activity,
+  GitBranch,
+  Boxes,
+  Workflow,
+  Radio,
 } from "lucide-react";
+
+/* Dedicated Micro-Visuals for Each Service */
+function CapabilityVisual({ id }: { id: string }) {
+  if (id === "software") {
+    return (
+      <div className="rounded-xl bg-slate-950 p-4 font-mono text-xs text-slate-300 border border-slate-800 shadow-inner">
+        <div className="flex items-center justify-between border-b border-slate-800 pb-2 mb-3 text-[11px] text-slate-400">
+          <div className="flex items-center gap-1.5">
+            <Terminal className="h-3.5 w-3.5 text-cyan-400" />
+            <span>workspace/api/v2/deploy.ts</span>
+          </div>
+          <span className="text-emerald-400 font-semibold">● 200 OK (42ms)</span>
+        </div>
+        <div className="space-y-1 text-[11px] leading-relaxed">
+          <p><span className="text-purple-400">export async function</span> <span className="text-blue-400">dispatchTask</span>(req: <span className="text-amber-300">Request</span>) &#123;</p>
+          <p className="pl-4 text-slate-400">// Zero-downtime transactional worker pool</p>
+          <p className="pl-4"><span className="text-cyan-400">const</span> session = <span className="text-purple-400">await</span> auth.<span className="text-blue-400">verifyBearer</span>(req);</p>
+          <p className="pl-4"><span className="text-purple-400">return</span> Response.<span className="text-blue-400">json</span>(&#123; <span className="text-emerald-300">status</span>: <span className="text-emerald-300">'live'</span>, <span className="text-emerald-300">p99</span>: <span className="text-amber-400">38</span> &#125;);</p>
+          <p>&#125;</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (id === "ai") {
+    return (
+      <div className="rounded-xl bg-slate-950 p-4 border border-slate-800 shadow-inner">
+        <div className="flex items-center justify-between border-b border-slate-800 pb-2 mb-3 text-[11px] font-mono">
+          <div className="flex items-center gap-1.5 text-slate-300">
+            <Brain className="h-3.5 w-3.5 text-violet-400" />
+            <span>Neural Vector Graph & Model Weights</span>
+          </div>
+          <span className="text-cyan-400">Inference: 140ms</span>
+        </div>
+        <div className="grid grid-cols-4 gap-2 text-center text-[10px] font-mono my-2">
+          <div className="p-2 rounded bg-violet-950/40 border border-violet-800/40 text-violet-300">
+            <div className="font-bold text-xs text-white">1024-D</div>
+            <div className="text-[9px] text-slate-400 mt-0.5">Embed Layer</div>
+          </div>
+          <div className="p-2 rounded bg-indigo-950/40 border border-indigo-800/40 text-indigo-300">
+            <div className="font-bold text-xs text-white">32 Head</div>
+            <div className="text-[9px] text-slate-400 mt-0.5">Attention</div>
+          </div>
+          <div className="p-2 rounded bg-cyan-950/40 border border-cyan-800/40 text-cyan-300">
+            <div className="font-bold text-xs text-white">vLLM Engine</div>
+            <div className="text-[9px] text-slate-400 mt-0.5">Quantized 4-bit</div>
+          </div>
+          <div className="p-2 rounded bg-emerald-950/40 border border-emerald-800/40 text-emerald-300">
+            <div className="font-bold text-xs text-emerald-400">99.2%</div>
+            <div className="text-[9px] text-slate-400 mt-0.5">Accuracy SLA</div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (id === "cloud") {
+    return (
+      <div className="rounded-xl bg-slate-950 p-4 border border-slate-800 shadow-inner">
+        <div className="flex items-center justify-between border-b border-slate-800 pb-2 mb-3 text-[11px] font-mono">
+          <div className="flex items-center gap-1.5 text-slate-300">
+            <Cloud className="h-3.5 w-3.5 text-cyan-400" />
+            <span>Global Kubernetes Topology</span>
+          </div>
+          <span className="text-emerald-400">● 3/3 Clusters Synced</span>
+        </div>
+        <div className="grid grid-cols-3 gap-2 text-[11px] font-mono">
+          <div className="p-2.5 rounded bg-slate-900 border border-slate-800">
+            <div className="text-slate-400 text-[10px]">US-EAST (Primary)</div>
+            <div className="text-emerald-400 font-bold mt-1">48 Pods Active</div>
+            <div className="text-[10px] text-slate-500 mt-0.5">&lt;8ms Latency</div>
+          </div>
+          <div className="p-2.5 rounded bg-slate-900 border border-slate-800">
+            <div className="text-slate-400 text-[10px]">EU-CENTRAL</div>
+            <div className="text-emerald-400 font-bold mt-1">32 Pods Active</div>
+            <div className="text-[10px] text-slate-500 mt-0.5">&lt;14ms Latency</div>
+          </div>
+          <div className="p-2.5 rounded bg-slate-900 border border-slate-800">
+            <div className="text-slate-400 text-[10px]">AP-EAST</div>
+            <div className="text-emerald-400 font-bold mt-1">24 Pods Active</div>
+            <div className="text-[10px] text-slate-500 mt-0.5">&lt;18ms Latency</div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (id === "enterprise") {
+    return (
+      <div className="rounded-xl bg-slate-950 p-4 border border-slate-800 shadow-inner">
+        <div className="flex items-center justify-between border-b border-slate-800 pb-2 mb-3 text-[11px] font-mono">
+          <div className="flex items-center gap-1.5 text-slate-300">
+            <Workflow className="h-3.5 w-3.5 text-amber-400" />
+            <span>SAP S/4HANA Bidirectional Event Stream</span>
+          </div>
+          <span className="text-emerald-400">Sync: Real-Time</span>
+        </div>
+        <div className="flex items-center justify-between gap-2 text-center text-[10px] font-mono">
+          <div className="flex-1 p-2 rounded bg-slate-900 border border-slate-800">
+            <span className="text-amber-400 font-semibold">SAP ECC / S4</span>
+            <div className="text-slate-500 text-[9px] mt-0.5">BAPI RFC Connector</div>
+          </div>
+          <ArrowRight className="h-3.5 w-3.5 text-cyan-400 shrink-0" />
+          <div className="flex-1 p-2 rounded bg-slate-900 border border-cyan-800/50">
+            <span className="text-cyan-300 font-semibold">NeuroSyn Gateway</span>
+            <div className="text-slate-500 text-[9px] mt-0.5">Zero-Downtime Cache</div>
+          </div>
+          <ArrowRight className="h-3.5 w-3.5 text-cyan-400 shrink-0" />
+          <div className="flex-1 p-2 rounded bg-slate-900 border border-slate-800">
+            <span className="text-emerald-400 font-semibold">Modern Web & DB</span>
+            <div className="text-slate-500 text-[9px] mt-0.5">PostgreSQL / Next.js</div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (id === "data") {
+    return (
+      <div className="rounded-xl bg-slate-950 p-4 border border-slate-800 shadow-inner">
+        <div className="flex items-center justify-between border-b border-slate-800 pb-2 mb-3 text-[11px] font-mono">
+          <div className="flex items-center gap-1.5 text-slate-300">
+            <Database className="h-3.5 w-3.5 text-blue-400" />
+            <span>High-Throughput Streaming Pipeline</span>
+          </div>
+          <span className="text-cyan-400 font-semibold">24,500 ev/sec</span>
+        </div>
+        <div className="grid grid-cols-3 gap-2 text-center text-[10px] font-mono">
+          <div className="p-2 rounded bg-slate-900 border border-slate-800">
+            <div className="text-blue-400 font-semibold">Kafka Cluster</div>
+            <div className="text-slate-500 text-[9px] mt-0.5">Ingest Partitioning</div>
+          </div>
+          <div className="p-2 rounded bg-slate-900 border border-slate-800">
+            <div className="text-purple-400 font-semibold">Vector Index</div>
+            <div className="text-slate-500 text-[9px] mt-0.5">HNSW Cosine Search</div>
+          </div>
+          <div className="p-2 rounded bg-slate-900 border border-slate-800">
+            <div className="text-emerald-400 font-semibold">Analytics OLAP</div>
+            <div className="text-slate-500 text-[9px] mt-0.5">&lt;50ms Aggregations</div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="rounded-xl bg-slate-950 p-4 border border-slate-800 shadow-inner">
+      <div className="flex items-center justify-between border-b border-slate-800 pb-2 mb-3 text-[11px] font-mono">
+        <div className="flex items-center gap-1.5 text-slate-300">
+          <Shield className="h-3.5 w-3.5 text-emerald-400" />
+          <span>Air-Gapped Cryptographic Enclave</span>
+        </div>
+        <span className="text-emerald-400">Zero Egress Verified</span>
+      </div>
+      <div className="grid grid-cols-3 gap-2 text-[10px] font-mono text-center">
+        <div className="p-2 rounded bg-slate-900 border border-slate-800">
+          <div className="text-emerald-400 font-semibold">Offline LLM</div>
+          <div className="text-slate-500 text-[9px] mt-0.5">Self-Contained Nodes</div>
+        </div>
+        <div className="p-2 rounded bg-slate-900 border border-slate-800">
+          <div className="text-cyan-400 font-semibold">mTLS Enclave</div>
+          <div className="text-slate-500 text-[9px] mt-0.5">Hardware Encrypted</div>
+        </div>
+        <div className="p-2 rounded bg-slate-900 border border-slate-800">
+          <div className="text-amber-400 font-semibold">Audit Seal</div>
+          <div className="text-slate-500 text-[9px] mt-0.5">SOC2 / ISO Ready</div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 /* ------------------------------------------------------------------ */
 /* Interactive Solution Console                                      */
@@ -318,6 +495,9 @@ export function InteractiveSolutionConsole() {
                   {current.description}
                 </p>
               </div>
+
+              {/* Real Architectural Visual Mockup */}
+              <CapabilityVisual id={current.id} />
 
               {/* Live Production Metrics Row */}
               <div className="grid grid-cols-3 gap-3 rounded-xl border border-slate-100 bg-slate-50/70 p-4">
