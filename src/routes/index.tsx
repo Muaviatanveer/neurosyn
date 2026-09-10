@@ -401,16 +401,20 @@ function Home() {
       {/* ========================================================================= */}
       {/* 4. SPRINT DELIVERY ROADMAP (Interactive 4-Phase Stepper)                  */}
       {/* ========================================================================= */}
-      <section className="border-b border-slate-200 bg-[#FFFFFF] px-6 py-20 md:px-10 md:py-28">
-        <div className="mx-auto max-w-[1360px]">
+      <section className="relative border-b border-slate-200 bg-[#FFFFFF] px-6 py-20 md:px-10 md:py-28 overflow-hidden">
+        <div className="pointer-events-none absolute inset-0 opacity-20 netsol-pinstripes" />
+        <div className="relative mx-auto max-w-[1360px]">
           <div className="flex flex-col justify-between gap-6 border-b border-slate-200 pb-10 md:flex-row md:items-end">
             <div>
-              <div className="inline-flex items-center gap-2 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-[#0891B2]">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#06B6D4]" />
-                How We Deliver
+              <div className="inline-flex items-center gap-2.5 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+                <span className="h-4 w-1 rounded-full bg-[#1D81F2]" />
+                <span>How We Deliver</span>
               </div>
-              <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl md:text-5xl">
-                Structured sprints. Zero ambiguity.
+              <h2 className="mt-4 font-display text-3xl font-semibold tracking-[-0.03em] text-slate-950 sm:text-4xl md:text-5xl">
+                Structured sprints.{" "}
+                <span className="text-[#1D81F2] underline decoration-blue-200/50 underline-offset-8">
+                  Zero ambiguity.
+                </span>
               </h2>
             </div>
             <p className="max-w-md text-base text-slate-600">
@@ -428,56 +432,55 @@ function Home() {
       {/* 4. SELECTED WORK / CASE STUDIES (Visual Device Mockups & Real UI Pics)     */}
       {/* ========================================================================= */}
       <section className="relative border-b border-slate-200 bg-[#FFFFFF] px-6 py-20 md:px-10 md:py-28 overflow-hidden">
-        {/* Colorful ambient background illumination */}
-        <div className="pointer-events-none absolute inset-0 opacity-60">
-          <div className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-cyan-500/10 blur-3xl rounded-full" />
-          <div className="absolute bottom-1/4 left-0 w-[600px] h-[600px] bg-indigo-500/10 blur-3xl rounded-full" />
-        </div>
+        <div className="pointer-events-none absolute inset-0 opacity-20 netsol-pinstripes" />
 
         <div className="relative mx-auto max-w-[1360px]">
           <div className="flex flex-col justify-between gap-6 border-b border-slate-200 pb-10 md:flex-row md:items-end">
             <div>
-              <div className="inline-flex items-center gap-2 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-[#0891B2]">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#06B6D4]" />
-                Proven Engineering
+              <div className="inline-flex items-center gap-2.5 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+                <span className="h-4 w-1 rounded-full bg-[#1D81F2]" />
+                <span>Proven Production Engineering</span>
               </div>
-              <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl md:text-5xl">
-                What we've engineered in production.
+              <h2 className="mt-4 font-display text-3xl font-semibold tracking-[-0.03em] text-slate-950 sm:text-4xl md:text-5xl">
+                What we've engineered in{" "}
+                <span className="text-[#1D81F2] underline decoration-blue-200/50 underline-offset-8">
+                  production.
+                </span>
               </h2>
             </div>
             <Link
               to="/case-studies"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-slate-900 hover:text-[#0891B2] transition-colors"
+              className="group inline-flex items-center gap-2 text-sm font-semibold text-[#1D81F2] hover:text-[#156CD4] transition-colors"
             >
               <span>View all case studies</span>
-              <ArrowRight className="h-4 w-4" />
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
 
           <div className="mt-14 space-y-12">
             {caseStudies.map((cs, idx) => (
               <Reveal key={cs.partner} delay={idx * 0.1}>
-                <div className={`group relative rounded-2xl border border-slate-200/90 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-xl hover:border-slate-300 md:p-8 lg:p-10 ${cs.glowColor}`}>
+                <div className="group relative rounded-[28px] border border-slate-200/85 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-xl hover:border-slate-300 md:p-8 lg:p-10">
                   <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
                     
                     {/* Left Column: Context, Challenge, Solution & Impact Metrics */}
                     <div className="lg:col-span-5 space-y-6">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-3">
-                          <span className="font-mono text-xs font-bold text-[#0891B2] bg-cyan-50 px-2 py-0.5 rounded border border-cyan-100">
+                          <span className="font-mono text-xs font-bold text-[#1D81F2] bg-blue-50 px-2.5 py-1 rounded-lg border border-blue-100">
                             0{idx + 1}
                           </span>
-                          <span className={`text-xs font-mono font-medium px-2.5 py-0.5 rounded-full border ${cs.badgeColor}`}>
+                          <span className="text-xs font-mono font-semibold px-3 py-1 rounded-full border border-blue-100 bg-blue-50/50 text-[#1D81F2]">
                             {cs.badge}
                           </span>
                         </div>
-                        <span className="text-xs font-mono text-slate-600 font-medium">
+                        <span className="text-xs font-mono text-slate-500 font-medium">
                           {cs.category}
                         </span>
                       </div>
 
                       <div>
-                        <h3 className="font-display text-2xl sm:text-3xl font-semibold tracking-tight text-slate-950">
+                        <h3 className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-slate-950">
                           {cs.partner}
                         </h3>
                         <p className="mt-2 text-sm text-slate-600 leading-relaxed">
@@ -485,8 +488,8 @@ function Home() {
                         </p>
                       </div>
 
-                      <div className="rounded-xl bg-slate-50 border border-slate-200/80 p-4 space-y-2">
-                        <div className="text-[11px] font-mono uppercase tracking-wider text-slate-600 font-bold">
+                      <div className="rounded-2xl bg-[#F8FAFC] border border-slate-200/80 p-5 space-y-2">
+                        <div className="text-[11px] font-mono uppercase tracking-wider text-[#1D81F2] font-bold">
                           What We Engineered
                         </div>
                         <p className="text-xs sm:text-sm text-slate-800 leading-relaxed">
@@ -497,11 +500,11 @@ function Home() {
                       {/* 3 High-Impact Metrics Grid */}
                       <div className="grid grid-cols-3 gap-3 pt-2">
                         {cs.metrics.map((m, mIdx) => (
-                          <div key={mIdx} className="rounded-lg bg-slate-50/60 border border-slate-200/60 p-3 text-center">
-                            <div className="text-[10px] font-mono uppercase tracking-wider text-slate-600">
+                          <div key={mIdx} className="rounded-xl bg-slate-50 border border-slate-200/80 p-3.5 text-center">
+                            <div className="text-[10px] font-mono uppercase tracking-wider text-slate-500">
                               {m.label}
                             </div>
-                            <div className="mt-1 font-display font-bold text-sm text-slate-950">
+                            <div className="mt-1 font-display font-extrabold text-sm text-[#1D81F2]">
                               {m.value}
                             </div>
                           </div>
@@ -513,7 +516,7 @@ function Home() {
                         {cs.tags.map((tag) => (
                           <span
                             key={tag}
-                            className="rounded-md bg-slate-100 px-2.5 py-1 text-[11px] font-mono text-slate-600"
+                            className="rounded-lg bg-slate-100 px-2.5 py-1 text-[11px] font-mono font-medium text-slate-700"
                           >
                             {tag}
                           </span>
@@ -523,16 +526,16 @@ function Home() {
 
                     {/* Right Column: Realistic Browser Mockup Window with the Real Screenshot */}
                     <div className="lg:col-span-7">
-                      <div className="mockup-frame bg-slate-900 border border-slate-800 shadow-2xl transition-all duration-300 group-hover:shadow-cyan-950/20 group-hover:border-slate-700">
+                      <div className="mockup-frame rounded-2xl overflow-hidden bg-slate-900 border border-slate-800 shadow-2xl transition-all duration-300 group-hover:shadow-blue-950/20 group-hover:border-slate-700">
                         {/* Browser Top Navigation Bar */}
-                        <div className="flex items-center justify-between px-4 py-3 bg-slate-950/80 border-b border-slate-800 text-xs">
+                        <div className="flex items-center justify-between px-4 py-3 bg-slate-950/90 border-b border-slate-800 text-xs">
                           <div className="flex items-center gap-2">
                             <div className="w-3 h-3 rounded-full bg-rose-500/80" />
                             <div className="w-3 h-3 rounded-full bg-amber-500/80" />
                             <div className="w-3 h-3 rounded-full bg-emerald-500/80" />
                           </div>
                           <div className="flex items-center gap-2 px-3 py-1 rounded-md bg-slate-900/90 border border-slate-800 text-slate-400 font-mono text-[11px]">
-                            <Lock className="w-3 h-3 text-emerald-400" />
+                            <Lock className="w-3 h-3 text-[#1D81F2]" />
                             <span>{cs.url}</span>
                           </div>
                           <div className="flex items-center gap-1.5 text-[11px] font-mono text-emerald-400">
@@ -576,22 +579,25 @@ function Home() {
       {/* ========================================================================= */}
       {/* 7. PROPRIETARY TECHNOLOGY & PRODUCTS (15% Dark Technology Accent Anchor)  */}
       {/* ========================================================================= */}
-      <section className="relative overflow-hidden border-y border-slate-800 bg-[#090D16] text-white px-6 py-24 md:px-10 md:py-32">
-        {/* Deep cyan & purple ambient glow */}
-        <div className="pointer-events-none absolute inset-0 opacity-40 mesh-dark-glow" />
+      <section className="relative overflow-hidden border-y border-slate-800 bg-[#0A0F1D] text-white px-6 py-24 md:px-10 md:py-32">
+        {/* Deep blue ambient glow */}
+        <div className="pointer-events-none absolute inset-0 opacity-20 netsol-pinstripes" />
 
         <div className="relative mx-auto max-w-[1360px]">
           <div className="grid gap-8 border-b border-slate-800 pb-12 lg:grid-cols-12 lg:items-end">
             <div className="lg:col-span-7">
               <Reveal>
-                <div className="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/90 px-3.5 py-1 font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-cyan-400">
-                  <Cpu className="h-3.5 w-3.5 text-[#06B6D4]" />
-                  Proprietary Deep Tech
+                <div className="inline-flex items-center gap-2.5 rounded-full border border-slate-700 bg-slate-900/90 px-3.5 py-1 font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-blue-400">
+                  <span className="h-3.5 w-1 rounded-full bg-[#1D81F2]" />
+                  <span>Proprietary Deep Tech</span>
                 </div>
               </Reveal>
               <Reveal delay={1}>
-                <h2 className="mt-6 font-display text-3xl font-semibold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
-                  Technology we've engineered in-house.
+                <h2 className="mt-6 font-display text-3xl font-semibold tracking-[-0.03em] text-white sm:text-4xl md:text-5xl lg:text-6xl">
+                  Technology we've engineered{" "}
+                  <span className="text-[#1D81F2] underline decoration-blue-400/40 underline-offset-8">
+                    in-house.
+                  </span>
                 </h2>
               </Reveal>
             </div>
@@ -619,22 +625,22 @@ function Home() {
                   to={p.to}
                   onMouseEnter={() => setHoveredEngine(p.id)}
                   onMouseLeave={() => setHoveredEngine(null)}
-                  className={`group relative flex h-full flex-col justify-between rounded-2xl border p-8 transition-all duration-300 ${
+                  className={`group relative flex h-full flex-col justify-between rounded-[28px] border p-8 transition-all duration-300 ${
                     hoveredEngine === p.id
-                      ? "border-cyan-500 bg-[#0F172A] shadow-2xl shadow-cyan-950/50 -translate-y-1"
+                      ? "border-[#1D81F2] bg-[#0F172A] shadow-2xl shadow-blue-500/20 -translate-y-1"
                       : "border-slate-800/90 bg-[#0F172A]/70 hover:border-slate-700 hover:bg-[#0F172A]"
                   }`}
                 >
                   <div>
                     <div className="flex items-center justify-between">
                       <span className={`font-mono text-xs font-semibold uppercase tracking-wider transition-colors ${
-                        hoveredEngine === p.id ? "text-cyan-400" : "text-slate-400"
+                        hoveredEngine === p.id ? "text-[#1D81F2]" : "text-slate-400"
                       }`}>
                         {p.tag}
                       </span>
                       <ArrowUpRight className="h-4 w-4 text-slate-400 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-white" />
                     </div>
-                    <h3 className="mt-4 font-display text-2xl font-bold tracking-tight text-white group-hover:text-cyan-400 transition-colors">
+                    <h3 className="mt-4 font-display text-2xl font-bold tracking-tight text-white group-hover:text-[#1D81F2] transition-colors">
                       {p.name}
                     </h3>
                     <p className="mt-3 text-sm leading-relaxed text-slate-300">
@@ -642,12 +648,12 @@ function Home() {
                     </p>
 
                     {/* Live Product Telemetry Preview */}
-                    <div className="my-5 rounded-xl bg-slate-950 border border-slate-800/90 p-3.5 font-mono text-xs space-y-1.5 shadow-inner">
+                    <div className="my-5 rounded-2xl bg-slate-950 border border-slate-800/90 p-4 font-mono text-xs space-y-1.5 shadow-inner">
                       <div className="flex items-center justify-between text-[10px] pb-1.5 border-b border-slate-800/80">
                         <span className={p.uiPreview.statusColor}>● {p.uiPreview.status}</span>
                         <span className="text-slate-400 font-semibold">{p.uiPreview.metric}</span>
                       </div>
-                      <div className="text-[11px] text-cyan-300 truncate">{p.uiPreview.line1}</div>
+                      <div className="text-[11px] text-blue-300 truncate">{p.uiPreview.line1}</div>
                       <div className="text-[11px] text-slate-400 truncate">{p.uiPreview.line2}</div>
                     </div>
                   </div>
@@ -655,7 +661,7 @@ function Home() {
                   <div className="mt-4 border-t border-slate-800/80 pt-4">
                     <div className="flex flex-wrap items-center gap-2 text-[11px] font-mono text-slate-400">
                       {p.specs.map((spec) => (
-                        <span key={spec} className="rounded-md border border-slate-800 bg-slate-900/90 px-2.5 py-1 text-slate-300">
+                        <span key={spec} className="rounded-lg border border-slate-800 bg-slate-900/90 px-2.5 py-1 text-slate-300">
                           {spec}
                         </span>
                       ))}
@@ -671,8 +677,9 @@ function Home() {
       {/* ========================================================================= */}
       {/* 7. PROJECT CONFIGURATOR (Interactive Scope & Architecture Estimator)      */}
       {/* ========================================================================= */}
-      <section className="border-t border-slate-200 bg-[#FFFFFF] px-6 py-20 md:px-10 md:py-28">
-        <div className="mx-auto max-w-[1360px]">
+      <section className="relative border-t border-slate-200 bg-[#FFFFFF] px-6 py-20 md:px-10 md:py-28 overflow-hidden">
+        <div className="pointer-events-none absolute inset-0 opacity-20 netsol-pinstripes" />
+        <div className="relative mx-auto max-w-[1360px]">
           <ProjectConfigurator />
         </div>
       </section>
@@ -680,37 +687,44 @@ function Home() {
       {/* ========================================================================= */}
       {/* 8. FINAL CALL TO ACTION                                                    */}
       {/* ========================================================================= */}
-      <section className="relative bg-slate-950 px-6 py-20 text-white md:px-10 md:py-28 overflow-hidden">
+      <section className="relative bg-[#0A0F1D] px-6 py-20 text-white md:px-10 md:py-28 overflow-hidden border-t border-slate-800">
+        <div className="pointer-events-none absolute inset-0 opacity-15 netsol-pinstripes" />
         <div className="mx-auto max-w-[900px] text-center relative">
           <Reveal>
-            <p className="font-mono text-xs font-semibold uppercase tracking-[0.16em] text-[#06B6D4]">
-              Start a Conversation
-            </p>
+            <div className="inline-flex items-center gap-2.5 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-blue-400">
+              <span className="h-3.5 w-1 rounded-full bg-[#1D81F2]" />
+              <span>Direct Technical Engagement</span>
+            </div>
           </Reveal>
           <Reveal delay={1}>
-            <h2 className="mt-5 font-display text-3xl font-semibold tracking-tight sm:text-5xl md:text-6xl">
-              Have a software challenge?
+            <h2 className="mt-5 font-display text-4xl font-semibold tracking-[-0.03em] sm:text-5xl md:text-6xl">
+              Have an enterprise software{" "}
+              <span className="text-[#1D81F2] underline decoration-blue-400/40 underline-offset-8">
+                challenge?
+              </span>
             </h2>
           </Reveal>
           <Reveal delay={2}>
             <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-slate-400 sm:text-lg">
-              Tell us what you need. We'll figure out the best way to build it and give you an honest estimate.
+              Tell us what you need. Our principal software architects will review your systems and deliver an actionable technical blueprint within 24 hours under NDA.
             </p>
           </Reveal>
           <Reveal delay={3}>
-            <div className="mt-10 flex flex-wrap justify-center gap-3">
+            <div className="mt-10 flex flex-wrap justify-center gap-4">
               <Link
                 to="/contact"
-                className="group inline-flex items-center gap-2 rounded-md bg-white px-6 py-3.5 text-sm font-semibold text-slate-950 shadow-sm transition-all hover:bg-slate-100 active:scale-[0.98]"
+                className="group inline-flex items-center gap-3 rounded-full bg-[#1D81F2] px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-blue-500/25 transition-all hover:bg-[#156CD4] hover:shadow-xl hover:shadow-blue-500/35 active:scale-[0.98]"
               >
-                <span>Start a Project</span>
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                <span>Start an Engagement</span>
+                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/20 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </span>
               </Link>
               <Link
                 to="/contact"
-                className="rounded-md border border-slate-700 bg-slate-900 px-6 py-3.5 text-sm font-semibold text-white transition-all hover:bg-slate-800 hover:border-slate-600 active:scale-[0.98]"
+                className="rounded-full border border-slate-700 bg-slate-800/80 px-8 py-4 text-sm font-semibold text-slate-200 transition-all hover:bg-slate-700 hover:border-slate-600 active:scale-[0.98]"
               >
-                Talk to Our Team
+                Schedule Architecture Session
               </Link>
             </div>
           </Reveal>

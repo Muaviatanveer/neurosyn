@@ -100,40 +100,39 @@ export function DeliveryTimelineStepper() {
   const CurrentIcon = current.icon;
 
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-6 md:p-8 shadow-xl shadow-slate-900/[0.03]">
+    <div className="rounded-[28px] border border-slate-200/85 bg-white p-6 md:p-10 shadow-sm transition-all">
       {/* Top Phase Selectors */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 border-b border-slate-100 pb-6">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 border-b border-slate-100 pb-8">
         {phases.map((phase) => {
           const isActive = phase.id === activePhase;
-          const PhaseIcon = phase.icon;
 
           return (
             <button
               key={phase.id}
               onClick={() => setActivePhase(phase.id)}
-              className={`relative text-left p-3.5 rounded-xl border transition-all ${
+              className={`relative text-left p-4 rounded-2xl border transition-all duration-200 ${
                 isActive
-                  ? "border-slate-900 bg-slate-900 text-white shadow-sm"
-                  : "border-slate-200 bg-slate-50/60 text-slate-700 hover:border-slate-300 hover:bg-white"
+                  ? "border-[#1D81F2] bg-[#1D81F2] text-white shadow-lg shadow-blue-500/25 -translate-y-0.5"
+                  : "border-slate-200 bg-slate-50/70 text-slate-700 hover:border-slate-300 hover:bg-white"
               }`}
             >
               <div className="flex items-center justify-between">
                 <span
-                  className={`font-mono text-xs font-bold ${
-                    isActive ? "text-cyan-400" : "text-slate-400"
+                  className={`font-mono text-xs font-bold uppercase tracking-wider ${
+                    isActive ? "text-blue-100" : "text-[#1D81F2]"
                   }`}
                 >
                   Phase {phase.step}
                 </span>
                 <span
-                  className={`text-[10px] font-mono px-1.5 py-0.5 rounded ${
-                    isActive ? "bg-slate-800 text-slate-300" : "bg-white text-slate-500 border border-slate-200"
+                  className={`text-[10px] font-mono px-2 py-0.5 rounded-full font-medium ${
+                    isActive ? "bg-white/20 text-white" : "bg-white text-slate-600 border border-slate-200"
                   }`}
                 >
                   {phase.duration}
                 </span>
               </div>
-              <div className="mt-2 font-display text-sm font-semibold truncate">
+              <div className="mt-2.5 font-display text-sm font-semibold truncate">
                 {phase.name}
               </div>
             </button>
@@ -149,28 +148,28 @@ export function DeliveryTimelineStepper() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -8 }}
           transition={{ duration: 0.25 }}
-          className="pt-6 grid md:grid-cols-12 gap-8 items-start"
+          className="pt-8 grid md:grid-cols-12 gap-8 items-start"
         >
           {/* Left summary */}
-          <div className="md:col-span-5 space-y-4">
-            <div className="flex items-center gap-2 font-mono text-xs text-slate-400">
-              <span className="flex h-7 w-7 items-center justify-center rounded-md bg-slate-100 text-slate-800">
-                <CurrentIcon className="h-4 w-4 text-cyan-600" />
+          <div className="md:col-span-5 space-y-5">
+            <div className="flex items-center gap-2.5 font-mono text-xs text-slate-500">
+              <span className="flex h-8 w-8 items-center justify-center rounded-xl border border-blue-100 bg-blue-50 text-[#1D81F2]">
+                <CurrentIcon className="h-4.5 w-4.5" />
               </span>
-              <span className="font-semibold text-slate-900 uppercase">
-                Phase {current.step} — {current.duration}
+              <span className="font-semibold text-slate-900 uppercase tracking-wider">
+                Phase {current.step} · {current.duration}
               </span>
             </div>
-            <h4 className="font-display text-2xl font-bold tracking-tight text-slate-950">
+            <h4 className="font-display text-2xl font-bold tracking-tight text-slate-950 sm:text-3xl">
               {current.name}
             </h4>
             <p className="text-sm text-slate-600 leading-relaxed">
               {current.summary}
             </p>
 
-            <div className="rounded-xl border border-slate-200 bg-slate-50/80 p-4 space-y-1">
-              <div className="flex items-center gap-1.5 text-[11px] font-mono font-semibold uppercase tracking-wider text-slate-700">
-                <FileCheck className="h-3.5 w-3.5 text-cyan-600" />
+            <div className="rounded-2xl border border-blue-100 bg-blue-50/50 p-5 space-y-1.5">
+              <div className="flex items-center gap-2 text-[11px] font-mono font-semibold uppercase tracking-wider text-[#1D81F2]">
+                <FileCheck className="h-4 w-4 text-[#1D81F2]" />
                 <span>Client Milestone Checkpoint</span>
               </div>
               <div className="text-xs text-slate-900 font-medium pt-1">
@@ -180,17 +179,17 @@ export function DeliveryTimelineStepper() {
           </div>
 
           {/* Right deliverables list */}
-          <div className="md:col-span-7 bg-slate-50/50 border border-slate-150 rounded-xl p-5 md:p-6 space-y-3">
-            <div className="font-mono text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1">
+          <div className="md:col-span-7 bg-[#F8FAFC]/90 border border-slate-200/80 rounded-2xl p-6 md:p-8 space-y-3">
+            <div className="font-mono text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2">
               Tangible Sprint Artifacts Delivered
             </div>
             <div className="space-y-2.5">
               {current.deliverables.map((item) => (
                 <div
                   key={item}
-                  className="flex items-start gap-3 rounded-lg border border-slate-200/80 bg-white p-3 text-xs text-slate-800 shadow-sm"
+                  className="flex items-start gap-3 rounded-xl border border-slate-200/80 bg-white p-3.5 text-xs text-slate-800 shadow-xs hover:border-slate-300 transition-colors"
                 >
-                  <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-[#1D81F2] shrink-0 mt-0.5" />
                   <span className="font-medium leading-relaxed">{item}</span>
                 </div>
               ))}
