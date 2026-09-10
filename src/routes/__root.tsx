@@ -77,25 +77,30 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "NeuroSyn — Enterprise AI, Built for Reality" },
+      { title: "NeuroSyn — Custom Software & AI Systems" },
       {
         name: "description",
         content:
-          "AI operating systems that automate software engineering, enterprise operations, and industrial decision-making.",
+          "We build software that moves businesses forward. Custom web & mobile applications, AI systems, cloud infrastructure, and enterprise ERP.",
       },
       { name: "author", content: "NeuroSyn" },
-      { property: "og:title", content: "NeuroSyn — Enterprise AI, Built for Reality" },
+      { property: "og:site_name", content: "NeuroSyn" },
+      { property: "og:title", content: "NeuroSyn — Custom Software & AI Systems" },
       {
         property: "og:description",
         content:
-          "AI operating systems that automate software engineering, enterprise operations, and industrial decision-making.",
+          "We build software that moves businesses forward. Custom web & mobile applications, AI systems, cloud infrastructure, and enterprise ERP.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://www.neurosyn.it.com" },
+      { property: "og:image", content: "https://www.neurosyn.it.com/og-image.png" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: "NeuroSyn — Custom Software & AI Systems" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "NeuroSyn — Enterprise AI, Built for Reality" },
-      { name: "twitter:description", content: "AI operating systems that automate software engineering, enterprise operations, and industrial decision-making." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/31355564-e285-4010-89a3-578f09e7ca9c/id-preview-e1ef8cd7--de53c5cc-7087-4206-a251-62fcb3d2c20e.lovable.app-1784139811575.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/31355564-e285-4010-89a3-578f09e7ca9c/id-preview-e1ef8cd7--de53c5cc-7087-4206-a251-62fcb3d2c20e.lovable.app-1784139811575.png" },
+      { name: "twitter:title", content: "NeuroSyn — Custom Software & AI Systems" },
+      { name: "twitter:description", content: "We build software that moves businesses forward. Custom web & mobile applications, AI systems, cloud infrastructure, and enterprise ERP." },
+      { name: "twitter:image", content: "https://www.neurosyn.it.com/og-image.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
