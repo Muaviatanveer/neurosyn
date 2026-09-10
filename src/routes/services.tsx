@@ -228,50 +228,58 @@ const serviceCategories = [
 function ServicesPage() {
   return (
     <div className="min-h-screen bg-white text-slate-900">
-      {/* Header */}
-      <section className="border-b border-slate-200 bg-[#F8FAFC] px-6 py-16 md:px-10 md:py-24">
-        <div className="mx-auto max-w-[960px] text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3.5 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-slate-700">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#06B6D4]" />
-            Full-Spectrum Engineering Services
+      {/* Header with NETSOL Architectural Pinstripes */}
+      <section className="relative border-b border-slate-200 bg-[#FFFFFF] px-6 py-20 md:px-10 md:py-28 overflow-hidden">
+        <div className="pointer-events-none absolute inset-0 opacity-25 netsol-pinstripes" />
+        <div className="relative mx-auto max-w-[960px] text-center">
+          <div className="inline-flex items-center gap-2.5 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+            <span className="h-4 w-1 rounded-full bg-[#1D81F2]" />
+            <span>Full-Spectrum Engineering Services</span>
           </div>
-          <h1 className="mt-6 font-display text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl md:text-6xl">
-            Software & AI services built for reality.
+          <h1 className="mt-6 font-display text-4xl font-semibold tracking-[-0.03em] text-slate-950 sm:text-5xl md:text-6xl lg:text-[62px] lg:leading-[1.08]">
+            Software & AI systems built to move enterprises{" "}
+            <span className="text-[#1D81F2] underline decoration-blue-200/50 underline-offset-8">
+              forward.
+            </span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg">
             From custom AI systems and distributed software platforms to enterprise ERP modernization and air-gapped sovereign environments—we deliver senior engineering execution.
           </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 rounded-md bg-slate-950 px-5 py-3 text-sm font-medium text-white shadow-sm hover:bg-slate-800"
+              className="group inline-flex items-center gap-3 rounded-full bg-[#1D81F2] px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-500/25 transition-all hover:bg-[#156CD4] hover:shadow-xl hover:shadow-blue-500/35 active:scale-[0.98]"
             >
               <span>Start an Engineering Engagement</span>
-              <ArrowRight className="h-4 w-4" />
+              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/20 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                <ArrowRight className="h-3.5 w-3.5" />
+              </span>
             </Link>
           </div>
         </div>
       </section>
 
       {/* Services List */}
-      <section className="px-6 py-16 md:px-10 md:py-24">
+      <section className="px-6 py-16 md:px-10 md:py-24 bg-[#F8FAFC]">
         <div className="mx-auto max-w-[1360px] space-y-16">
-          {serviceCategories.map((category, index) => {
+          {serviceCategories.map((category) => {
             const Icon = category.icon;
             return (
               <Reveal key={category.id}>
                 <div
                   id={category.id}
-                  className="scroll-mt-24 rounded-2xl border border-slate-200 bg-white p-7 shadow-sm transition-all hover:border-slate-300 sm:p-10"
+                  className="scroll-mt-24 rounded-[28px] border border-slate-200/80 bg-white p-8 shadow-md shadow-slate-900/[0.02] transition-all hover:border-slate-300 hover:shadow-xl sm:p-12 overflow-hidden relative"
                 >
+                  <div className="pointer-events-none absolute inset-0 opacity-15 netsol-pinstripes" />
+                  
                   {/* Category Top Banner */}
-                  <div className="flex flex-col justify-between gap-4 border-b border-slate-100 pb-8 md:flex-row md:items-center">
+                  <div className="relative z-10 flex flex-col justify-between gap-4 border-b border-slate-100 pb-8 md:flex-row md:items-center">
                     <div className="flex items-center gap-4">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-[#0891B2]">
-                        <Icon className="h-6 w-6" strokeWidth={1.75} />
+                      <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-blue-100 bg-blue-50/80 text-[#1D81F2] shadow-sm">
+                        <Icon className="h-7 w-7" strokeWidth={1.75} />
                       </div>
                       <div>
-                        <span className="font-mono text-xs font-semibold text-[#0891B2]">
+                        <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#1D81F2]">
                           {category.badge}
                         </span>
                         <h2 className="font-display text-2xl font-bold tracking-tight text-slate-950 sm:text-3xl">
@@ -279,21 +287,21 @@ function ServicesPage() {
                         </h2>
                       </div>
                     </div>
-                    <p className="max-w-md text-sm text-slate-600">
+                    <p className="max-w-md text-sm text-slate-600 font-medium">
                       {category.tagline}
                     </p>
                   </div>
 
                   {/* Capabilities Grid */}
-                  <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                  <div className="relative z-10 mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                     {category.capabilities.map((cap) => (
                       <div
                         key={cap.name}
-                        className="flex flex-col justify-between rounded-xl border border-slate-100 bg-[#F8FAFC]/80 p-5 transition-colors hover:bg-slate-50 hover:border-slate-200"
+                        className="flex flex-col justify-between rounded-2xl border border-slate-100 bg-slate-50/60 p-5 transition-all hover:bg-white hover:border-slate-200 hover:shadow-sm"
                       >
                         <div>
                           <div className="flex items-center gap-2">
-                            <span className="h-1.5 w-1.5 rounded-full bg-[#06B6D4]" />
+                            <span className="h-2 w-2 rounded-full bg-[#1D81F2]" />
                             <h3 className="font-display text-base font-semibold text-slate-900">
                               {cap.name}
                             </h3>
@@ -307,13 +315,13 @@ function ServicesPage() {
                   </div>
 
                   {/* Category Footer Action */}
-                  <div className="mt-8 flex items-center justify-between border-t border-slate-100 pt-5">
+                  <div className="relative z-10 mt-8 flex items-center justify-between border-t border-slate-100 pt-5">
                     <span className="font-mono text-xs text-slate-500">
                       Production delivery with dedicated engineering pod
                     </span>
                     <Link
                       to="/contact"
-                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-900 hover:text-[#0891B2]"
+                      className="inline-flex items-center gap-2 text-xs font-bold text-[#1D81F2] hover:text-[#156CD4] transition-colors"
                     >
                       <span>Inquire about {category.title}</span>
                       <ArrowRight className="h-3.5 w-3.5" />
@@ -326,37 +334,41 @@ function ServicesPage() {
         </div>
       </section>
 
-      {/* Engagement Models Banner */}
-      <section className="border-t border-slate-200 bg-[#F8FAFC] px-6 py-16 md:px-10 md:py-20">
+      {/* Engagement Models Banner (NETSOL Bento Style) */}
+      <section className="border-t border-slate-200 bg-[#FFFFFF] px-6 py-16 md:px-10 md:py-24">
         <div className="mx-auto max-w-[1360px]">
-          <div className="text-center">
-            <h2 className="font-display text-2xl font-bold text-slate-950 sm:text-3xl">
+          <div className="text-center max-w-2xl mx-auto space-y-3">
+            <div className="inline-flex items-center gap-2 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-[#1D81F2]">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#1D81F2]" />
+              Enterprise Delivery
+            </div>
+            <h2 className="font-display text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">
               Flexible Enterprise Engagement Models
             </h2>
-            <p className="mx-auto mt-2 max-w-xl text-sm text-slate-600">
+            <p className="text-sm leading-relaxed text-slate-600">
               We shape our engineering teams around your operational timeline, security parameters, and technical architecture.
             </p>
           </div>
 
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-              <span className="font-mono text-xs font-semibold uppercase tracking-wider text-[#0891B2]">Model 01</span>
-              <h3 className="mt-2 font-display text-lg font-semibold text-slate-900">Dedicated Engineering Pods</h3>
-              <p className="mt-2 text-xs leading-relaxed text-slate-600">
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            <div className="rounded-[24px] border border-slate-200/80 bg-slate-50/60 p-8 shadow-sm transition-all hover:bg-white hover:shadow-lg hover:border-slate-300">
+              <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#1D81F2] bg-blue-50 px-2.5 py-1 rounded-full border border-blue-100">Model 01</span>
+              <h3 className="mt-4 font-display text-xl font-bold text-slate-950">Dedicated Engineering Pods</h3>
+              <p className="mt-3 text-xs leading-relaxed text-slate-600 font-medium">
                 Self-sufficient, senior engineering teams (Tech Lead, Staff Engineers, Data/ML Specialists) embedded directly into your delivery roadmap.
               </p>
             </div>
-            <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-              <span className="font-mono text-xs font-semibold uppercase tracking-wider text-[#0891B2]">Model 02</span>
-              <h3 className="mt-2 font-display text-lg font-semibold text-slate-900">Fixed-Scope Product Builds</h3>
-              <p className="mt-2 text-xs leading-relaxed text-slate-600">
+            <div className="rounded-[24px] border border-slate-200/80 bg-slate-50/60 p-8 shadow-sm transition-all hover:bg-white hover:shadow-lg hover:border-slate-300">
+              <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#1D81F2] bg-blue-50 px-2.5 py-1 rounded-full border border-blue-100">Model 02</span>
+              <h3 className="mt-4 font-display text-xl font-bold text-slate-950">Fixed-Scope Product Builds</h3>
+              <p className="mt-3 text-xs leading-relaxed text-slate-600 font-medium">
                 Clearly scoped milestones from initial architectural specification to production deployment, security verification, and handoff.
               </p>
             </div>
-            <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-              <span className="font-mono text-xs font-semibold uppercase tracking-wider text-[#0891B2]">Model 03</span>
-              <h3 className="mt-2 font-display text-lg font-semibold text-slate-900">Architecture & Security Advisory</h3>
-              <p className="mt-2 text-xs leading-relaxed text-slate-600">
+            <div className="rounded-[24px] border border-slate-200/80 bg-slate-50/60 p-8 shadow-sm transition-all hover:bg-white hover:shadow-lg hover:border-slate-300">
+              <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#1D81F2] bg-blue-50 px-2.5 py-1 rounded-full border border-blue-100">Model 03</span>
+              <h3 className="mt-4 font-display text-xl font-bold text-slate-950">Architecture & Security Advisory</h3>
+              <p className="mt-3 text-xs leading-relaxed text-slate-600 font-medium">
                 Senior staff advisory for AI feasibility, codebase due diligence, air-gapped readiness audits, and infrastructure modernization.
               </p>
             </div>

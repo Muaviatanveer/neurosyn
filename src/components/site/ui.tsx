@@ -20,14 +20,10 @@ export function Section({
 
 export function Eyebrow({ children, index }: { children: ReactNode; index?: string }) {
   return (
-    <div className="inline-flex items-center gap-3">
-      {index && (
-        <span className="font-mono text-[11px] tracking-[0.18em] text-[var(--text-muted)]">
-          {index}
-        </span>
-      )}
-      <span className="h-px w-8 bg-[var(--line-strong)]" />
-      <span className="label-mono text-[var(--text-secondary)]">{children}</span>
+    <div className="inline-flex items-center gap-2 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+      <span className="h-3.5 w-1 rounded-full bg-[#1D81F2]" />
+      {index && <span className="text-[#1D81F2]">{index} ·</span>}
+      <span>{children}</span>
     </div>
   );
 }
@@ -44,28 +40,28 @@ export function CTAButton({
   variant?: "primary" | "ghost";
 }) {
   const base =
-    "group inline-flex items-center gap-3 px-5 py-3 text-sm font-medium transition-all duration-[180ms] ease-[cubic-bezier(0.22,1,0.36,1)]";
+    "group inline-flex items-center gap-2.5 px-6 py-3 text-sm font-semibold rounded-full transition-all duration-200 active:scale-[0.98]";
   const styles =
     variant === "primary"
-      ? "bg-primary text-primary-foreground hover:opacity-90"
-      : "hairline text-foreground hover:border-[var(--line-strong)] hover:bg-[var(--surface)]";
+      ? "bg-[#1D81F2] text-white shadow-lg shadow-blue-500/25 hover:bg-[#156CD4] hover:shadow-xl hover:shadow-blue-500/35"
+      : "border border-slate-200 bg-white text-slate-800 shadow-xs hover:bg-slate-50 hover:border-slate-300";
   const inner = (
     <>
       <span>{children}</span>
-      <span className="font-mono text-[10px] opacity-60 transition-transform duration-[180ms] group-hover:translate-x-0.5">
-        →
+      <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white/20 text-xs transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+        ↗
       </span>
     </>
   );
   if (href) {
     return (
-      <a href={href} className={`${base} ${styles} rounded-[4px]`}>
+      <a href={href} className={`${base} ${styles}`}>
         {inner}
       </a>
     );
   }
   return (
-    <Link to={to ?? "/"} className={`${base} ${styles} rounded-[4px]`}>
+    <Link to={to ?? "/"} className={`${base} ${styles}`}>
       {inner}
     </Link>
   );
@@ -115,15 +111,10 @@ export function Panel({
 }) {
   return (
     <div
-      className={`panel relative overflow-hidden p-6 transition-all duration-[180ms] ease-out ${
-        hover ? "hover:border-[var(--line-strong)] hover:bg-[var(--surface-2)]" : ""
+      className={`relative overflow-hidden rounded-[24px] border border-slate-200/85 bg-white p-7 shadow-sm transition-all duration-300 ${
+        hover ? "hover:border-slate-300 hover:shadow-xl hover:-translate-y-0.5" : ""
       } ${className}`}
     >
-      {/* corner tick marks */}
-      <span className="pointer-events-none absolute left-0 top-0 h-2 w-2 border-l border-t border-[var(--line-strong)]" />
-      <span className="pointer-events-none absolute right-0 top-0 h-2 w-2 border-r border-t border-[var(--line-strong)]" />
-      <span className="pointer-events-none absolute bottom-0 left-0 h-2 w-2 border-b border-l border-[var(--line-strong)]" />
-      <span className="pointer-events-none absolute bottom-0 right-0 h-2 w-2 border-b border-r border-[var(--line-strong)]" />
       {children}
     </div>
   );
@@ -153,13 +144,13 @@ export function PageHeader({
         </Reveal>
       )}
       <Reveal delay={1}>
-        <h1 className="mt-8 text-balance font-display text-5xl font-medium leading-[1.02] tracking-[-0.03em] text-instrument md:text-7xl">
+        <h1 className="mt-6 text-balance font-display text-4xl font-semibold tracking-[-0.03em] text-slate-950 sm:text-5xl md:text-6xl lg:text-[62px] lg:leading-[1.08]">
           {title}
         </h1>
       </Reveal>
       {subtitle && (
         <Reveal delay={2}>
-          <p className="mx-auto mt-6 max-w-2xl text-balance text-lg text-[var(--text-secondary)]">
+          <p className="mx-auto mt-6 max-w-2xl text-balance text-base leading-relaxed text-slate-600 sm:text-lg">
             {subtitle}
           </p>
         </Reveal>
@@ -167,3 +158,4 @@ export function PageHeader({
     </div>
   );
 }
+
