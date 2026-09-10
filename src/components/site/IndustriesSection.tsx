@@ -111,19 +111,17 @@ export function IndustriesSection() {
       </div>
 
       <div className="relative mx-auto max-w-[1360px]">
-        {/* Section Header */}
-        <div className="flex flex-col justify-between gap-6 border-b border-slate-200 pb-10 md:flex-row md:items-end">
-          <div>
-            <div className="inline-flex items-center gap-2 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-[#0891B2]">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#06B6D4]" />
-              Industry Vertical Expertise
-            </div>
-            <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl md:text-5xl">
-              Engineered for high-stakes environments.
-            </h2>
+        {/* Section Header (NETSOL Who We Serve Style) */}
+        <div className="text-center max-w-3xl mx-auto space-y-3 pb-6">
+          <div className="inline-flex items-center gap-2 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-[#1D81F2]">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#1D81F2]" />
+            Global Industry Verticals
           </div>
-          <p className="max-w-md text-base text-slate-600">
-            Our systems operate where failures carry real consequences — from aerospace telemetry and manufacturing lines to air-gapped financial networks.
+          <h2 className="font-display text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl md:text-5xl">
+            Who we serve
+          </h2>
+          <p className="text-base leading-relaxed text-slate-600 max-w-2xl mx-auto">
+            Orchestrating intelligence, resilience, and software excellence across mission-critical sectors — where failure is not an option and precision is paramount.
           </p>
         </div>
 

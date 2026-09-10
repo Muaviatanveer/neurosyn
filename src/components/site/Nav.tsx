@@ -17,7 +17,7 @@ function Logo() {
     <Link to="/" className="flex items-center gap-2" aria-label="NeuroSyn home">
       <span className="font-display text-[18px] font-bold tracking-[-0.02em] text-slate-900">NEURO</span>
       <span className="font-display text-[18px] font-medium tracking-[-0.02em] text-slate-400">SYN</span>
-      <span className="h-1.5 w-1.5 rounded-full bg-[#06B6D4]" />
+      <span className="h-2 w-2 rounded-full bg-[#1D81F2]" />
     </Link>
   );
 }
@@ -60,7 +60,7 @@ export function Nav() {
         <div className="flex items-center gap-3">
           <Link
             to="/contact"
-            className="group hidden items-center gap-2 rounded-md bg-slate-900 px-4 py-2 text-[13px] font-medium text-white transition-all hover:bg-slate-800 lg:inline-flex"
+            className="group hidden items-center gap-2 rounded-full bg-[#1D81F2] px-5 py-2 text-[13px] font-semibold text-white shadow-md shadow-blue-500/20 transition-all hover:bg-[#156CD4] hover:shadow-lg hover:shadow-blue-500/30 active:scale-[0.98] lg:inline-flex"
           >
             <span>Let's Talk</span>
             <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />

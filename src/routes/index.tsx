@@ -17,6 +17,7 @@ import {
   Radio,
 } from "lucide-react";
 import { CTAButton, Reveal } from "../components/site/ui";
+import { ChromeMolecularCore } from "../components/site/ChromeMolecularCore";
 import { EnterpriseDashboardPreview } from "../components/site/EnterpriseDashboardPreview";
 import { TiltCard } from "../components/site/TiltCard";
 import { GeometricCore, type ProductEngineId } from "../components/site/GeometricCore";
@@ -238,17 +239,17 @@ function Home() {
   return (
     <div className="bg-white text-slate-900">
       {/* ========================================================================= */}
-      {/* 1. HERO SECTION (Light, 70% Palette with Vibrant Ambient Mesh)            */}
+      {/* 1. HERO SECTION (NETSOL Enterprise Aesthetic: Architectural Grid + 3D Chrome) */}
       {/* ========================================================================= */}
       <section className="relative overflow-hidden border-b border-slate-200/80 bg-[#FFFFFF] px-6 pb-20 pt-16 md:px-10 md:pb-28 md:pt-24">
-        {/* Colorful ambient mesh lighting */}
+        {/* Soft atmospheric ambient glow */}
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
-          <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[1100px] h-[500px] bg-gradient-to-b from-cyan-500/15 via-indigo-500/10 to-transparent blur-3xl rounded-full" />
-          <div className="absolute top-1/4 -left-20 w-80 h-80 bg-cyan-400/15 blur-3xl rounded-full" />
-          <div className="absolute top-1/3 -right-20 w-96 h-96 bg-indigo-500/12 blur-3xl rounded-full" />
+          <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[1100px] h-[500px] bg-gradient-to-b from-blue-500/10 via-indigo-500/5 to-transparent blur-3xl rounded-full" />
+          <div className="absolute top-1/4 -left-20 w-80 h-80 bg-blue-400/10 blur-3xl rounded-full" />
+          <div className="absolute top-1/3 -right-20 w-96 h-96 bg-indigo-500/10 blur-3xl rounded-full" />
         </div>
 
-        {/* Subtle ambient grid pattern */}
+        {/* NETSOL Architectural Linear Pinstripe Grid */}
         <div className="pointer-events-none absolute inset-0 opacity-[0.035]" style={{
           backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(15,23,42,0.4) 1px, transparent 0)',
           backgroundSize: '32px 32px',
@@ -256,15 +257,24 @@ function Home() {
 
         <div className="mx-auto max-w-[1360px]">
           <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-8">
-            {/* Left: Services-First Value Proposition */}
+            {/* Left: NETSOL-Style Display Headline & Value Proposition */}
             <div className="lg:col-span-6 lg:pr-4">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
               >
-                <h1 className="font-display text-4xl font-semibold tracking-[-0.03em] text-slate-950 sm:text-5xl md:text-6xl lg:text-[64px] lg:leading-[1.05]">
-                  We build software that moves businesses forward.
+                {/* Vertical accent pipe eyebrow (NETSOL exact style) */}
+                <div className="mb-6 flex items-center gap-2.5 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+                  <span className="h-4 w-1 rounded-full bg-[#1D81F2]" />
+                  <span>Custom Software & AI Systems</span>
+                </div>
+
+                <h1 className="font-display text-4xl font-semibold tracking-[-0.03em] text-slate-950 sm:text-5xl md:text-6xl lg:text-[62px] lg:leading-[1.06]">
+                  AI-enabled ecosystems that make commerce{" "}
+                  <span className="text-[#1D81F2] underline decoration-blue-200/50 underline-offset-8">
+                    seamless.
+                  </span>
                 </h1>
               </motion.div>
 
@@ -274,8 +284,7 @@ function Home() {
                 transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
               >
                 <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-600">
-                  We're a software company that builds custom apps, AI tools, and cloud systems.
-                  If you need something built right, we can help.
+                  We build mission-critical custom web applications, autonomous AI pipelines, and resilient cloud systems for enterprises that require velocity and precision.
                 </p>
               </motion.div>
 
@@ -283,31 +292,34 @@ function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                className="mt-8 flex flex-wrap items-center gap-3"
+                className="mt-8 flex flex-wrap items-center gap-4"
               >
+                {/* NETSOL-Style Royal Electric Blue CTA Pill Button with Arrow Icon */}
                 <Link
                   to="/contact"
-                  className="group inline-flex items-center gap-2.5 rounded-md bg-slate-950 px-5 py-3 text-sm font-medium text-white shadow-sm transition-all hover:bg-slate-800 hover:shadow-lg hover:shadow-slate-950/20 active:scale-[0.98]"
+                  className="group inline-flex items-center gap-3 rounded-full bg-[#1D81F2] px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-500/25 transition-all hover:bg-[#156CD4] hover:shadow-xl hover:shadow-blue-500/35 active:scale-[0.98]"
                 >
-                  <span>Start a Project</span>
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  <span>Get in touch</span>
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/20 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                    <ArrowUpRight className="h-3.5 w-3.5" />
+                  </span>
                 </Link>
                 <Link
                   to="/services"
-                  className="inline-flex items-center gap-2 rounded-md border border-slate-300 bg-white px-5 py-3 text-sm font-medium text-slate-800 transition-all hover:bg-slate-50 hover:border-slate-400 hover:shadow-sm active:scale-[0.98]"
+                  className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-6 py-3.5 text-sm font-medium text-slate-800 shadow-xs transition-all hover:bg-slate-50 hover:border-slate-300 active:scale-[0.98]"
                 >
-                  Explore Services
+                  Explore Platform
                 </Link>
               </motion.div>
 
-              {/* Engineering capabilities banner — animated stagger */}
+              {/* Engineering capabilities banner */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.6 }}
-                className="mt-12 flex flex-wrap items-center gap-y-2 gap-x-6 border-t border-slate-200 pt-6 text-[11px] font-medium uppercase tracking-wider text-slate-600"
+                className="mt-12 flex flex-wrap items-center gap-y-2 gap-x-6 border-t border-slate-200 pt-6 text-[11px] font-medium uppercase tracking-wider text-slate-500"
               >
-                {["AI & Automation", "Web & Mobile Apps", "Cloud Setup", "SAP & ERP"].map((cap, i) => (
+                {["AI & Machine Learning", "Web & Mobile Apps", "Cloud Infrastructure", "Enterprise SAP"].map((cap, i) => (
                   <motion.span
                     key={cap}
                     initial={{ opacity: 0, y: 8 }}
@@ -315,73 +327,74 @@ function Home() {
                     transition={{ delay: 0.7 + i * 0.1, duration: 0.4 }}
                     className="flex items-center gap-2"
                   >
-                    {i > 0 && <span className="text-slate-400">·</span>}
+                    {i > 0 && <span className="text-slate-300">·</span>}
                     {cap}
                   </motion.span>
                 ))}
               </motion.div>
             </div>
 
-            {/* Right: Real Composite Enterprise Dashboard — has its own entrance animation */}
+            {/* Right: NETSOL-Style 3D Metallic Chrome Molecular Centerpiece */}
             <div className="lg:col-span-6">
-              <EnterpriseDashboardPreview />
+              <ChromeMolecularCore />
             </div>
           </div>
         </div>
       </section>
 
       {/* ========================================================================= */}
-      {/* 2. CLIENTS / ORGANIZATIONS SECTION (Clean White Monochrome)              */}
+      {/* 2. FLOATING CLIENT TRUST BAR (NETSOL Transcend Style Frosted Pill)         */}
       {/* ========================================================================= */}
-      <section className="border-b border-slate-200 bg-[#FFFFFF] px-6 py-10 md:px-10 overflow-hidden">
-        <div className="mx-auto flex max-w-[1360px] flex-col gap-6 md:flex-row md:items-center md:justify-between">
-          <Reveal>
-            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-600">
-              Trusted by organizations and technology partners
-            </p>
-          </Reveal>
-          <div className="flex flex-wrap items-center gap-x-12 gap-y-4 font-display text-xl font-bold tracking-tight text-slate-800 md:gap-x-16">
-            {["AAKS", "IJAIKE", "KSOL", "POLARIONS"].map((name, i) => (
-              <motion.span
-                key={name}
-                className="transition-all duration-300 hover:text-[#0891B2] cursor-default"
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 + i * 0.1, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                whileHover={{ scale: 1.05 }}
-              >
-                {i > 0 && <span className="text-slate-300 mr-12 md:mr-16">/</span>}
-                {name}
-              </motion.span>
-            ))}
+      <section className="relative border-b border-slate-200 bg-[#FFFFFF] px-6 py-12 md:px-10 overflow-hidden">
+        {/* Subtle background linear pinstripes running behind the frosted pill */}
+        <div className="pointer-events-none absolute inset-0 opacity-30 netsol-pinstripes" />
+
+        <div className="relative mx-auto max-w-[1240px]">
+          <div className="rounded-[28px] border border-slate-200/80 bg-white/90 p-8 shadow-xl shadow-slate-900/[0.04] backdrop-blur-xl md:p-10">
+            <div className="text-center">
+              <p className="text-sm font-semibold tracking-tight text-slate-900 md:text-base">
+                The world's leading brands are powered by NeuroSyn
+              </p>
+            </div>
+            
+            <div className="mt-8 flex flex-wrap items-center justify-around gap-8 md:gap-12">
+              {[
+                { name: "AAKS", sub: "CAPITAL & ASSETS" },
+                { name: "POLARIONS", sub: "CLOUD NETWORKS" },
+                { name: "IJAIKE", sub: "INTELLIGENCE LABS" },
+                { name: "KSOL", sub: "OEM SYSTEMS" },
+                { name: "NOVACREST", sub: "ENTERPRISE ERP" },
+                { name: "AERO-DYNAMICS", sub: "DEFENSE TECH" },
+              ].map((brand, i) => (
+                <motion.div
+                  key={brand.name}
+                  className="flex flex-col items-center cursor-default group"
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1 + i * 0.08, duration: 0.4 }}
+                  whileHover={{ scale: 1.06 }}
+                >
+                  <span className="font-display text-lg sm:text-xl font-bold tracking-tight text-slate-800 transition-colors group-hover:text-[#1D81F2]">
+                    {brand.name}
+                  </span>
+                  <span className="font-mono text-[9px] tracking-widest text-slate-400 font-semibold mt-0.5">
+                    {brand.sub}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* ========================================================================= */}
-      {/* 3. SERVICES SECTION (Clean Software House Cards)                          */}
+      {/* 3. PLATFORM & CAPABILITIES (NETSOL Transcend Platform Segmented Bento)     */}
       {/* ========================================================================= */}
-      <section id="services" className="border-b border-slate-200 bg-[#F8FAFC] px-6 py-20 md:px-10 md:py-28">
-        <div className="mx-auto max-w-[1360px]">
-          <div className="flex flex-col justify-between gap-6 border-b border-slate-200 pb-10 md:flex-row md:items-end">
-            <div>
-              <div className="inline-flex items-center gap-2 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-[#0891B2]">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#06B6D4]" />
-                What We Do
-              </div>
-              <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl md:text-5xl">
-                We build it, you run it.
-              </h2>
-            </div>
-            <p className="max-w-md text-base text-slate-600">
-              Software, AI, cloud, data — whatever you need built, we'll handle the technical work so you can focus on your business.
-            </p>
-          </div>
-
-          <div className="mt-12">
-            <InteractiveSolutionConsole />
-          </div>
+      <section id="services" className="relative border-b border-slate-200 bg-[#F8FAFC] px-6 py-20 md:px-10 md:py-28 overflow-hidden">
+        <div className="pointer-events-none absolute inset-0 opacity-20 netsol-pinstripes" />
+        <div className="relative mx-auto max-w-[1360px]">
+          <InteractiveSolutionConsole />
         </div>
       </section>
 
