@@ -297,3 +297,38 @@
   90% { opacity: 1; }
   100% { transform: translateY(100vh); opacity: 0; }
 }
+
+/* ============= Aurora & Colorful Ambient Mesh Utilities ============= */
+@utility mesh-hero-glow {
+  background: 
+    radial-gradient(ellipse 60% 40% at 50% -20%, rgba(99, 102, 241, 0.15), transparent 70%),
+    radial-gradient(ellipse 40% 30% at 85% 15%, rgba(6, 182, 212, 0.12), transparent 60%),
+    radial-gradient(ellipse 35% 25% at 15% 30%, rgba(16, 185, 129, 0.08), transparent 60%);
+}
+
+@utility mesh-case-glow {
+  background: 
+    radial-gradient(circle 500px at 20% 40%, rgba(6, 182, 212, 0.08), transparent 70%),
+    radial-gradient(circle 600px at 80% 60%, rgba(99, 102, 241, 0.09), transparent 70%);
+}
+
+@utility mesh-dark-glow {
+  background:
+    radial-gradient(circle 600px at 50% 0%, rgba(6, 182, 212, 0.15), transparent 70%),
+    radial-gradient(circle 500px at 85% 80%, rgba(99, 102, 241, 0.12), transparent 70%);
+}
+
+@utility card-glow-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  &:hover {
+    box-shadow: 0 20px 40px -15px rgba(6, 182, 212, 0.12), 0 0 0 1px rgba(6, 182, 212, 0.3);
+    transform: translateY(-2px);
+  }
+}
+
+@utility mockup-frame {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
