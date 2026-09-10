@@ -31,27 +31,32 @@ import { Lock, ExternalLink, Activity } from "lucide-react";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "NeuroSyn — Custom Software & AI Systems" },
+      { title: "NeuroSyn — Enterprise Software & AI Systems" },
       {
         name: "description",
         content:
-          "We build software that moves businesses forward. Custom web & mobile applications, AI systems, cloud infrastructure, and enterprise ERP.",
+          "Software & AI systems built to move enterprises forward. Custom web applications, autonomous AI pipelines, cloud infrastructure, and enterprise SAP modernization.",
       },
       { property: "og:site_name", content: "NeuroSyn" },
-      { property: "og:title", content: "NeuroSyn — Custom Software & AI Systems" },
+      { property: "og:title", content: "NeuroSyn — Enterprise Software & AI Systems" },
       {
         property: "og:description",
-        content: "We build software that moves businesses forward. Custom web & mobile applications, AI systems, cloud infrastructure, and enterprise ERP.",
+        content:
+          "Software & AI systems built to move enterprises forward. Custom web applications, autonomous AI pipelines, cloud infrastructure, and enterprise SAP modernization.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://www.neurosyn.it.com" },
       { property: "og:image", content: "https://www.neurosyn.it.com/og-image.png" },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
-      { property: "og:image:alt", content: "NeuroSyn — Custom Software & AI Systems" },
+      { property: "og:image:alt", content: "NeuroSyn — Enterprise Software & AI Systems" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "NeuroSyn — Custom Software & AI Systems" },
-      { name: "twitter:description", content: "We build software that moves businesses forward. Custom web & mobile applications, AI systems, cloud infrastructure, and enterprise ERP." },
+      { name: "twitter:title", content: "NeuroSyn — Enterprise Software & AI Systems" },
+      {
+        name: "twitter:description",
+        content:
+          "Software & AI systems built to move enterprises forward. Custom web applications, autonomous AI pipelines, cloud infrastructure, and enterprise SAP modernization.",
+      },
       { name: "twitter:image", content: "https://www.neurosyn.it.com/og-image.png" },
     ],
   }),
@@ -267,7 +272,7 @@ function Home() {
                 {/* Vertical accent pipe eyebrow (NETSOL exact style) */}
                 <div className="mb-6 flex items-center gap-2.5 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
                   <span className="h-4 w-1 rounded-full bg-[#1D81F2]" />
-                  <span>Custom Software & AI Systems</span>
+                  <span>Enterprise Software & AI Systems</span>
                 </div>
 
                 <h1 className="font-display text-4xl font-semibold tracking-[-0.03em] text-slate-950 sm:text-5xl md:text-6xl lg:text-[62px] lg:leading-[1.06]">

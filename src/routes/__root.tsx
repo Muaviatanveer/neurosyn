@@ -77,29 +77,33 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "NeuroSyn — Custom Software & AI Systems" },
+      { title: "NeuroSyn — Enterprise Software & AI Systems" },
       {
         name: "description",
         content:
-          "We build software that moves businesses forward. Custom web & mobile applications, AI systems, cloud infrastructure, and enterprise ERP.",
+          "Software & AI systems built to move enterprises forward. Custom web applications, autonomous AI pipelines, cloud infrastructure, and enterprise SAP modernization.",
       },
       { name: "author", content: "NeuroSyn" },
       { property: "og:site_name", content: "NeuroSyn" },
-      { property: "og:title", content: "NeuroSyn — Custom Software & AI Systems" },
+      { property: "og:title", content: "NeuroSyn — Enterprise Software & AI Systems" },
       {
         property: "og:description",
         content:
-          "We build software that moves businesses forward. Custom web & mobile applications, AI systems, cloud infrastructure, and enterprise ERP.",
+          "Software & AI systems built to move enterprises forward. Custom web applications, autonomous AI pipelines, cloud infrastructure, and enterprise SAP modernization.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://www.neurosyn.it.com" },
       { property: "og:image", content: "https://www.neurosyn.it.com/og-image.png" },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
-      { property: "og:image:alt", content: "NeuroSyn — Custom Software & AI Systems" },
+      { property: "og:image:alt", content: "NeuroSyn — Enterprise Software & AI Systems" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "NeuroSyn — Custom Software & AI Systems" },
-      { name: "twitter:description", content: "We build software that moves businesses forward. Custom web & mobile applications, AI systems, cloud infrastructure, and enterprise ERP." },
+      { name: "twitter:title", content: "NeuroSyn — Enterprise Software & AI Systems" },
+      {
+        name: "twitter:description",
+        content:
+          "Software & AI systems built to move enterprises forward. Custom web applications, autonomous AI pipelines, cloud infrastructure, and enterprise SAP modernization.",
+      },
       { name: "twitter:image", content: "https://www.neurosyn.it.com/og-image.png" },
     ],
     links: [
