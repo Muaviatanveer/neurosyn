@@ -18,6 +18,7 @@ const columns = [
       { to: "/services", label: "Services" },
       { to: "/technology", label: "Technology" },
       { to: "/investors", label: "Investors" },
+      { to: "/testimonials", label: "Client Reviews" },
       { to: "/contact", label: "Contact" },
     ],
   },

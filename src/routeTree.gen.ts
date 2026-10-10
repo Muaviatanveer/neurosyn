@@ -22,6 +22,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ResearchIndexRouteImport } from './routes/research.index'
 import { Route as ProductsIndexRouteImport } from './routes/products.index'
 import { Route as ResearchProjectIdRouteImport } from './routes/research.$projectId'
 import { Route as ProductsSapRouteImport } from './routes/products.sap'
@@ -94,6 +95,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ResearchIndexRoute = ResearchIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ResearchRoute,
+} as any)
 const ProductsIndexRoute = ProductsIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -145,6 +151,7 @@ export interface FileRoutesByFullPath {
   '/products/sap': typeof ProductsSapRoute
   '/research/$projectId': typeof ResearchProjectIdRoute
   '/products/': typeof ProductsIndexRoute
+  '/research/': typeof ResearchIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -154,7 +161,6 @@ export interface FileRoutesByTo {
   '/industries': typeof IndustriesRoute
   '/investors': typeof InvestorsRoute
   '/muavia': typeof MuaviaRoute
-  '/research': typeof ResearchRouteWithChildren
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/technology': typeof TechnologyRoute
@@ -165,6 +171,7 @@ export interface FileRoutesByTo {
   '/products/sap': typeof ProductsSapRoute
   '/research/$projectId': typeof ResearchProjectIdRoute
   '/products': typeof ProductsIndexRoute
+  '/research': typeof ResearchIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -187,6 +194,7 @@ export interface FileRoutesById {
   '/products/sap': typeof ProductsSapRoute
   '/research/$projectId': typeof ResearchProjectIdRoute
   '/products/': typeof ProductsIndexRoute
+  '/research/': typeof ResearchIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -210,6 +218,7 @@ export interface FileRouteTypes {
     | '/products/sap'
     | '/research/$projectId'
     | '/products/'
+    | '/research/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -219,7 +228,6 @@ export interface FileRouteTypes {
     | '/industries'
     | '/investors'
     | '/muavia'
-    | '/research'
     | '/services'
     | '/sitemap.xml'
     | '/technology'
@@ -230,6 +238,7 @@ export interface FileRouteTypes {
     | '/products/sap'
     | '/research/$projectId'
     | '/products'
+    | '/research'
   id:
     | '__root__'
     | '/'
@@ -251,6 +260,7 @@ export interface FileRouteTypes {
     | '/products/sap'
     | '/research/$projectId'
     | '/products/'
+    | '/research/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -362,6 +372,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/research/': {
+      id: '/research/'
+      path: '/'
+      fullPath: '/research/'
+      preLoaderRoute: typeof ResearchIndexRouteImport
+      parentRoute: typeof ResearchRoute
+    }
     '/products/': {
       id: '/products/'
       path: '/'
@@ -429,10 +446,12 @@ const ProductsRouteWithChildren = ProductsRoute._addFileChildren(
 
 interface ResearchRouteChildren {
   ResearchProjectIdRoute: typeof ResearchProjectIdRoute
+  ResearchIndexRoute: typeof ResearchIndexRoute
 }
 
 const ResearchRouteChildren: ResearchRouteChildren = {
   ResearchProjectIdRoute: ResearchProjectIdRoute,
+  ResearchIndexRoute: ResearchIndexRoute,
 }
 
 const ResearchRouteWithChildren = ResearchRoute._addFileChildren(
