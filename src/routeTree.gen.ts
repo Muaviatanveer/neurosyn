@@ -13,6 +13,7 @@ import { Route as TestimonialsRouteImport } from './routes/testimonials'
 import { Route as TechnologyRouteImport } from './routes/technology'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as ResearchRouteImport } from './routes/research'
 import { Route as ProductsRouteImport } from './routes/products'
 import { Route as MuaviaRouteImport } from './routes/muavia'
 import { Route as InvestorsRouteImport } from './routes/investors'
@@ -22,6 +23,7 @@ import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProductsIndexRouteImport } from './routes/products.index'
+import { Route as ResearchProjectIdRouteImport } from './routes/research.$projectId'
 import { Route as ProductsSapRouteImport } from './routes/products.sap'
 import { Route as ProductsDevRouteImport } from './routes/products.dev'
 import { Route as ProductsCopilotRouteImport } from './routes/products.copilot'
@@ -45,6 +47,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResearchRoute = ResearchRouteImport.update({
+  id: '/research',
+  path: '/research',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProductsRoute = ProductsRouteImport.update({
@@ -92,6 +99,11 @@ const ProductsIndexRoute = ProductsIndexRouteImport.update({
   path: '/',
   getParentRoute: () => ProductsRoute,
 } as any)
+const ResearchProjectIdRoute = ResearchProjectIdRouteImport.update({
+  id: '/$projectId',
+  path: '/$projectId',
+  getParentRoute: () => ResearchRoute,
+} as any)
 const ProductsSapRoute = ProductsSapRouteImport.update({
   id: '/sap',
   path: '/sap',
@@ -122,6 +134,7 @@ export interface FileRoutesByFullPath {
   '/investors': typeof InvestorsRoute
   '/muavia': typeof MuaviaRoute
   '/products': typeof ProductsRouteWithChildren
+  '/research': typeof ResearchRouteWithChildren
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/technology': typeof TechnologyRoute
@@ -130,6 +143,7 @@ export interface FileRoutesByFullPath {
   '/products/copilot': typeof ProductsCopilotRoute
   '/products/dev': typeof ProductsDevRoute
   '/products/sap': typeof ProductsSapRoute
+  '/research/$projectId': typeof ResearchProjectIdRoute
   '/products/': typeof ProductsIndexRoute
 }
 export interface FileRoutesByTo {
@@ -140,6 +154,7 @@ export interface FileRoutesByTo {
   '/industries': typeof IndustriesRoute
   '/investors': typeof InvestorsRoute
   '/muavia': typeof MuaviaRoute
+  '/research': typeof ResearchRouteWithChildren
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/technology': typeof TechnologyRoute
@@ -148,6 +163,7 @@ export interface FileRoutesByTo {
   '/products/copilot': typeof ProductsCopilotRoute
   '/products/dev': typeof ProductsDevRoute
   '/products/sap': typeof ProductsSapRoute
+  '/research/$projectId': typeof ResearchProjectIdRoute
   '/products': typeof ProductsIndexRoute
 }
 export interface FileRoutesById {
@@ -160,6 +176,7 @@ export interface FileRoutesById {
   '/investors': typeof InvestorsRoute
   '/muavia': typeof MuaviaRoute
   '/products': typeof ProductsRouteWithChildren
+  '/research': typeof ResearchRouteWithChildren
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/technology': typeof TechnologyRoute
@@ -168,6 +185,7 @@ export interface FileRoutesById {
   '/products/copilot': typeof ProductsCopilotRoute
   '/products/dev': typeof ProductsDevRoute
   '/products/sap': typeof ProductsSapRoute
+  '/research/$projectId': typeof ResearchProjectIdRoute
   '/products/': typeof ProductsIndexRoute
 }
 export interface FileRouteTypes {
@@ -181,6 +199,7 @@ export interface FileRouteTypes {
     | '/investors'
     | '/muavia'
     | '/products'
+    | '/research'
     | '/services'
     | '/sitemap.xml'
     | '/technology'
@@ -189,6 +208,7 @@ export interface FileRouteTypes {
     | '/products/copilot'
     | '/products/dev'
     | '/products/sap'
+    | '/research/$projectId'
     | '/products/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -199,6 +219,7 @@ export interface FileRouteTypes {
     | '/industries'
     | '/investors'
     | '/muavia'
+    | '/research'
     | '/services'
     | '/sitemap.xml'
     | '/technology'
@@ -207,6 +228,7 @@ export interface FileRouteTypes {
     | '/products/copilot'
     | '/products/dev'
     | '/products/sap'
+    | '/research/$projectId'
     | '/products'
   id:
     | '__root__'
@@ -218,6 +240,7 @@ export interface FileRouteTypes {
     | '/investors'
     | '/muavia'
     | '/products'
+    | '/research'
     | '/services'
     | '/sitemap.xml'
     | '/technology'
@@ -226,6 +249,7 @@ export interface FileRouteTypes {
     | '/products/copilot'
     | '/products/dev'
     | '/products/sap'
+    | '/research/$projectId'
     | '/products/'
   fileRoutesById: FileRoutesById
 }
@@ -238,6 +262,7 @@ export interface RootRouteChildren {
   InvestorsRoute: typeof InvestorsRoute
   MuaviaRoute: typeof MuaviaRoute
   ProductsRoute: typeof ProductsRouteWithChildren
+  ResearchRoute: typeof ResearchRouteWithChildren
   ServicesRoute: typeof ServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TechnologyRoute: typeof TechnologyRoute
@@ -272,6 +297,13 @@ declare module '@tanstack/react-router' {
       path: '/services'
       fullPath: '/services'
       preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/research': {
+      id: '/research'
+      path: '/research'
+      fullPath: '/research'
+      preLoaderRoute: typeof ResearchRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/products': {
@@ -337,6 +369,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductsIndexRouteImport
       parentRoute: typeof ProductsRoute
     }
+    '/research/$projectId': {
+      id: '/research/$projectId'
+      path: '/$projectId'
+      fullPath: '/research/$projectId'
+      preLoaderRoute: typeof ResearchProjectIdRouteImport
+      parentRoute: typeof ResearchRoute
+    }
     '/products/sap': {
       id: '/products/sap'
       path: '/sap'
@@ -388,6 +427,18 @@ const ProductsRouteWithChildren = ProductsRoute._addFileChildren(
   ProductsRouteChildren,
 )
 
+interface ResearchRouteChildren {
+  ResearchProjectIdRoute: typeof ResearchProjectIdRoute
+}
+
+const ResearchRouteChildren: ResearchRouteChildren = {
+  ResearchProjectIdRoute: ResearchProjectIdRoute,
+}
+
+const ResearchRouteWithChildren = ResearchRoute._addFileChildren(
+  ResearchRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
@@ -397,6 +448,7 @@ const rootRouteChildren: RootRouteChildren = {
   InvestorsRoute: InvestorsRoute,
   MuaviaRoute: MuaviaRoute,
   ProductsRoute: ProductsRouteWithChildren,
+  ResearchRoute: ResearchRouteWithChildren,
   ServicesRoute: ServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TechnologyRoute: TechnologyRoute,
