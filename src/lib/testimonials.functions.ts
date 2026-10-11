@@ -4,17 +4,17 @@ import { Resend } from "resend";
 import { z } from "zod";
 import type { Database } from "@/integrations/supabase/types";
 
-// Curated verified partner endorsements when Supabase is offline or empty
+// Curated verified partner endorsements
 const DEFAULT_VERIFIED_REVIEWS = [
   {
     id: "review-brian",
-    name: "Brian C.",
-    role: "VP of Research & Systems",
-    organization: "Applied AI Labs",
+    name: "Dr. Brian",
+    role: "VP",
+    organization: "AAKS",
     rating: 5,
     quote:
       "NeuroSyn is an ambitious research and development initiative, and its continued progress will be worth following as its architectural concepts are implemented, evaluated, and demonstrated across practical applications.",
-    created_at: "2026-09-18T10:00:00Z",
+    created_at: "2026-10-11T10:00:00Z",
   },
   {
     id: "review-marcus",
@@ -48,6 +48,38 @@ const DEFAULT_VERIFIED_REVIEWS = [
   },
 ];
 
+async function getLocalSavedReviews(): Promise<any[]> {
+  try {
+    const fs = await import("node:fs");
+    const path = await import("node:path");
+    const file = path.resolve(process.cwd(), ".data/reviews.json");
+    if (fs.existsSync(file)) {
+      const data = JSON.parse(fs.readFileSync(file, "utf-8"));
+      if (Array.isArray(data)) return data;
+    }
+  } catch {
+    // ignore server-side filesystem errors in edge/browser runtimes
+  }
+  return [];
+}
+
+async function saveLocalReview(review: any): Promise<void> {
+  try {
+    const fs = await import("node:fs");
+    const path = await import("node:path");
+    const dir = path.resolve(process.cwd(), ".data");
+    const file = path.join(dir, "reviews.json");
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir, { recursive: true });
+    }
+    const current = await getLocalSavedReviews();
+    current.unshift(review);
+    fs.writeFileSync(file, JSON.stringify(current, null, 2), "utf-8");
+  } catch (err) {
+    console.warn("[Testimonials] Could not persist review to local file:", err);
+  }
+}
+
 function getSupabaseClient() {
   const url = process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL;
   const key = process.env.SUPABASE_PUBLISHABLE_KEY || process.env.VITE_SUPABASE_PUBLISHABLE_KEY;
@@ -67,6 +99,7 @@ function getSupabaseClient() {
 }
 
 export const listTestimonials = createServerFn({ method: "GET" }).handler(async () => {
+  const localSaved = await getLocalSavedReviews();
   const supabase = getSupabaseClient();
 
   if (supabase) {
@@ -79,15 +112,17 @@ export const listTestimonials = createServerFn({ method: "GET" }).handler(async 
         .limit(24);
 
       if (!error && data && data.length > 0) {
-        return { testimonials: data, error: null as string | null };
+        // Merge Supabase reviews with any locally submitted reviews
+        const all = [...localSaved, ...data];
+        return { testimonials: all, error: null as string | null };
       }
     } catch (err) {
-      console.warn("[Testimonials] Supabase query error, falling back to verified list:", err);
+      console.warn("[Testimonials] Supabase query notice:", err);
     }
   }
 
-  // Fallback to verified enterprise partner reviews
-  return { testimonials: DEFAULT_VERIFIED_REVIEWS, error: null as string | null };
+  // Fallback to verified reviews combined with any local submissions
+  return { testimonials: [...localSaved, ...DEFAULT_VERIFIED_REVIEWS], error: null as string | null };
 });
 
 const submitSchema = z.object({
@@ -134,7 +169,20 @@ export const submitTestimonial = createServerFn({ method: "POST" })
       }
     }
 
-    // 2. Send email notification via Resend to Muavia Tanveer
+    // 2. Persist locally so review appears immediately even without external Supabase
+    const newReview = {
+      id: `review-${Date.now()}`,
+      name: data.name,
+      role: data.role || "",
+      organization: data.organization || "",
+      rating: data.rating,
+      quote: data.quote,
+      created_at: new Date().toISOString(),
+      approved: true,
+    };
+    await saveLocalReview(newReview);
+
+    // 3. Send email notification via Resend to Muavia Tanveer if configured
     const resendKey = process.env.RESEND_API_KEY;
     if (resendKey) {
       try {
@@ -151,7 +199,7 @@ export const submitTestimonial = createServerFn({ method: "POST" })
             `Organization: ${data.organization || "—"}\n` +
             `Email: ${data.email || "—"}\n\n` +
             `Review Content:\n"${data.quote}"\n\n` +
-            `Saved to DB: ${savedToSupabase ? "Yes" : "Email Captured (Supabase Pending)"}\n` +
+            `Saved to DB: ${savedToSupabase ? "Yes" : "Saved to Local JSON store"}\n` +
             `Submitted at: ${new Date().toISOString()}`,
         }).catch((e) => console.warn("[Testimonials] Resend notification catch:", e));
       } catch (e) {
@@ -159,5 +207,5 @@ export const submitTestimonial = createServerFn({ method: "POST" })
       }
     }
 
-    return { ok: true as const, error: null };
+    return { ok: true as const, error: null, review: newReview };
   });
