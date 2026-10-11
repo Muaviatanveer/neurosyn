@@ -27,10 +27,11 @@ export const Route = createFileRoute("/services")({
           "End-to-end enterprise software, custom AI systems, cloud infrastructure, ERP modernization, and air-gapped security engineering.",
       },
       { property: "og:title", content: "NeuroSyn Engineering Services" },
-      {
-        property: "og:description",
-        content: "Senior software and AI engineering services organized around measurable enterprise outcomes.",
-      },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://www.neurosyn.it.com/services" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://www.neurosyn.it.com/services" },
     ],
   }),
   component: ServicesPage,

@@ -32,7 +32,11 @@ export const Route = createFileRoute("/reviews")({
         content: "Verified feedback from enterprise organizations we build software and AI systems with.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://www.neurosyn.it.com/reviews" },
       { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://www.neurosyn.it.com/reviews" },
     ],
   }),
   component: TestimonialsPage,

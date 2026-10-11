@@ -35,10 +35,13 @@ export const Route = createFileRoute("/founder")({
         content:
           "Honorary Doctorate in Artificial Intelligence & Computer Sciences, Honoris Causa. Record Holder in Asia Book of Records. Founder & Lead Architect of NeuroSyn AI.",
       },
-      { property: "og:type", content: "profile" },
-      { property: "og:image", content: "/muavia.jpeg" },
+      { property: "og:url", content: "https://www.neurosyn.it.com/founder" },
+      { property: "og:image", content: "https://www.neurosyn.it.com/muavia.jpeg" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:image", content: "/muavia.jpeg" },
+      { name: "twitter:image", content: "https://www.neurosyn.it.com/muavia.jpeg" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://www.neurosyn.it.com/founder" },
     ],
   }),
   component: FounderPage,

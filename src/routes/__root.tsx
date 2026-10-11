@@ -81,7 +81,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Software & AI systems built to move enterprises forward. Custom web applications, autonomous AI pipelines, cloud infrastructure, and enterprise SAP modernization.",
+          "Software & AI systems built to advance enterprises. Custom web applications, autonomous AI pipelines, cloud systems, and enterprise SAP modernization.",
       },
       { name: "author", content: "NeuroSyn" },
       { property: "og:site_name", content: "NeuroSyn" },
@@ -89,7 +89,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         property: "og:description",
         content:
-          "Software & AI systems built to move enterprises forward. Custom web applications, autonomous AI pipelines, cloud infrastructure, and enterprise SAP modernization.",
+          "Software & AI systems built to advance enterprises. Custom web applications, autonomous AI pipelines, cloud systems, and enterprise SAP modernization.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://www.neurosyn.it.com" },
@@ -102,7 +102,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "twitter:description",
         content:
-          "Software & AI systems built to move enterprises forward. Custom web applications, autonomous AI pipelines, cloud infrastructure, and enterprise SAP modernization.",
+          "Software & AI systems built to advance enterprises. Custom web applications, autonomous AI pipelines, cloud systems, and enterprise SAP modernization.",
       },
       { name: "twitter:image", content: "https://www.neurosyn.it.com/og-image.png" },
     ],
@@ -124,10 +124,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  // Primary domain canonical URL with clean trailing slashes
+  const canonicalUrl = `https://www.neurosyn.it.com${pathname === "/" ? "/" : pathname.replace(/\/$/, "")}`;
+
   return (
     <html lang="en">
       <head>
         <HeadContent />
+        <link rel="canonical" href={canonicalUrl} />
       </head>
       <body>
         {children}
@@ -153,6 +158,26 @@ function BackToHome() {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const host = window.location.host.toLowerCase();
+      if (
+        !host.includes("localhost") &&
+        !host.includes("127.0.0.1") &&
+        !host.includes("0.0.0.0") &&
+        !host.endsWith(".local")
+      ) {
+        const isRender = host.includes("onrender.com");
+        const isBare = host === "neurosyn.it.com";
+        const isInsecure = window.location.protocol === "http:";
+        if (isRender || isBare || isInsecure) {
+          const target = `https://www.neurosyn.it.com${window.location.pathname}${window.location.search}`;
+          window.location.replace(target);
+        }
+      }
+    }
+  }, []);
 
   return (
     <QueryClientProvider client={queryClient}>

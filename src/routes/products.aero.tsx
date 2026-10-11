@@ -8,6 +8,11 @@ export const Route = createFileRoute("/products/aero")({
       { name: "description", content: "High-density telemetry processing and multi-engine cognitive reasoning designed for aerospace diagnostics and prognostic fleet intelligence." },
       { property: "og:title", content: "NeuroSyn-Aero" },
       { property: "og:description", content: "Aerospace Diagnostics & Airworthiness Verification." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://www.neurosyn.it.com/products/aero" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://www.neurosyn.it.com/products/aero" },
     ],
   }),
   component: () => (

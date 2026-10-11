@@ -11,11 +11,11 @@ export const Route = createFileRoute("/investors")({
         content:
           "Partner with NeuroSyn to accelerate the next generation of enterprise AI operating systems, autonomous engineering platforms, and industrial diagnostics.",
       },
-      { property: "og:title", content: "Invest in NeuroSyn" },
-      {
-        property: "og:description",
-        content: "Building the future of enterprise intelligence.",
-      },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://www.neurosyn.it.com/investors" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://www.neurosyn.it.com/investors" },
     ],
   }),
   component: InvestorsPage,

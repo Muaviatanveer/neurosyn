@@ -21,11 +21,11 @@ export const Route = createFileRoute("/industries")({
         content:
           "Enterprise AI systems and custom software deployed across finance, SAP supply chains, aerospace, healthcare, energy, and the public sector.",
       },
-      { property: "og:title", content: "Industries Served — NeuroSyn" },
-      {
-        property: "og:description",
-        content: "AI and software systems purpose-built for regulated, mission-critical environments.",
-      },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://www.neurosyn.it.com/industries" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://www.neurosyn.it.com/industries" },
     ],
   }),
   component: IndustriesPage,

@@ -11,11 +11,11 @@ export const Route = createFileRoute("/case-studies")({
         content:
           "Explore real-world enterprise deployments across SAP intelligence, autonomous AI engineering, industrial diagnostics, and financial gateways.",
       },
-      { property: "og:title", content: "NeuroSyn Enterprise Case Studies" },
-      {
-        property: "og:description",
-        content: "Production-grade AI and custom software systems shipped to tier-1 enterprises.",
-      },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://www.neurosyn.it.com/case-studies" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://www.neurosyn.it.com/case-studies" },
     ],
   }),
   component: CasesPage,

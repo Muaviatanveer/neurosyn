@@ -8,6 +8,10 @@ export const Route = createFileRoute("/products/copilot")({
       { name: "description", content: "Self-contained Engineering Intelligence Operating System executing automated, local multi-agent analysis workflows on business telemetry." },
       { property: "og:title", content: "NeuroSyn-Copilot" },
       { property: "og:description", content: "Universal Repository Analysis & Documentation." },
+      { property: "og:url", content: "https://www.neurosyn.it.com/products/copilot" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://www.neurosyn.it.com/products/copilot" },
     ],
   }),
   component: () => (

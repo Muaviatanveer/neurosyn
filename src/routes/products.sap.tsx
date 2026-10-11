@@ -8,6 +8,11 @@ export const Route = createFileRoute("/products/sap")({
       { name: "description", content: "Autonomous multi-agent forensic intelligence platform running sandboxed code execution, data privacy scrubbing, and mathematical validation." },
       { property: "og:title", content: "NeuroSyn-SAP" },
       { property: "og:description", content: "Enterprise Intelligence for SAP & ERP." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://www.neurosyn.it.com/products/sap" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://www.neurosyn.it.com/products/sap" },
     ],
   }),
   component: () => (

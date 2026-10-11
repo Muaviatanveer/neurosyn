@@ -1,0 +1,9 @@
+# Site-wide 301 permanent redirects for NeuroSyn
+# Render subdomain to primary custom domain
+https://neurosyn.onrender.com/* https://www.neurosyn.it.com/:splat 301!
+http://neurosyn.onrender.com/* https://www.neurosyn.it.com/:splat 301!
+
+# Non-www to www primary domain
+https://neurosyn.it.com/* https://www.neurosyn.it.com/:splat 301!
+http://neurosyn.it.com/* https://www.neurosyn.it.com/:splat 301!
+http://www.neurosyn.it.com/* https://www.neurosyn.it.com/:splat 301!

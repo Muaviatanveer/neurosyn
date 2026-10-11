@@ -21,11 +21,11 @@ export const Route = createFileRoute("/about")({
         content:
           "NeuroSyn engineers production-grade AI platforms and custom software that integrate natively into enterprise workflows rather than replacing them.",
       },
-      { property: "og:title", content: "About NeuroSyn" },
-      {
-        property: "og:description",
-        content: "Engineering software and AI operating systems that work for enterprise reality.",
-      },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://www.neurosyn.it.com/about" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://www.neurosyn.it.com/about" },
     ],
   }),
   component: AboutPage,

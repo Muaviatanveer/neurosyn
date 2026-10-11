@@ -44,8 +44,61 @@ function isH3SwallowedErrorBody(body: string): boolean {
   }
 }
 
+function checkCanonical301Redirect(request: Request): Response | null {
+  try {
+    const url = new URL(request.url);
+    const host = (
+      request.headers.get("x-forwarded-host") ||
+      request.headers.get("host") ||
+      url.host ||
+      ""
+    ).toLowerCase();
+
+    // Allow localhost and local test environments without redirect
+    if (
+      host.includes("localhost") ||
+      host.includes("127.0.0.1") ||
+      host.includes("0.0.0.0") ||
+      host.endsWith(".local")
+    ) {
+      return null;
+    }
+
+    const proto = (
+      request.headers.get("x-forwarded-proto") ||
+      url.protocol.replace(":", "") ||
+      "https"
+    ).toLowerCase();
+
+    const isRenderDomain = host.includes("onrender.com");
+    const isBareDomain = host === "neurosyn.it.com";
+    const isInsecure = proto === "http";
+    const isPreferred = host === "www.neurosyn.it.com" && proto === "https";
+
+    if (!isPreferred && (isRenderDomain || isBareDomain || isInsecure)) {
+      // 301 Permanent Redirect to primary domain preserving pathname and query parameters
+      const target = `https://www.neurosyn.it.com${url.pathname}${url.search}`;
+      return new Response(null, {
+        status: 301,
+        headers: {
+          Location: target,
+          "Cache-Control": "public, max-age=31536000, immutable",
+        },
+      });
+    }
+  } catch (err) {
+    console.warn("[SEO Redirect check notice]", err);
+  }
+  return null;
+}
+
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
+    const redirectResponse = checkCanonical301Redirect(request);
+    if (redirectResponse) {
+      return redirectResponse;
+    }
+
     try {
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);

@@ -11,11 +11,11 @@ export const Route = createFileRoute("/products/")({
         content:
           "Four production-grade AI operating systems: NeuroSyn-SAP, NeuroSyn-Dev, NeuroSyn-Aero, and NeuroSyn-Copilot.",
       },
-      { property: "og:title", content: "NeuroSyn Enterprise Products" },
-      {
-        property: "og:description",
-        content: "SAP, Dev, Aero, and Copilot — production-grade AI operating systems.",
-      },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://www.neurosyn.it.com/products" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://www.neurosyn.it.com/products" },
     ],
   }),
   component: ProductsIndex,

@@ -13,11 +13,11 @@ export const Route = createFileRoute("/contact")({
         content:
           "Tell us what you're building. We'll help you define the technology, system architecture, and path to production under mutual NDA.",
       },
-      { property: "og:title", content: "Contact NeuroSyn" },
-      {
-        property: "og:description",
-        content: "Let's build software and AI systems that move your enterprise forward.",
-      },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://www.neurosyn.it.com/contact" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://www.neurosyn.it.com/contact" },
     ],
   }),
   component: ContactPage,

@@ -8,6 +8,11 @@ export const Route = createFileRoute("/products/dev")({
       { name: "description", content: "Metacognitive software engineering system designed to automate, build, compile, test, and self-heal codebases inside isolated runtimes." },
       { property: "og:title", content: "NeuroSyn-Dev" },
       { property: "og:description", content: "Autonomous AI Engineering Operating System." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://www.neurosyn.it.com/products/dev" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://www.neurosyn.it.com/products/dev" },
     ],
   }),
   component: () => (
