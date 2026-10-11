@@ -19,6 +19,7 @@ import { Route as ProductsRouteImport } from './routes/products'
 import { Route as MuaviaRouteImport } from './routes/muavia'
 import { Route as InvestorsRouteImport } from './routes/investors'
 import { Route as IndustriesRouteImport } from './routes/industries'
+import { Route as FounderRouteImport } from './routes/founder'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as AboutRouteImport } from './routes/about'
@@ -79,6 +80,11 @@ const InvestorsRoute = InvestorsRouteImport.update({
 const IndustriesRoute = IndustriesRouteImport.update({
   id: '/industries',
   path: '/industries',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FounderRoute = FounderRouteImport.update({
+  id: '/founder',
+  path: '/founder',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -142,6 +148,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
+  '/founder': typeof FounderRoute
   '/industries': typeof IndustriesRoute
   '/investors': typeof InvestorsRoute
   '/muavia': typeof MuaviaRoute
@@ -165,6 +172,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
+  '/founder': typeof FounderRoute
   '/industries': typeof IndustriesRoute
   '/investors': typeof InvestorsRoute
   '/muavia': typeof MuaviaRoute
@@ -187,6 +195,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
+  '/founder': typeof FounderRoute
   '/industries': typeof IndustriesRoute
   '/investors': typeof InvestorsRoute
   '/muavia': typeof MuaviaRoute
@@ -212,6 +221,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/case-studies'
     | '/contact'
+    | '/founder'
     | '/industries'
     | '/investors'
     | '/muavia'
@@ -235,6 +245,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/case-studies'
     | '/contact'
+    | '/founder'
     | '/industries'
     | '/investors'
     | '/muavia'
@@ -256,6 +267,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/case-studies'
     | '/contact'
+    | '/founder'
     | '/industries'
     | '/investors'
     | '/muavia'
@@ -280,6 +292,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   CaseStudiesRoute: typeof CaseStudiesRoute
   ContactRoute: typeof ContactRoute
+  FounderRoute: typeof FounderRoute
   IndustriesRoute: typeof IndustriesRoute
   InvestorsRoute: typeof InvestorsRoute
   MuaviaRoute: typeof MuaviaRoute
@@ -362,6 +375,13 @@ declare module '@tanstack/react-router' {
       path: '/industries'
       fullPath: '/industries'
       preLoaderRoute: typeof IndustriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/founder': {
+      id: '/founder'
+      path: '/founder'
+      fullPath: '/founder'
+      preLoaderRoute: typeof FounderRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -483,6 +503,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   CaseStudiesRoute: CaseStudiesRoute,
   ContactRoute: ContactRoute,
+  FounderRoute: FounderRoute,
   IndustriesRoute: IndustriesRoute,
   InvestorsRoute: InvestorsRoute,
   MuaviaRoute: MuaviaRoute,

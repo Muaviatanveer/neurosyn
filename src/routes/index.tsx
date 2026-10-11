@@ -690,7 +690,118 @@ function Home() {
       </section>
 
       {/* ========================================================================= */}
-      {/* 8. FINAL CALL TO ACTION                                                    */}
+      {/* 8. FOUNDER OFFICE & LEAD ARCHITECT                                        */}
+      {/* ========================================================================= */}
+      <section className="relative border-t border-slate-200 bg-[#F8FAFC] px-6 py-20 md:px-10 md:py-28 overflow-hidden">
+        <div className="pointer-events-none absolute inset-0 opacity-20 netsol-pinstripes" />
+        <div className="relative mx-auto max-w-[1360px]">
+          <div className="grid gap-12 lg:grid-cols-12 items-center">
+            <div className="lg:col-span-5">
+              <Reveal>
+                <div className="relative mx-auto max-w-[420px] rounded-2xl overflow-hidden border border-slate-200 bg-white p-3 shadow-xl">
+                  <div className="relative aspect-[4/5] overflow-hidden rounded-xl bg-slate-900">
+                    <img
+                      src="/muavia.jpeg"
+                      alt="Hon. Dr. Muavia Tanveer Khan"
+                      className="h-full w-full object-cover object-top"
+                      onError={(e) => {
+                        (e.currentTarget as HTMLImageElement).src = "/muavia-portrait.png";
+                      }}
+                    />
+                    <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent p-4">
+                      <div className="flex items-center justify-between text-xs font-mono text-white">
+                        <span className="font-semibold tracking-wider">HON. DR. MUAVIA TANVEER KHAN</span>
+                        <span className="text-amber-400 font-bold">ASIA BOOK OF RECORDS</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+            </div>
+
+            <div className="lg:col-span-7">
+              <Reveal>
+                <div className="inline-flex items-center gap-2 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-[#1D81F2]">
+                  <span className="h-3.5 w-1 rounded-full bg-[#1D81F2]" />
+                  <span>Founder &amp; Lead Architect</span>
+                </div>
+              </Reveal>
+              <Reveal delay={1}>
+                <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl md:text-5xl">
+                  Hon. Dr. Muavia Tanveer Khan
+                </h2>
+              </Reveal>
+              <Reveal delay={2}>
+                <div className="mt-4 space-y-2.5">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-50 px-3.5 py-1 text-xs font-mono font-medium text-blue-700">
+                    <span className="h-1.5 w-1.5 rounded-full bg-blue-600 animate-pulse" />
+                    <span>Honorary Doctorate in Artificial Intelligence &amp; Computer Sciences, Honoris Causa</span>
+                  </div>
+                  <div>
+                    <span className="inline-flex items-center gap-1.5 rounded-md border border-amber-500/30 bg-amber-50 px-3 py-1 font-mono text-xs font-semibold text-amber-800">
+                      ★ Record Holder in Asia book of records
+                    </span>
+                  </div>
+                </div>
+              </Reveal>
+              <Reveal delay={3}>
+                <p className="mt-5 text-base leading-relaxed text-slate-600">
+                  Founder &amp; Lead Architect of NeuroSyn AI. Pioneering autonomous enterprise intelligence, deterministic AI operating systems, and cutting-edge cognitive architectures that transform research into production-grade reality.
+                </p>
+              </Reveal>
+
+              <Reveal delay={4}>
+                <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                  <div className="rounded-xl border border-slate-200/80 bg-white p-4 shadow-sm">
+                    <div className="flex items-center gap-2">
+                      <span className="h-2 w-2 rounded-full bg-emerald-500" />
+                      <span className="font-display text-sm font-semibold text-slate-900">
+                        International Hackathon Winner
+                      </span>
+                    </div>
+                    <p className="mt-1 font-mono text-xs text-slate-500">
+                      Technology competition recognition
+                    </p>
+                  </div>
+                  <div className="rounded-xl border border-slate-200/80 bg-white p-4 shadow-sm">
+                    <div className="flex items-center gap-2">
+                      <span className="h-2 w-2 rounded-full bg-[#1D81F2]" />
+                      <span className="font-display text-sm font-semibold text-slate-900">
+                        IJAIKE — Research Scientist &amp; Readers Committee
+                      </span>
+                    </div>
+                    <p className="mt-1 font-mono text-xs text-slate-500">
+                      Academic research and peer-review contributions
+                    </p>
+                  </div>
+                </div>
+              </Reveal>
+
+              <Reveal delay={5}>
+                <div className="mt-8 flex flex-wrap gap-4">
+                  <Link
+                    to="/founder"
+                    className="group inline-flex items-center gap-3 rounded-full bg-slate-900 px-6 py-3.5 text-sm font-semibold text-white shadow-md transition-all hover:bg-[#1D81F2] active:scale-[0.98]"
+                  >
+                    <span>Visit Founder Profile</span>
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                  <Link
+                    to="/founder"
+                    hash="book"
+                    className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors"
+                  >
+                    Book Private Meeting
+                  </Link>
+                </div>
+              </Reveal>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================================= */}
+      {/* 9. FINAL CALL TO ACTION                                                    */}
       {/* ========================================================================= */}
       <section className="relative bg-[#0A0F1D] px-6 py-20 text-white md:px-10 md:py-28 overflow-hidden border-t border-slate-800">
         <div className="pointer-events-none absolute inset-0 opacity-15 netsol-pinstripes" />

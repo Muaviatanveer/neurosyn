@@ -14,7 +14,7 @@ const columns = [
     title: "Company",
     items: [
       { to: "/about", label: "About" },
-      { to: "/muavia", label: "Founder" },
+      { to: "/founder", label: "Founder" },
       { to: "/services", label: "Services" },
       { to: "/technology", label: "Technology" },
       { to: "/investors", label: "Investors" },
