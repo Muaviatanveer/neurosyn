@@ -365,32 +365,36 @@ function Home() {
               </p>
             </div>
             
-            <div className="mt-8 flex flex-wrap items-center justify-around gap-8 md:gap-12">
-              {[
-                { name: "AAKS", sub: "CAPITAL & ASSETS" },
-                { name: "POLARIONS", sub: "CLOUD NETWORKS" },
-                { name: "IJAIKE", sub: "INTELLIGENCE LABS" },
-                { name: "KSOL", sub: "OEM SYSTEMS" },
-                { name: "NOVACREST", sub: "ENTERPRISE ERP" },
-                { name: "AERO-DYNAMICS", sub: "DEFENSE TECH" },
-              ].map((brand, i) => (
-                <motion.div
-                  key={brand.name}
-                  className="flex flex-col items-center cursor-default group"
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.1 + i * 0.08, duration: 0.4 }}
-                  whileHover={{ scale: 1.06 }}
-                >
-                  <span className="font-display text-lg sm:text-xl font-bold tracking-tight text-slate-800 transition-colors group-hover:text-[#1D81F2]">
-                    {brand.name}
-                  </span>
-                  <span className="font-mono text-[9px] tracking-widest text-slate-400 font-semibold mt-0.5">
-                    {brand.sub}
-                  </span>
-                </motion.div>
-              ))}
+            {/* Infinite Motion Carousel inside the box with edge fade */}
+            <div className="relative mt-8 overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,white_8%,white_92%,transparent_100%)]">
+              <div className="animate-marquee-track py-2">
+                {[
+                  { name: "AAKS", sub: "CAPITAL & ASSETS" },
+                  { name: "POLARIONS", sub: "CLOUD NETWORKS" },
+                  { name: "IJAIKE", sub: "INTELLIGENCE LABS" },
+                  { name: "KSOL", sub: "OEM SYSTEMS" },
+                  { name: "NOVACREST", sub: "ENTERPRISE ERP" },
+                  { name: "AERO-DYNAMICS", sub: "DEFENSE TECH" },
+                  { name: "AAKS", sub: "CAPITAL & ASSETS" },
+                  { name: "POLARIONS", sub: "CLOUD NETWORKS" },
+                  { name: "IJAIKE", sub: "INTELLIGENCE LABS" },
+                  { name: "KSOL", sub: "OEM SYSTEMS" },
+                  { name: "NOVACREST", sub: "ENTERPRISE ERP" },
+                  { name: "AERO-DYNAMICS", sub: "DEFENSE TECH" },
+                ].map((brand, i) => (
+                  <div
+                    key={`${brand.name}-${i}`}
+                    className="group mx-8 flex shrink-0 cursor-default select-none flex-col items-center justify-center transition-transform duration-300 hover:scale-105 sm:mx-12 md:mx-16"
+                  >
+                    <span className="font-display text-lg font-bold tracking-tight text-slate-800 transition-colors duration-200 group-hover:text-[#1D81F2] sm:text-xl">
+                      {brand.name}
+                    </span>
+                    <span className="mt-0.5 font-mono text-[9px] font-semibold tracking-widest text-slate-400 transition-colors group-hover:text-slate-600">
+                      {brand.sub}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
