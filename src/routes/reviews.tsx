@@ -65,8 +65,11 @@ function TestimonialsPage() {
 
   const mutation = useMutation({
     mutationFn: () => send({ data: { ...form, rating } }),
-    onSuccess: (res) => setError(res.ok ? null : res.error),
-    onError: () => setError("Please check the fields and try again."),
+    onSuccess: (res) => setError(res.ok ? null : (res.error ?? "Failed to submit")),
+    onError: (err: any) => {
+      console.error("[Review submit error]", err);
+      setError(err?.message || "Please check the fields and try again.");
+    },
   });
 
   const submitted = mutation.isSuccess && mutation.data?.ok;
