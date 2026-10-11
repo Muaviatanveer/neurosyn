@@ -14,7 +14,7 @@ import {
 import { researchCategories, researchProjects, ResearchProject } from "../data/innovations";
 import { Reveal } from "../components/site/ui";
 
-export const Route = createFileRoute("/research/")({
+export const Route = createFileRoute("/testimonials/")({
   head: () => ({
     meta: [
       { title: "Research & Engineering — NeuroSyn" },
@@ -55,7 +55,7 @@ function ResearchPage() {
           {/* Eyebrow */}
           <div className="inline-flex items-center gap-2.5 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
             <span className="h-4 w-1 rounded-full bg-[#1D81F2]" />
-            <span>NEUROSYN / RESEARCH & ENGINEERING</span>
+            <span>NEUROSYN / TESTIMONIALS & ENGINEERING SYSTEMS</span>
           </div>
 
           <h1 className="mt-6 font-display text-4xl font-semibold tracking-[-0.03em] text-slate-950 sm:text-5xl md:text-6xl lg:text-[64px] lg:leading-[1.08]">
@@ -146,7 +146,7 @@ function ResearchPage() {
                 {/* Action Buttons */}
                 <div className="mt-8 flex flex-wrap items-center gap-3">
                   <Link
-                    to="/research/$projectId"
+                    to="/testimonials/$projectId"
                     params={{ projectId: "mamba" }}
                     className="inline-flex items-center gap-2 rounded-xl bg-[#1D81F2] px-5 py-3 text-xs font-mono font-bold text-white shadow-sm transition-all hover:bg-blue-600"
                   >
@@ -336,7 +336,7 @@ function ProjectCard({ project }: { project: ResearchProject }) {
       {/* 3. Explore Project Link — detailed page par */}
       <div className="mt-6 border-t border-slate-100 pt-5">
         <Link
-          to="/research/$projectId"
+          to="/testimonials/$projectId"
           params={{ projectId: project.id }}
           className="inline-flex w-full items-center justify-between rounded-xl bg-slate-50 px-4 py-2.5 font-mono text-xs font-semibold text-slate-800 transition-all group-hover:bg-[#1D81F2] group-hover:text-white"
         >

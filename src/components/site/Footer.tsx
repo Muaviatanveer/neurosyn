@@ -18,14 +18,14 @@ const columns = [
       { to: "/services", label: "Services" },
       { to: "/technology", label: "Technology" },
       { to: "/investors", label: "Investors" },
-      { to: "/testimonials", label: "Client Reviews" },
+      { to: "/reviews", label: "Client Reviews" },
       { to: "/contact", label: "Contact" },
     ],
   },
   {
     title: "Systems",
     items: [
-      { to: "/research", label: "Research & Engineering" },
+      { to: "/testimonials", label: "Testimonials & Systems" },
       { to: "/industries", label: "Industries" },
       { to: "/case-studies", label: "Field Notes" },
     ],

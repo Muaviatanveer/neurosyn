@@ -4,7 +4,7 @@ import { researchProjects } from "../data/innovations";
 import { ArchitectureDiagram } from "../components/site/ArchitectureDiagram";
 import { Reveal, CTAButton } from "../components/site/ui";
 
-export const Route = createFileRoute("/research/$projectId")({
+export const Route = createFileRoute("/testimonials/$projectId")({
   head: ({ params }) => {
     const project = researchProjects.find((p) => p.id === params.projectId);
     const title = project
@@ -41,9 +41,9 @@ function ProjectDetailPage() {
         <div className="relative mx-auto max-w-[1200px]">
           {/* Breadcrumb */}
           <div className="mb-6 flex items-center gap-2 font-mono text-xs font-semibold text-slate-500">
-            <Link to="/research" className="transition-colors hover:text-[#1D81F2] flex items-center gap-1.5">
+            <Link to="/testimonials" className="transition-colors hover:text-[#1D81F2] flex items-center gap-1.5">
               <ArrowLeft className="h-3.5 w-3.5" />
-              <span>Research & Engineering</span>
+              <span>Testimonials & Engineering Systems</span>
             </Link>
             <ChevronRight className="h-3 w-3 text-slate-400" />
             <span className="text-slate-400">{project.category}</span>
@@ -261,11 +261,11 @@ function ProjectDetailPage() {
           {/* Bottom Navigation */}
           <div className="flex flex-wrap items-center justify-between gap-4 border-t border-slate-200 pt-8">
             <Link
-              to="/research"
+              to="/testimonials"
               className="inline-flex items-center gap-2 text-sm font-semibold text-[#1D81F2] hover:underline"
             >
               <ArrowLeft className="h-4 w-4" />
-              <span>Back to All Research & Engineering Systems</span>
+              <span>Back to All Systems</span>
             </Link>
 
             <Link
