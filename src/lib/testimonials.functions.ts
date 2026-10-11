@@ -98,8 +98,24 @@ function getSupabaseClient() {
   }
 }
 
+const ADMIN_PASSWORD = "12qwMMK12qw";
+
+async function getDeletedIds(): Promise<string[]> {
+  try {
+    const fs = await import("node:fs");
+    const path = await import("node:path");
+    const file = path.resolve(process.cwd(), ".data/deleted.json");
+    if (fs.existsSync(file)) {
+      const data = JSON.parse(fs.readFileSync(file, "utf-8"));
+      if (Array.isArray(data)) return data;
+    }
+  } catch {}
+  return [];
+}
+
 export const listTestimonials = createServerFn({ method: "GET" }).handler(async () => {
   const localSaved = await getLocalSavedReviews();
+  const deletedIds = await getDeletedIds();
   const supabase = getSupabaseClient();
 
   if (supabase) {
@@ -113,7 +129,7 @@ export const listTestimonials = createServerFn({ method: "GET" }).handler(async 
 
       if (!error && data && data.length > 0) {
         // Merge Supabase reviews with any locally submitted reviews
-        const all = [...localSaved, ...data];
+        const all = [...localSaved, ...data].filter((r) => !deletedIds.includes(r.id));
         return { testimonials: all, error: null as string | null };
       }
     } catch (err) {
@@ -121,8 +137,11 @@ export const listTestimonials = createServerFn({ method: "GET" }).handler(async 
     }
   }
 
-  // Fallback to verified reviews combined with any local submissions
-  return { testimonials: [...localSaved, ...DEFAULT_VERIFIED_REVIEWS], error: null as string | null };
+  // Fallback to verified reviews combined with any local submissions, omitting deleted ones
+  const allFallback = [...localSaved, ...DEFAULT_VERIFIED_REVIEWS].filter(
+    (r) => !deletedIds.includes(r.id)
+  );
+  return { testimonials: allFallback, error: null as string | null };
 });
 
 const submitSchema = z.object({
@@ -209,3 +228,61 @@ export const submitTestimonial = createServerFn({ method: "POST" })
 
     return { ok: true as const, error: null, review: newReview };
   });
+
+const deleteSchema = z.object({
+  id: z.string().min(1),
+  password: z.string(),
+});
+
+export const deleteTestimonial = createServerFn({ method: "POST" })
+  .validator((data: { id: string; password: string }) => deleteSchema.parse(data))
+  .handler(async ({ data }) => {
+    if (data.password !== ADMIN_PASSWORD) {
+      return { ok: false as const, error: "Incorrect password. You do not have permission to delete reviews." };
+    }
+
+    try {
+      const fs = await import("node:fs");
+      const path = await import("node:path");
+      const dir = path.resolve(process.cwd(), ".data");
+      if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+
+      // 1. Remove from .data/reviews.json
+      const reviewsFile = path.join(dir, "reviews.json");
+      if (fs.existsSync(reviewsFile)) {
+        let current = JSON.parse(fs.readFileSync(reviewsFile, "utf-8"));
+        if (Array.isArray(current)) {
+          current = current.filter((r: any) => r.id !== data.id);
+          fs.writeFileSync(reviewsFile, JSON.stringify(current, null, 2), "utf-8");
+        }
+      }
+
+      // 2. Add to .data/deleted.json
+      const deletedFile = path.join(dir, "deleted.json");
+      let deletedList: string[] = [];
+      if (fs.existsSync(deletedFile)) {
+        try {
+          deletedList = JSON.parse(fs.readFileSync(deletedFile, "utf-8"));
+        } catch {}
+      }
+      if (!deletedList.includes(data.id)) {
+        deletedList.push(data.id);
+        fs.writeFileSync(deletedFile, JSON.stringify(deletedList, null, 2), "utf-8");
+      }
+    } catch (err) {
+      console.warn("[Testimonials] Could not update local delete records:", err);
+    }
+
+    // 3. Delete from Supabase if configured
+    const supabase = getSupabaseClient();
+    if (supabase) {
+      try {
+        await supabase.from("testimonials").delete().eq("id", data.id);
+      } catch (err) {
+        console.warn("[Testimonials] Supabase delete exception:", err);
+      }
+    }
+
+    return { ok: true as const, error: null };
+  });
+

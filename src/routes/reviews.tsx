@@ -2,9 +2,20 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
 import { useState, useEffect } from "react";
-import { Star, ArrowRight, ShieldCheck, CheckCircle2, MessageSquare, Award } from "lucide-react";
+import {
+  Star,
+  ArrowRight,
+  ShieldCheck,
+  CheckCircle2,
+  MessageSquare,
+  Award,
+  Trash2,
+  Lock,
+  X,
+  AlertCircle,
+} from "lucide-react";
 import { Reveal } from "../components/site/ui";
-import { listTestimonials, submitTestimonial } from "../lib/testimonials.functions";
+import { listTestimonials, submitTestimonial, deleteTestimonial } from "../lib/testimonials.functions";
 
 export const Route = createFileRoute("/reviews")({
   head: () => ({
@@ -58,12 +69,20 @@ function TestimonialsPage() {
   const queryClient = useQueryClient();
   const load = useServerFn(listTestimonials);
   const send = useServerFn(submitTestimonial);
+  const remove = useServerFn(deleteTestimonial);
   const { data } = useQuery({ queryKey: ["testimonials"], queryFn: () => load() });
 
   const [form, setForm] = useState({ name: "", role: "", organization: "", email: "", quote: "" });
   const [rating, setRating] = useState(5);
   const [error, setError] = useState<string | null>(null);
   const [localSubmittedReviews, setLocalSubmittedReviews] = useState<any[]>([]);
+
+  // Delete modal & moderation state
+  const [deletingReview, setDeletingReview] = useState<any | null>(null);
+  const [deletePassword, setDeletePassword] = useState("");
+  const [deleteError, setDeleteError] = useState<string | null>(null);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [deleteToast, setDeleteToast] = useState<string | null>(null);
 
   useEffect(() => {
     try {
@@ -73,6 +92,45 @@ function TestimonialsPage() {
       }
     } catch {}
   }, []);
+
+  const handleConfirmDelete = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!deletingReview) return;
+    if (deletePassword !== "12qwMMK12qw") {
+      setDeleteError("Incorrect password. Please enter the valid moderation password.");
+      return;
+    }
+
+    setIsDeleting(true);
+    setDeleteError(null);
+
+    try {
+      const res = await remove({ data: { id: deletingReview.id, password: deletePassword } });
+      if (!res.ok) {
+        setDeleteError(res.error || "Failed to delete review");
+        setIsDeleting(false);
+        return;
+      }
+    } catch (err: any) {
+      console.warn("[Delete review warning]", err);
+    }
+
+    // Remove from client state & localStorage
+    const updatedLocal = localSubmittedReviews.filter(
+      (r) => r.id !== deletingReview.id && r.quote !== deletingReview.quote
+    );
+    setLocalSubmittedReviews(updatedLocal);
+    try {
+      localStorage.setItem("neurosyn_submitted_reviews", JSON.stringify(updatedLocal));
+    } catch {}
+
+    queryClient.invalidateQueries({ queryKey: ["testimonials"] });
+    setDeleteToast("Review has been permanently removed.");
+    setTimeout(() => setDeleteToast(null), 4000);
+    setDeletingReview(null);
+    setDeletePassword("");
+    setIsDeleting(false);
+  };
 
   const mutation = useMutation({
     mutationFn: async () => {
@@ -207,9 +265,24 @@ function TestimonialsPage() {
                     <div className="group rounded-[28px] border border-slate-200/85 bg-white p-8 shadow-sm transition-all duration-300 hover:border-slate-300 hover:shadow-xl">
                       <div className="flex items-center justify-between">
                         <Stars value={t.rating} />
-                        <span className="rounded-full bg-blue-50 px-3 py-1 font-mono text-[11px] font-semibold text-[#1D81F2]">
-                          Verified Partner
-                        </span>
+                        <div className="flex items-center gap-2">
+                          <span className="rounded-full bg-blue-50 px-3 py-1 font-mono text-[11px] font-semibold text-[#1D81F2]">
+                            Verified Partner
+                          </span>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setDeletingReview(t);
+                              setDeletePassword("");
+                              setDeleteError(null);
+                            }}
+                            title="Delete review (Admin: password required)"
+                            aria-label="Delete review"
+                            className="flex h-7 w-7 items-center justify-center rounded-lg text-slate-300 transition-all hover:bg-red-50 hover:text-red-600 active:scale-95 group-hover:text-slate-400"
+                          >
+                            <Trash2 className="h-3.5 w-3.5" />
+                          </button>
+                        </div>
                       </div>
                       <blockquote className="mt-5 text-base leading-relaxed text-slate-800">
                         “{t.quote}”
@@ -369,6 +442,111 @@ function TestimonialsPage() {
           </div>
         </div>
       </section>
+
+      {/* Admin Delete Confirmation Modal */}
+      {deletingReview && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/60 p-4 backdrop-blur-xs">
+          <div className="w-full max-w-md rounded-[28px] border border-slate-200 bg-white p-6 shadow-2xl sm:p-8 animate-in fade-in zoom-in-95 duration-150">
+            <div className="flex items-center justify-between border-b border-slate-100 pb-4">
+              <div className="flex items-center gap-2.5">
+                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-red-100 text-red-600">
+                  <Trash2 className="h-4.5 w-4.5" />
+                </div>
+                <div>
+                  <h3 className="font-display text-base font-bold text-slate-950">
+                    Delete Review
+                  </h3>
+                  <p className="text-xs text-slate-500">Moderator authorization required</p>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={() => {
+                  setDeletingReview(null);
+                  setDeletePassword("");
+                  setDeleteError(null);
+                }}
+                className="rounded-full p-1.5 text-slate-400 hover:bg-slate-100 hover:text-slate-600"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            </div>
+
+            <div className="mt-4">
+              <div className="rounded-xl border border-slate-100 bg-slate-50/80 p-3.5 text-xs text-slate-600">
+                <div className="font-semibold text-slate-900">{deletingReview.name}</div>
+                <div className="mt-1 line-clamp-2 italic text-slate-500">
+                  “{deletingReview.quote}”
+                </div>
+              </div>
+
+              <form onSubmit={handleConfirmDelete} className="mt-5 space-y-4">
+                <div>
+                  <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-slate-700">
+                    Enter Admin Password <span className="text-red-500">*</span>
+                  </label>
+                  <div className="relative">
+                    <input
+                      type="password"
+                      required
+                      autoFocus
+                      placeholder="Enter password to confirm deletion"
+                      className={inputClass}
+                      value={deletePassword}
+                      onChange={(e) => {
+                        setDeletePassword(e.target.value);
+                        setDeleteError(null);
+                      }}
+                    />
+                    <Lock className="pointer-events-none absolute right-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+                  </div>
+                  <p className="mt-1 text-[11px] text-slate-400">
+                    Protected action. Only authorized architects can permanently purge reviews.
+                  </p>
+                </div>
+
+                {deleteError && (
+                  <div className="flex items-center gap-2 rounded-xl border border-red-200 bg-red-50 p-3 text-xs text-red-700">
+                    <AlertCircle className="h-4 w-4 shrink-0 text-red-500" />
+                    <span>{deleteError}</span>
+                  </div>
+                )}
+
+                <div className="flex items-center justify-end gap-3 pt-2">
+                  <button
+                    type="button"
+                    disabled={isDeleting}
+                    onClick={() => {
+                      setDeletingReview(null);
+                      setDeletePassword("");
+                      setDeleteError(null);
+                    }}
+                    className="rounded-xl border border-slate-200 px-4 py-2.5 text-xs font-semibold text-slate-600 transition-colors hover:bg-slate-50 disabled:opacity-50"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    disabled={isDeleting || !deletePassword}
+                    className="flex items-center gap-2 rounded-xl bg-red-600 px-4 py-2.5 text-xs font-semibold text-white shadow-md shadow-red-500/20 transition-colors hover:bg-red-700 active:scale-[0.98] disabled:opacity-50"
+                  >
+                    <Trash2 className="h-3.5 w-3.5" />
+                    <span>{isDeleting ? "Deleting..." : "Delete Review"}</span>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Delete confirmation toast */}
+      {deleteToast && (
+        <div className="fixed bottom-6 right-6 z-50 flex items-center gap-2.5 rounded-2xl border border-emerald-200 bg-white px-5 py-3 text-xs font-semibold text-emerald-800 shadow-xl">
+          <CheckCircle2 className="h-4 w-4 text-emerald-500" />
+          <span>{deleteToast}</span>
+        </div>
+      )}
     </div>
   );
 }
