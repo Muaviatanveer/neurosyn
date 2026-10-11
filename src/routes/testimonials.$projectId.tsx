@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { ArrowLeft, ArrowUpRight, CheckCircle2, ChevronRight, Code2, Cpu, ExternalLink, FileText, Layers, ShieldCheck } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, CheckCircle2, ChevronRight, Code2, Cpu, ExternalLink, Layers, ShieldCheck } from "lucide-react";
 import { researchProjects } from "../data/innovations";
 import { ArchitectureDiagram } from "../components/site/ArchitectureDiagram";
 import { Reveal, CTAButton } from "../components/site/ui";
@@ -236,27 +236,6 @@ function ProjectDetailPage() {
               </div>
             </div>
           )}
-
-          {/* Source Repository Audit Trail */}
-          <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:p-8">
-            <div className="flex items-center gap-2.5 font-mono text-xs font-semibold uppercase tracking-wider text-slate-500">
-              <FileText className="h-4 w-4 text-[#1D81F2]" />
-              <span>Documented Codebase Files</span>
-            </div>
-            <p className="mt-2 text-xs text-slate-600">
-              The specifications and architecture above were extracted and verified from the following repository paths:
-            </p>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {project.sourceFiles.map((file) => (
-                <span
-                  key={file}
-                  className="rounded-lg border border-slate-200 bg-white px-3 py-1 font-mono text-xs font-medium text-slate-800 shadow-2xs"
-                >
-                  {file}
-                </span>
-              ))}
-            </div>
-          </div>
 
           {/* Bottom Navigation */}
           <div className="flex flex-wrap items-center justify-between gap-4 border-t border-slate-200 pt-8">

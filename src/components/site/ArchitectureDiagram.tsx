@@ -76,13 +76,12 @@ export function ArchitectureDiagram({ project, className = "" }: ArchitectureDia
       <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-slate-200/80 pt-4 font-mono text-[11px] text-slate-500">
         <div className="flex items-center gap-1.5">
           <ShieldCheck className="h-4 w-4 text-emerald-600" />
-          <span>Source Reference:</span>
           <span className="font-medium text-slate-700">
-            {project.sourceFiles[0]}
+            Autonomous Architectural Pipeline
           </span>
         </div>
         <div className="text-slate-400">
-          Deterministic Execution Pipeline
+          Deterministic Execution Architecture
         </div>
       </div>
     </div>
