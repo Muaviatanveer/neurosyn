@@ -26,7 +26,7 @@ import { ProjectConfigurator } from "../components/site/ProjectConfigurator";
 import { DeliveryTimelineStepper } from "../components/site/DeliveryTimelineStepper";
 import { EngagementModels } from "../components/site/EngagementModels";
 import { IndustriesSection } from "../components/site/IndustriesSection";
-import { Lock, ExternalLink, Activity } from "lucide-react";
+import { Lock, ExternalLink, Activity, Play, X } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -243,6 +243,25 @@ const proprietaryProducts = [
 
 function Home() {
   const [hoveredEngine, setHoveredEngine] = useState<ProductEngineId>(null);
+  const [isDocModalOpen, setIsDocModalOpen] = useState(false);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setIsDocModalOpen(false);
+      }
+    };
+    if (isDocModalOpen) {
+      document.body.style.overflow = "hidden";
+      window.addEventListener("keydown", handleKeyDown);
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isDocModalOpen]);
 
   return (
     <div className="bg-white text-slate-900">
@@ -784,7 +803,78 @@ function Home() {
                 </div>
               </Reveal>
 
+              {/* Featured Recognition: Heroes of IBR Documentary Block */}
               <Reveal delay={5}>
+                <div className="mt-6 rounded-2xl border border-slate-200/90 bg-white p-4 sm:p-5 shadow-sm transition-all duration-300 hover:shadow-md hover:border-blue-200/80">
+                  <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+                    <div className="inline-flex items-center gap-2 font-mono text-[11px] font-semibold uppercase tracking-wider text-slate-500">
+                      <span className="h-2 w-2 rounded-full bg-[#1D81F2]" />
+                      <span>Featured Recognition</span>
+                    </div>
+                    <span className="font-mono text-[10px] font-semibold text-blue-600 bg-blue-50 px-2 py-0.5 rounded border border-blue-100">
+                      Documentary Feature
+                    </span>
+                  </div>
+
+                  <div className="mt-4 grid gap-4 sm:grid-cols-12 sm:items-center">
+                    {/* 16:9 Thumbnail with Play Button Overlay */}
+                    <div
+                      role="button"
+                      tabIndex={0}
+                      onClick={() => setIsDocModalOpen(true)}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          e.preventDefault();
+                          setIsDocModalOpen(true);
+                        }
+                      }}
+                      className="group relative sm:col-span-5 aspect-video overflow-hidden rounded-xl bg-slate-900 shadow-xs cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#1D81F2]"
+                      aria-label="Play Heroes of IBR documentary feature"
+                    >
+                      <img
+                        src="/heroes-of-ibr.jpg"
+                        alt="Heroes of IBR Documentary featuring Muavia Tanveer Khan"
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                      {/* Dark overlay & play button */}
+                      <div className="absolute inset-0 flex items-center justify-center bg-slate-950/25 transition-colors group-hover:bg-slate-950/15">
+                        <div className="flex h-11 w-11 items-center justify-center rounded-full bg-white/95 text-[#1D81F2] shadow-lg transition-transform duration-300 group-hover:scale-110">
+                          <Play className="ml-0.5 h-4 w-4 fill-current" />
+                        </div>
+                      </div>
+                      <div className="absolute bottom-1.5 left-2 right-2 flex items-center justify-between rounded bg-slate-950/80 px-2 py-0.5 font-mono text-[9px] text-white/90 backdrop-blur-xs">
+                        <span>HEROES OF IBR</span>
+                        <span className="text-blue-300 font-semibold">16:9 Feature</span>
+                      </div>
+                    </div>
+
+                    {/* Text & Quick Action */}
+                    <div className="sm:col-span-7 space-y-2">
+                      <h4 className="font-display text-sm sm:text-base font-bold text-slate-900 tracking-tight">
+                        Heroes of IBR — Documentary Feature
+                      </h4>
+                      <p className="text-xs sm:text-[13px] leading-relaxed text-slate-600">
+                        Muavia Tanveer Khan, Founder and Lead Architect at NeuroSyn, was featured in the Heroes of IBR documentary, highlighting his individual achievement and journey.
+                      </p>
+                      <div className="pt-1">
+                        <button
+                          type="button"
+                          onClick={() => setIsDocModalOpen(true)}
+                          className="group inline-flex items-center gap-2 text-xs font-semibold text-[#1D81F2] hover:text-[#156CD4] transition-colors cursor-pointer"
+                        >
+                          <span className="flex h-5 w-5 items-center justify-center rounded-full bg-blue-50 text-[#1D81F2] transition-colors group-hover:bg-blue-100">
+                            <Play className="ml-0.5 h-2.5 w-2.5 fill-current" />
+                          </span>
+                          <span>Watch the documentary</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+
+              <Reveal delay={6}>
                 <div className="mt-8 flex flex-wrap gap-4">
                   <Link
                     to="/founder"
@@ -853,6 +943,83 @@ function Home() {
           </Reveal>
         </div>
       </section>
+
+      {/* ========================================================================= */}
+      {/* HEROES OF IBR DOCUMENTARY VIDEO MODAL                                     */}
+      {/* ========================================================================= */}
+      {isDocModalOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 p-4 backdrop-blur-md transition-opacity duration-300 md:p-6"
+          onClick={() => setIsDocModalOpen(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Heroes of IBR Documentary Feature"
+        >
+          <div
+            className="relative w-full max-w-4xl overflow-hidden rounded-2xl border border-slate-700/80 bg-slate-900 shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Header bar with title and close button */}
+            <div className="flex items-center justify-between border-b border-slate-800 bg-slate-950/95 px-5 py-3.5">
+              <div className="flex items-center gap-2.5">
+                <span className="flex h-2.5 w-2.5 rounded-full bg-[#1D81F2] animate-pulse" />
+                <span className="font-mono text-xs font-semibold uppercase tracking-wider text-slate-200">
+                  Featured Recognition · Heroes of IBR Documentary
+                </span>
+              </div>
+              <button
+                type="button"
+                onClick={() => setIsDocModalOpen(false)}
+                className="flex h-8 w-8 items-center justify-center rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition-colors cursor-pointer"
+                aria-label="Close documentary video"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+
+            {/* Responsive 16:9 Video Player */}
+            <div className="relative aspect-video w-full bg-black">
+              <iframe
+                src="https://drive.google.com/file/d/1bXstVCOEVZlkux4xUCZPXSe74I8dQ1J3/preview"
+                className="h-full w-full border-0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                title="Heroes of IBR — Documentary Feature"
+              />
+            </div>
+
+            {/* Footer with editorial context and actions */}
+            <div className="flex flex-col gap-4 border-t border-slate-800 bg-slate-950/95 p-5 sm:flex-row sm:items-center sm:justify-between">
+              <div className="space-y-1">
+                <h4 className="font-display text-sm sm:text-base font-bold text-white">
+                  Heroes of IBR — Documentary Feature
+                </h4>
+                <p className="max-w-xl text-xs text-slate-400 leading-relaxed">
+                  Muavia Tanveer Khan, Founder and Lead Architect at NeuroSyn, was featured in the Heroes of IBR documentary, highlighting his individual achievement and journey.
+                </p>
+              </div>
+
+              <div className="flex items-center gap-3 shrink-0 pt-2 sm:pt-0">
+                <Link
+                  to="/founder"
+                  onClick={() => setIsDocModalOpen(false)}
+                  className="rounded-full border border-slate-700 bg-slate-800 px-4 py-2 text-xs font-semibold text-slate-200 hover:bg-slate-700 transition-colors"
+                >
+                  Founder Profile
+                </Link>
+                <Link
+                  to="/founder"
+                  hash="book"
+                  onClick={() => setIsDocModalOpen(false)}
+                  className="rounded-full bg-[#1D81F2] px-4 py-2 text-xs font-semibold text-white shadow-sm hover:bg-[#156CD4] transition-colors"
+                >
+                  Book Private Meeting
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
