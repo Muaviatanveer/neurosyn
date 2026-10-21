@@ -124,15 +124,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
-  const pathname = useRouterState({ select: (s) => s.location.pathname });
-  // Primary domain canonical URL with clean trailing slashes
-  const canonicalUrl = `https://www.neurosyn.it.com${pathname === "/" ? "/" : pathname.replace(/\/$/, "")}`;
-
   return (
     <html lang="en">
       <head>
         <HeadContent />
-        <link rel="canonical" href={canonicalUrl} />
       </head>
       <body>
         {children}
