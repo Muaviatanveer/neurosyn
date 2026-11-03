@@ -12,6 +12,7 @@ import { useEffect, type ReactNode } from "react";
 import { ArrowLeft } from "lucide-react";
 
 import appCss from "../styles.css?url";
+import { GA_MEASUREMENT_ID, trackPageView } from "../lib/analytics";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Nav } from "../components/site/Nav";
 import { Footer } from "../components/site/Footer";
@@ -117,10 +118,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
     ],
     scripts: [
-      ...(import.meta.env.VITE_GA_MEASUREMENT_ID
+      ...(GA_MEASUREMENT_ID
         ? [
             {
-              src: `https://www.googletagmanager.com/gtag/js?id=${import.meta.env.VITE_GA_MEASUREMENT_ID}`,
+              src: `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`,
               async: true,
             },
             {
@@ -128,7 +129,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
-                gtag('config', '${import.meta.env.VITE_GA_MEASUREMENT_ID}', {
+                gtag('config', '${GA_MEASUREMENT_ID}', {
                   send_page_view: true
                 });
               `,
@@ -173,6 +174,12 @@ function BackToHome() {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+
+  // SPA Route Change Tracking for GA4 Realtime
+  useEffect(() => {
+    trackPageView(pathname);
+  }, [pathname]);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
