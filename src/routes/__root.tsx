@@ -116,6 +116,26 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap",
       },
     ],
+    scripts: [
+      ...(import.meta.env.VITE_GA_MEASUREMENT_ID
+        ? [
+            {
+              src: `https://www.googletagmanager.com/gtag/js?id=${import.meta.env.VITE_GA_MEASUREMENT_ID}`,
+              async: true,
+            },
+            {
+              children: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${import.meta.env.VITE_GA_MEASUREMENT_ID}', {
+                  send_page_view: true
+                });
+              `,
+            },
+          ]
+        : []),
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,

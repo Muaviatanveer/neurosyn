@@ -99,6 +99,18 @@ export default {
       return redirectResponse;
     }
 
+    // High-performance health check endpoint for zero-latency keep-alive pings (prevents Render sleep)
+    const url = new URL(request.url);
+    if (url.pathname === "/healthz" || url.pathname === "/api/health") {
+      return new Response("OK", {
+        status: 200,
+        headers: {
+          "content-type": "text/plain",
+          "cache-control": "no-store, no-cache, must-revalidate",
+        },
+      });
+    }
+
     try {
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
