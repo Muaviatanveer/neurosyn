@@ -2,7 +2,8 @@
  * NeuroSyn Google Analytics 4 (GA4) Integration Helper
  */
 
-export const GA_MEASUREMENT_ID = (import.meta.env.VITE_GA_MEASUREMENT_ID as string) || "";
+export const GA_MEASUREMENT_ID =
+  (import.meta.env.VITE_GA_MEASUREMENT_ID as string) || "G-VXDD2Q25KY";
 
 export function trackEvent(eventName: string, params?: Record<string, unknown>) {
   if (typeof window !== "undefined" && typeof (window as any).gtag === "function") {
@@ -19,3 +20,4 @@ export function trackPageView(path: string) {
     });
   }
 }
+
