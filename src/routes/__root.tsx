@@ -73,6 +73,54 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   );
 }
 
+const ROOT_SCHEMA = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://www.neurosyn.it.com/#website",
+      "url": "https://www.neurosyn.it.com",
+      "name": "NeuroSyn",
+      "description":
+        "Software & AI systems built to advance enterprises. Custom web applications, autonomous AI pipelines, cloud systems, and enterprise SAP modernization.",
+      "publisher": {
+        "@id": "https://www.neurosyn.it.com/#organization",
+      },
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.neurosyn.it.com/#organization",
+      "name": "NeuroSyn",
+      "url": "https://www.neurosyn.it.com",
+      "logo": "https://www.neurosyn.it.com/logo.png",
+      "founder": {
+        "@id": "https://www.neurosyn.it.com/#founder",
+      },
+      "sameAs": [
+        "https://github.com/Muaviatanveer",
+        "https://www.linkedin.com/in/muavia-tanveer-9a6856328/",
+        "https://x.com/muaviakha83",
+      ],
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.neurosyn.it.com/#founder",
+      "name": "Muavia Tanveer Khan",
+      "jobTitle": "Founder & Lead Architect",
+      "worksFor": {
+        "@id": "https://www.neurosyn.it.com/#organization",
+      },
+      "url": "https://www.neurosyn.it.com/founder",
+      "image": "https://www.neurosyn.it.com/muavia.jpeg",
+      "sameAs": [
+        "https://github.com/Muaviatanveer",
+        "https://www.linkedin.com/in/muavia-tanveer-9a6856328/",
+        "https://x.com/muaviakha83",
+      ],
+    },
+  ],
+};
+
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
     meta: [
@@ -118,6 +166,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
     ],
     scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(ROOT_SCHEMA),
+      },
       ...(GA_MEASUREMENT_ID
         ? [
             {
