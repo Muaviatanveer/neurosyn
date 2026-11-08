@@ -283,3 +283,4 @@ function ArticleCard({ article }: { article: InsightArticle }) {
     </div>
   );
 }
+
