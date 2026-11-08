@@ -9,6 +9,7 @@ const links = [
   { to: "/industries", label: "Industries" },
   { to: "/technology", label: "Technology" },
   { to: "/research", label: "Research" },
+  { to: "/insights", label: "Insights" },
   { to: "/reviews", label: "Reviews" },
   { to: "/founder", label: "Founder" },
   { to: "/about", label: "About" },
