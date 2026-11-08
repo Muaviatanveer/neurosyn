@@ -4,7 +4,7 @@ import { ProductPage } from "../components/site/ProductPage";
 export const Route = createFileRoute("/products/copilot")({
   head: () => ({
     meta: [
-      { title: "NeuroSyn-Copilot — Enterprise-Grade Repository Analysis & System Architecture" },
+      { title: "NeuroSyn-Copilot — Repository Analysis & Architecture" },
       { name: "description", content: "Self-contained Engineering Intelligence Operating System executing automated, local multi-agent analysis workflows on business telemetry." },
       { property: "og:title", content: "NeuroSyn-Copilot" },
       { property: "og:description", content: "Universal Repository Analysis & Documentation." },

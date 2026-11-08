@@ -25,7 +25,7 @@ const columns = [
   {
     title: "Systems",
     items: [
-      { to: "/testimonials", label: "Testimonials & Systems" },
+      { to: "/research", label: "Research & Systems" },
       { to: "/industries", label: "Industries" },
       { to: "/case-studies", label: "Field Notes" },
     ],

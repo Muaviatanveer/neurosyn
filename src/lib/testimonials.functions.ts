@@ -2,6 +2,7 @@ import { createServerFn } from "@tanstack/react-start";
 import { createClient } from "@supabase/supabase-js";
 import { Resend } from "resend";
 import { z } from "zod";
+import { sanitizeHeader, sanitizeText } from "./sanitize";
 import type { Database } from "@/integrations/supabase/types";
 
 // Curated verified partner endorsements
@@ -163,6 +164,12 @@ export const submitTestimonial = createServerFn({ method: "POST" })
     quote: string;
   }) => submitSchema.parse(data))
   .handler(async ({ data }) => {
+    const cleanName = sanitizeHeader(data.name);
+    const cleanRole = data.role ? sanitizeHeader(data.role) : "";
+    const cleanOrg = data.organization ? sanitizeHeader(data.organization) : "";
+    const cleanEmail = data.email ? sanitizeHeader(data.email) : "";
+    const cleanQuote = sanitizeText(data.quote);
+
     let savedToSupabase = false;
     const supabase = getSupabaseClient();
 
@@ -170,12 +177,12 @@ export const submitTestimonial = createServerFn({ method: "POST" })
     if (supabase) {
       try {
         const { error } = await supabase.from("testimonials").insert({
-          name: data.name,
-          role: data.role || null,
-          organization: data.organization || null,
-          email: data.email || null,
+          name: cleanName,
+          role: cleanRole || null,
+          organization: cleanOrg || null,
+          email: cleanEmail || null,
           rating: data.rating,
-          quote: data.quote,
+          quote: cleanQuote,
           approved: false,
         });
         if (!error) {
@@ -191,11 +198,11 @@ export const submitTestimonial = createServerFn({ method: "POST" })
     // 2. Persist locally so review appears immediately even without external Supabase
     const newReview = {
       id: `review-${Date.now()}`,
-      name: data.name,
-      role: data.role || "",
-      organization: data.organization || "",
+      name: cleanName,
+      role: cleanRole,
+      organization: cleanOrg,
       rating: data.rating,
-      quote: data.quote,
+      quote: cleanQuote,
       created_at: new Date().toISOString(),
       approved: true,
     };
@@ -209,15 +216,15 @@ export const submitTestimonial = createServerFn({ method: "POST" })
         await resend.emails.send({
           from: "onboarding@resend.dev",
           to: "muaviatanveer27@gmail.com",
-          subject: `⭐ New Review Submitted by ${data.name} (${data.rating}/5 Stars)`,
+          subject: `⭐ New Review Submitted by ${cleanName} (${data.rating}/5 Stars)`,
           text:
             `New Client Review Submitted on NeuroSyn:\n\n` +
             `Rating: ${data.rating} / 5 Stars\n` +
-            `Name: ${data.name}\n` +
-            `Role: ${data.role || "—"}\n` +
-            `Organization: ${data.organization || "—"}\n` +
-            `Email: ${data.email || "—"}\n\n` +
-            `Review Content:\n"${data.quote}"\n\n` +
+            `Name: ${cleanName}\n` +
+            `Role: ${cleanRole || "—"}\n` +
+            `Organization: ${cleanOrg || "—"}\n` +
+            `Email: ${cleanEmail || "—"}\n\n` +
+            `Review Content:\n"${cleanQuote}"\n\n` +
             `Saved to DB: ${savedToSupabase ? "Yes" : "Saved to Local JSON store"}\n` +
             `Submitted at: ${new Date().toISOString()}`,
         }).catch((e) => console.warn("[Testimonials] Resend notification catch:", e));

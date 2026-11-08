@@ -23,7 +23,7 @@ export const Route = createFileRoute("/technology")({
       {
         name: "description",
         content:
-          "Production-grade technology stack: AI & agentic frameworks, languages, distributed backends, streaming databases, cloud infrastructure, and enterprise ERP connectors.",
+          "Production-grade AI & agentic frameworks, distributed backends, streaming databases, cloud infrastructure, and enterprise ERP connectors.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://www.neurosyn.it.com/technology" },
