@@ -163,6 +163,19 @@ export default {
         }),
       );
     }
+
+    // Server-side 301 redirect for /insights → /case-studies consolidation
+    if (url.pathname === "/insights" || url.pathname.startsWith("/insights/")) {
+      return applySecurityHeaders(
+        new Response(null, {
+          status: 301,
+          headers: {
+            Location: `https://www.neurosyn.it.com/case-studies`,
+            "Cache-Control": "public, max-age=31536000, immutable",
+          },
+        }),
+      );
+    }
     if (url.pathname === "/healthz" || url.pathname === "/api/health") {
       if (isRateLimited(clientIp, 60, 60_000)) {
         return applySecurityHeaders(

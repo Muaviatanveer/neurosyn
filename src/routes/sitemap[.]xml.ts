@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
-import { INSIGHT_ARTICLES } from "../data/insights";
 
 const BASE_URL = "https://www.neurosyn.it.com";
 
@@ -16,7 +15,6 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/services", priority: "0.9", changefreq: "weekly", lastmod: currentDate },
           { path: "/technology", priority: "0.9", changefreq: "weekly", lastmod: currentDate },
           { path: "/research", priority: "0.9", changefreq: "weekly", lastmod: currentDate },
-          { path: "/insights", priority: "0.9", changefreq: "daily", lastmod: currentDate },
           { path: "/products", priority: "0.85", changefreq: "weekly", lastmod: currentDate },
           { path: "/products/sap", priority: "0.85", changefreq: "weekly", lastmod: currentDate },
           { path: "/products/dev", priority: "0.85", changefreq: "weekly", lastmod: currentDate },
@@ -27,12 +25,6 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/about", priority: "0.8", changefreq: "weekly", lastmod: currentDate },
           { path: "/investors", priority: "0.7", changefreq: "monthly", lastmod: currentDate },
           { path: "/contact", priority: "0.8", changefreq: "monthly", lastmod: currentDate },
-          ...INSIGHT_ARTICLES.map((a) => ({
-            path: `/insights/${a.slug}`,
-            priority: "0.85",
-            changefreq: "weekly",
-            lastmod: a.modifiedAt || a.publishedAt,
-          })),
         ];
         const urls = pages
           .map(

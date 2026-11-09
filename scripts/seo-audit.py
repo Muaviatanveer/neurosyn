@@ -93,8 +93,7 @@ def check_sitemap_urls():
         return False
 
 def check_architecture_redirects():
-    log("Verifying /testimonials -> /research 301 Permanent Redirect...", "INFO")
-    test_url = f"{BASE_URL}/testimonials"
+    log("Verifying /testimonials -> /research & /insights -> /case-studies 301 Permanent Redirects...", "INFO")
     
     # Custom redirect handler that doesn't follow redirects automatically
     class NoRedirectHandler(urllib.request.HTTPRedirectHandler):
@@ -104,19 +103,22 @@ def check_architecture_redirects():
             return fp
 
     opener = urllib.request.build_opener(NoRedirectHandler)
-    req = urllib.request.Request(test_url, headers={"User-Agent": "NeuroSyn-SEO-Auditor/1.0"})
-    try:
-        resp = opener.open(req, timeout=10)
-        location = resp.headers.get("location", "")
-        if "research" in location:
-            log(f"301 Redirect functional: {test_url} -> {location}", "PASS")
-            return True
-        else:
-            log(f"Redirect failed or unexpected location: {location}", "FAIL")
-            return False
-    except Exception as e:
-        log(f"Redirect test error: {e}", "FAIL")
-        return False
+    all_ok = True
+
+    for test_url, expected in [(f"{BASE_URL}/testimonials", "research"), (f"{BASE_URL}/insights", "case-studies")]:
+        req = urllib.request.Request(test_url, headers={"User-Agent": "NeuroSyn-SEO-Auditor/1.0"})
+        try:
+            resp = opener.open(req, timeout=10)
+            location = resp.headers.get("location", "")
+            if expected in location:
+                log(f"301 Redirect functional: {test_url} -> {location}", "PASS")
+            else:
+                log(f"Redirect failed for {test_url}: {location}", "FAIL")
+                all_ok = False
+        except Exception as e:
+            log(f"Redirect test error for {test_url}: {e}", "FAIL")
+            all_ok = False
+    return all_ok
 
 def check_rate_limiting():
     log("Testing /healthz rate limiting barrier...", "INFO")
