@@ -81,6 +81,7 @@ const ROOT_SCHEMA = {
       "@id": "https://www.neurosyn.it.com/#website",
       "url": "https://www.neurosyn.it.com",
       "name": "NeuroSyn",
+      "alternateName": ["NeuroSyn AI", "NeuroSyn Enterprise", "NeuroSyn Systems"],
       "description":
         "Software & AI systems built to advance enterprises. Custom web applications, autonomous AI pipelines, cloud systems, and enterprise SAP modernization.",
       "publisher": {
@@ -133,6 +134,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Software & AI systems built to advance enterprises. Custom web applications, autonomous AI pipelines, cloud systems, and enterprise SAP modernization.",
       },
       { name: "author", content: "NeuroSyn" },
+      { name: "application-name", content: "NeuroSyn" },
       { property: "og:site_name", content: "NeuroSyn" },
       { property: "og:title", content: "NeuroSyn — Enterprise Software & AI Systems" },
       {
@@ -157,7 +159,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/favicon.ico", sizes: "any" },
+      { rel: "icon", href: "/favicon-48.png", sizes: "48x48", type: "image/png" },
+      { rel: "icon", href: "/favicon-96.png", sizes: "96x96", type: "image/png" },
+      { rel: "icon", href: "/favicon-192.png", sizes: "192x192", type: "image/png" },
+      { rel: "apple-touch-icon", href: "/apple-touch-icon.png", sizes: "180x180" },
+      { rel: "manifest", href: "/site.webmanifest" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
@@ -210,17 +217,37 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
-function BackToHome() {
+function SubnavBar() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   if (pathname === "/") return null;
+
+  const segments = pathname.split("/").filter(Boolean);
+  const title = segments.length > 0 ? segments[0].replace(/-/g, " ") : "";
+  const formattedTitle = title ? title.charAt(0).toUpperCase() + title.slice(1) : "";
+
   return (
-    <Link
-      to="/"
-      className="fixed bottom-6 left-6 z-50 inline-flex items-center gap-2 rounded-full border border-[var(--line)] bg-card/90 px-4 py-2 text-sm font-medium shadow-lg backdrop-blur transition-colors hover:bg-card"
-    >
-      <ArrowLeft className="h-4 w-4" />
-      Back to Home
-    </Link>
+    <div className="sticky top-18 z-40 border-b border-slate-200/90 bg-white/90 backdrop-blur-md transition-all">
+      <div className="mx-auto flex h-10 max-w-[1360px] items-center justify-between px-6 md:px-10">
+        <div className="flex items-center gap-2.5">
+          <Link
+            to="/"
+            className="group inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-2.5 py-0.5 text-xs font-medium text-slate-700 shadow-xs transition hover:border-[#1D81F2] hover:bg-[#1D81F2]/5 hover:text-[#1D81F2]"
+            title="Back to Home"
+          >
+            <ArrowLeft className="h-3 w-3 transition-transform group-hover:-translate-x-0.5" />
+            <span>Back to Home</span>
+          </Link>
+          {formattedTitle && (
+            <>
+              <span className="text-slate-300">/</span>
+              <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-slate-900">
+                {formattedTitle}
+              </span>
+            </>
+          )}
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -257,11 +284,13 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <AuroraBackground />
       <Nav />
-      <main className="pt-20">
-        <Outlet />
-      </main>
+      <div className="pt-18">
+        <SubnavBar />
+        <main>
+          <Outlet />
+        </main>
+      </div>
       <Footer />
-      <BackToHome />
     </QueryClientProvider>
   );
 }

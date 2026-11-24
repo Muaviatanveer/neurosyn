@@ -1,0 +1,14 @@
+{
+  "name": "NeuroSyn",
+  "short_name": "NeuroSyn",
+  "icons": [
+    {
+      "src": "/favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#212529",
+  "background_color": "#090D16",
+  "display": "standalone"
+}

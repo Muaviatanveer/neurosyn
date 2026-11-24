@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
 
 const links = [
+  { to: "/", label: "Home" },
   { to: "/services", label: "Services" },
   { to: "/products", label: "Solutions" },
   { to: "/case-studies", label: "Work" },
@@ -49,6 +50,7 @@ export function Nav() {
             <Link
               key={l.to}
               to={l.to}
+              activeOptions={{ exact: l.to === "/" }}
               className="rounded-md px-3 py-1.5 text-[13px] font-medium text-slate-600 transition-colors hover:text-slate-900 hover:bg-slate-100/70"
               activeProps={{
                 className:
