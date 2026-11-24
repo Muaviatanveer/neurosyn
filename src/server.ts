@@ -2,6 +2,7 @@ import "./lib/error-capture";
 
 import { consumeLastCapturedError } from "./lib/error-capture";
 import { renderErrorPage } from "./lib/error-page";
+import { getStaticPage, notFoundHtml } from "./static-pages/router";
 
 type ServerEntry = {
   fetch: (request: Request, env: unknown, ctx: unknown) => Promise<Response> | Response;
@@ -236,9 +237,31 @@ export default {
       }
     }
 
+    // Serve high-fidelity static pages (new enterprise dark theme from neurosyn 3)
+    const staticPageHtml = getStaticPage(url.pathname);
+    if (staticPageHtml) {
+      return applySecurityHeaders(
+        new Response(staticPageHtml, {
+          status: 200,
+          headers: {
+            "content-type": "text/html; charset=utf-8",
+            "cache-control": "public, max-age=1800, must-revalidate",
+          },
+        }),
+      );
+    }
+
     try {
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
+      if (response.status === 404 && notFoundHtml) {
+        return applySecurityHeaders(
+          new Response(notFoundHtml, {
+            status: 404,
+            headers: { "content-type": "text/html; charset=utf-8" },
+          }),
+        );
+      }
       return applySecurityHeaders(await normalizeCatastrophicSsrResponse(response));
     } catch (error) {
       console.error(error);
