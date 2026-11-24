@@ -192,7 +192,8 @@
       found.forEach(function (h, i) {
         var d = h.x.d;
         if (d.type !== last) { html += '<li class="search__group" role="presentation">' + esc(PLURAL[d.type] || d.type) + '</li>'; last = d.type; }
-        html += '<li role="presentation"><a class="hit" role="option" aria-selected="false" id="hit-' + i + '" href="' + esc(ROOT + d.url) + '" data-hit><span><span class="hit__title">' + mark(d.title, ws) + '</span><span class="hit__text">' + esc(d.text) + '</span></span><svg aria-hidden="true"><use href="#i-chevr"/></svg></a></li>';
+        var hitUrl = d.url.charAt(0) === '/' ? d.url : (ROOT + d.url);
+        html += '<li role="presentation"><a class="hit" role="option" aria-selected="false" id="hit-' + i + '" href="' + esc(hitUrl) + '" data-hit><span><span class="hit__title">' + mark(d.title, ws) + '</span><span class="hit__text">' + esc(d.text) + '</span></span><svg aria-hidden="true"><use href="#i-chevr"/></svg></a></li>';
       });
       results.innerHTML = html;
       hits = $$('.hit', results);
@@ -577,7 +578,7 @@
       $('[data-brief-team]', brief).innerHTML = team.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('');
       $('[data-brief-stack]', brief).innerHTML = s.stack.map(function (t) { return '<span>' + esc(t) + '</span>'; }).join('');
       $('[data-brief-pace]', brief).textContent = c.tier + ': ' + c.note.charAt(0).toLowerCase() + c.note.slice(1);
-      var cta = $('[data-brief-cta]', brief); cta.href = ROOT + 'contact.html?focus=' + encodeURIComponent(s.focus);
+      var cta = $('[data-brief-cta]', brief); cta.href = '/contact?focus=' + encodeURIComponent(s.focus);
       if (animate) fadeIn([$('[data-brief-title]', brief), $('[data-brief-team]', brief), $('[data-brief-stack]', brief), $('[data-brief-pace]', brief)]);
     }
     est.addEventListener('change', function () { update(true); });
@@ -823,7 +824,7 @@
     if (isNavigating) return;
     isNavigating = true;
     var root = document.documentElement.getAttribute('data-root') || '';
-    var defaultHome = root ? root + 'index.html' : 'index.html';
+    var defaultHome = '/';
     var target = fallback || defaultHome;
 
     if (window.history.length > 1) {

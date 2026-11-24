@@ -32,71 +32,34 @@ import researchThirdEyeHtml from "./research/thirdeye.html?raw";
 
 const pageMap: Record<string, string> = {
   "/": indexHtml,
-  "/index": indexHtml,
-  "/index.html": indexHtml,
-
   "/services": servicesHtml,
-  "/services.html": servicesHtml,
-
   "/products": productsHtml,
-  "/products.html": productsHtml,
-
   "/case-studies": caseStudiesHtml,
-  "/case-studies.html": caseStudiesHtml,
-
   "/industries": industriesHtml,
-  "/industries.html": industriesHtml,
-
   "/technology": technologyHtml,
-  "/technology.html": technologyHtml,
-
   "/research": researchHtml,
-  "/research.html": researchHtml,
-
   "/reviews": reviewsHtml,
-  "/reviews.html": reviewsHtml,
-
   "/founder": founderHtml,
-  "/founder.html": founderHtml,
-
   "/about": aboutHtml,
-  "/about.html": aboutHtml,
-
   "/contact": contactHtml,
-  "/contact.html": contactHtml,
-
   "/investors": investorsHtml,
-  "/investors.html": investorsHtml,
 
   // Products
   "/products/sap": productsSapHtml,
-  "/products/sap.html": productsSapHtml,
   "/products/dev": productsDevHtml,
-  "/products/dev.html": productsDevHtml,
   "/products/aero": productsAeroHtml,
-  "/products/aero.html": productsAeroHtml,
   "/products/copilot": productsCopilotHtml,
-  "/products/copilot.html": productsCopilotHtml,
 
   // Research
   "/research/mamba": researchMambaHtml,
-  "/research/mamba.html": researchMambaHtml,
   "/research/synapsefabric": researchSynapseFabricHtml,
-  "/research/synapsefabric.html": researchSynapseFabricHtml,
   "/research/nuclear-x": researchNuclearXHtml,
-  "/research/nuclear-x.html": researchNuclearXHtml,
   "/research/quantumverifier": researchQuantumVerifierHtml,
-  "/research/quantumverifier.html": researchQuantumVerifierHtml,
   "/research/adre": researchAdreHtml,
-  "/research/adre.html": researchAdreHtml,
   "/research/emotionengine": researchEmotionEngineHtml,
-  "/research/emotionengine.html": researchEmotionEngineHtml,
   "/research/multicritic": researchMultiCriticHtml,
-  "/research/multicritic.html": researchMultiCriticHtml,
   "/research/quantix": researchQuantixHtml,
-  "/research/quantix.html": researchQuantixHtml,
   "/research/thirdeye": researchThirdEyeHtml,
-  "/research/thirdeye.html": researchThirdEyeHtml,
 };
 
 export function getStaticPage(pathname: string): string | undefined {

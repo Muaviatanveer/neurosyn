@@ -98,7 +98,7 @@ function checkCanonical301Redirect(request: Request): Response | null {
       ""
     ).toLowerCase();
 
-    // Allow localhost and local test environments without redirect
+    // Allow localhost and local test environments without domain redirect
     if (
       host.includes("localhost") ||
       host.includes("127.0.0.1") ||
@@ -120,8 +120,17 @@ function checkCanonical301Redirect(request: Request): Response | null {
     const isPreferred = host === "www.neurosyn.it.com" && proto === "https";
 
     if (!isPreferred && (isRenderDomain || isBareDomain || isInsecure)) {
+      let cleanPath = url.pathname;
+      if (cleanPath.endsWith(".html") || cleanPath.endsWith(".html/")) {
+        cleanPath = cleanPath.replace(/\/+$/, "").slice(0, -5);
+      }
+      if (cleanPath === "/index" || cleanPath === "") {
+        cleanPath = "/";
+      } else if (cleanPath.length > 1 && cleanPath.endsWith("/")) {
+        cleanPath = cleanPath.replace(/\/+$/, "");
+      }
       // 301 Permanent Redirect to primary domain preserving pathname and query parameters
-      const target = `https://www.neurosyn.it.com${url.pathname}${url.search}`;
+      const target = `https://www.neurosyn.it.com${cleanPath}${url.search}`;
       return new Response(null, {
         status: 301,
         headers: {
@@ -136,6 +145,83 @@ function checkCanonical301Redirect(request: Request): Response | null {
   return null;
 }
 
+function checkCleanUrlRedirect(request: Request): Response | null {
+  try {
+    const url = new URL(request.url);
+    const pathname = url.pathname;
+
+    // Skip static assets
+    if (
+      pathname.startsWith("/css/") ||
+      pathname.startsWith("/js/") ||
+      pathname.startsWith("/images/") ||
+      pathname.startsWith("/assets/") ||
+      pathname === "/favicon.ico" ||
+      pathname === "/robots.txt" ||
+      pathname === "/sitemap.xml" ||
+      pathname === "/og-image.png" ||
+      pathname === "/muavia.jpeg" ||
+      pathname === "/healthz" ||
+      pathname === "/api/health"
+    ) {
+      return null;
+    }
+
+    let needsRedirect = false;
+    let cleanPath = pathname;
+
+    // 1. Remove .html or .html/
+    if (cleanPath.endsWith(".html") || cleanPath.endsWith(".html/")) {
+      cleanPath = cleanPath.replace(/\/+$/, "").slice(0, -5);
+      needsRedirect = true;
+    }
+
+    // 2. Normalize /index to /
+    if (cleanPath === "/index" || cleanPath === "") {
+      cleanPath = "/";
+      if (pathname !== "/") {
+        needsRedirect = true;
+      }
+    }
+
+    // 3. Remove trailing slashes on non-root paths (e.g. /about/ -> /about)
+    if (cleanPath.length > 1 && cleanPath.endsWith("/")) {
+      cleanPath = cleanPath.replace(/\/+$/, "");
+      needsRedirect = true;
+    }
+
+    if (needsRedirect) {
+      const host = (
+        request.headers.get("x-forwarded-host") ||
+        request.headers.get("host") ||
+        url.host ||
+        ""
+      ).toLowerCase();
+
+      const isLocal =
+        host.includes("localhost") ||
+        host.includes("127.0.0.1") ||
+        host.includes("0.0.0.0") ||
+        host.endsWith(".local");
+
+      const target = isLocal
+        ? `${url.protocol}//${url.host}${cleanPath}${url.search}`
+        : `https://www.neurosyn.it.com${cleanPath}${url.search}`;
+
+      return new Response(null, {
+        status: 301,
+        headers: {
+          Location: target,
+          "Cache-Control": "public, max-age=31536000, immutable",
+        },
+      });
+    }
+  } catch (err) {
+    console.warn("[Clean URL Redirect notice]", err);
+  }
+  return null;
+}
+
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     const clientIp =
@@ -146,6 +232,11 @@ export default {
     const redirectResponse = checkCanonical301Redirect(request);
     if (redirectResponse) {
       return applySecurityHeaders(redirectResponse);
+    }
+
+    const cleanUrlRedirect = checkCleanUrlRedirect(request);
+    if (cleanUrlRedirect) {
+      return applySecurityHeaders(cleanUrlRedirect);
     }
 
     // High-performance health check endpoint for zero-latency keep-alive pings (prevents Render sleep)
