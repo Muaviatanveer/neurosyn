@@ -1,0 +1,862 @@
+<!doctype html>
+<html lang="en-GB" data-root="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>NeuroSyn — Business Solutions &amp; Software Engineering</title>
+  <meta name="description"
+    content="NeuroSyn helps startups and established businesses with advisory, software development, AI solutions and business technology.">
+  <link rel="canonical" href="https://www.neurosyn.it.com/">
+  <meta name="theme-color" content="#142B55">
+  <meta name="color-scheme" content="dark">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="NeuroSyn">
+  <meta property="og:url" content="https://www.neurosyn.it.com/">
+  <meta property="og:title" content="NeuroSyn — Business Solutions &amp; Software Engineering">
+  <meta property="og:description"
+    content="NeuroSyn helps startups and established businesses with advisory, software development, AI solutions and business technology.">
+  <meta property="og:image" content="https://www.neurosyn.it.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@muaviakha83">
+  <meta name="twitter:title" content="NeuroSyn — Business Solutions &amp; Software Engineering">
+  <meta name="twitter:description"
+    content="NeuroSyn helps startups and established businesses with advisory, software development, AI solutions and business technology.">
+  <meta name="twitter:image" content="https://www.neurosyn.it.com/og-image.png">
+  <link rel="icon" href="images/favicon-64.png" type="image/png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="preload" as="image" href="images/neurosyn-mark.webp" type="image/webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&amp;display=swap" media="print"
+    onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&amp;display=swap">
+  </noscript>
+  <link rel="stylesheet" href="css/style.css">
+  <script>document.documentElement.classList.add('js'); try { if (localStorage.getItem('ns_cookies')) document.documentElement.classList.add('ck-set') } catch (e) { }</script>
+  <script type="application/ld+json">{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://www.neurosyn.it.com/#org",
+   "name": "NeuroSyn",
+   "alternateName": "NeuroSyn AI",
+   "url": "https://www.neurosyn.it.com/",
+   "logo": "https://www.neurosyn.it.com/favicon.ico",
+   "image": "https://www.neurosyn.it.com/og-image.png",
+   "description": "Senior AI and software engineering consultancy building resilient digital products, cloud platforms and intelligent automation systems.",
+   "founder": {
+    "@id": "https://www.neurosyn.it.com/#founder"
+   },
+   "sameAs": [
+    "https://github.com/Muaviatanveer",
+    "https://www.linkedin.com/in/muavia-tanveer-9a6856328/",
+    "https://x.com/muaviakha83"
+   ],
+   "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "sales",
+    "url": "https://www.neurosyn.it.com/contact",
+    "availableLanguage": "English"
+   },
+   "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Engineering services",
+    "itemListElement": [
+     {
+      "@type": "Offer",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "AI and machine learning engineering"
+      }
+     },
+     {
+      "@type": "Offer",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Custom software and product engineering"
+      }
+     },
+     {
+      "@type": "Offer",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Enterprise solutions and ERP integration"
+      }
+     },
+     {
+      "@type": "Offer",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Cloud, DevOps and infrastructure engineering"
+      }
+     },
+     {
+      "@type": "Offer",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Data engineering and analytics platforms"
+      }
+     },
+     {
+      "@type": "Offer",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Cybersecurity, compliance and air-gapped systems"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "@type": "Person",
+   "@id": "https://www.neurosyn.it.com/#founder",
+   "name": "Muavia Tanveer Khan",
+   "honorificPrefix": "Hon. Dr.",
+   "jobTitle": "Founder and Lead Architect",
+   "worksFor": {
+    "@id": "https://www.neurosyn.it.com/#org"
+   },
+   "image": "https://www.neurosyn.it.com/muavia.jpeg",
+   "url": "https://www.neurosyn.it.com/founder"
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://www.neurosyn.it.com/#site",
+   "url": "https://www.neurosyn.it.com/",
+   "name": "NeuroSyn",
+   "publisher": {
+    "@id": "https://www.neurosyn.it.com/#org"
+   },
+   "inLanguage": "en"
+  }
+ ]
+}</script>
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.72/build/spline-viewer.js"></script>
+</head>
+
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="g-fibre" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#75D6D6" />
+        <stop offset=".5" stop-color="#C7FAFA" />
+        <stop offset="1" stop-color="#75D6D6" />
+      </linearGradient>
+    </defs>
+    <symbol id="i-search" viewBox="0 0 24 24">
+      <circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+        stroke-linejoin="round" />
+      <path d="m16 16 4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+        stroke-linejoin="round" />
+    </symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24">
+      <path d="M4 8h16M4 16h16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+        stroke-linejoin="round" />
+    </symbol>
+    <symbol id="i-close" viewBox="0 0 24 24">
+      <path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+        stroke-linejoin="round" />
+    </symbol>
+    <symbol id="i-chevr" viewBox="0 0 24 24">
+      <path d="m9.5 6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+        stroke-linejoin="round" />
+    </symbol>
+    <symbol id="i-chevl" viewBox="0 0 24 24">
+      <path d="m14.5 6-6 6 6 6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+        stroke-linejoin="round" />
+    </symbol>
+    <symbol id="i-check" viewBox="0 0 24 24">
+      <path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round" />
+    </symbol>
+    <symbol id="i-play" viewBox="0 0 24 24">
+      <path d="M8 5.5v13l11-6.5z" fill="currentColor" />
+    </symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+        stroke-linejoin="round" />
+      <path d="M12 7.5V12l3 2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+        stroke-linejoin="round" />
+    </symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24">
+      <rect x="5" y="10.5" width="14" height="9.5" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round" />
+    </symbol>
+    <symbol id="i-code" viewBox="0 0 24 24">
+      <path d="m9 8-4 4 4 4M15 8l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+        stroke-linejoin="round" />
+    </symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24">
+      <path d="M12 3.5 19 6v5.5c0 4.4-3 7.7-7 9-4-1.3-7-4.6-7-9V6z" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round" />
+      <path d="m9 12 2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+        stroke-linejoin="round" />
+    </symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24">
+      <path d="M12 3c.6 4.4 2.6 6.4 7 7-4.4.6-6.4 2.6-7 7-.6-4.4-2.6-6.4-7-7 4.4-.6 6.4-2.6 7-7z" fill="currentColor" />
+    </symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24">
+      <rect x="3.5" y="3.5" width="17" height="17" rx="4" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M8 10.5v5.5M8 7.6v.01M11.5 16v-3.2c0-1.3.9-2.3 2.1-2.3s2 1 2 2.3V16M11.5 10.5V16" fill="none"
+        stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+    </symbol>
+    <symbol id="i-x" viewBox="0 0 24 24">
+      <path d="M4.5 4h4.3l10.7 16h-4.3zM19 4l-6.2 7M5 20l6.2-7" fill="none" stroke="currentColor" stroke-width="1.6"
+        stroke-linejoin="round" />
+    </symbol>
+    <symbol id="i-github" viewBox="0 0 24 24">
+      <path
+        d="M9 19c-4 1.3-4-2-6-2.5m12 4.5v-3.4a3 3 0 0 0-.8-2.3c2.8-.3 5.8-1.4 5.8-6.2a4.8 4.8 0 0 0-1.3-3.3 4.5 4.5 0 0 0-.1-3.3s-1-.3-3.4 1.3a11.6 11.6 0 0 0-6.2 0C6.6 1.9 5.6 2.2 5.6 2.2a4.5 4.5 0 0 0-.1 3.3 4.8 4.8 0 0 0-1.3 3.3c0 4.8 3 5.9 5.8 6.2a3 3 0 0 0-.8 2.3V21"
+        fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+    </symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24">
+      <rect x="3.5" y="5.5" width="17" height="13" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round" />
+      <path d="m4.5 7 7.5 6 7.5-6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+        stroke-linejoin="round" />
+    </symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24">
+      <path d="M6.5 3.5h3l1.5 4-2 1.5a11 11 0 0 0 6 6l1.5-2 4 1.5v3a2 2 0 0 1-2 2A16 16 0 0 1 4.5 5.5a2 2 0 0 1 2-2z"
+        fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+    </symbol>
+    <symbol id="i-up" viewBox="0 0 24 24">
+      <path d="M12 19V5M6 11l6-6 6 6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+        stroke-linejoin="round" />
+    </symbol>
+    <symbol id="i-star" viewBox="0 0 24 24">
+      <path d="m12 3.5 2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z" fill="currentColor" />
+    </symbol>
+    <symbol id="i-award" viewBox="0 0 24 24">
+      <circle cx="12" cy="9" r="5.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+        stroke-linejoin="round" />
+      <path d="m8.5 13.5-1.5 7 5-2.5 5 2.5-1.5-7" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round" />
+    </symbol>
+    <symbol id="i-cap" viewBox="0 0 24 24">
+      <path d="m3 9 9-4.5L21 9l-9 4.5z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+        stroke-linejoin="round" />
+      <path d="M7 11v4.5c1.5 1.3 3.2 2 5 2s3.5-.7 5-2V11M21 9v5" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round" />
+    </symbol>
+    <symbol id="i-trophy" viewBox="0 0 24 24">
+      <path d="M8 4.5h8v5a4 4 0 0 1-8 0zM8 6.5H5a3 3 0 0 0 3 4M16 6.5h3a3 3 0 0 1-3 4M12 13.5v3.5M8.5 20h7" fill="none"
+        stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+    </symbol>
+    <symbol id="i-book" viewBox="0 0 24 24">
+      <path d="M4.5 5.5c2.5-1 5-1 7.5.5v13c-2.5-1.5-5-1.5-7.5-.5zM19.5 5.5c-2.5-1-5-1-7.5.5v13c2.5-1.5 5-1.5 7.5-.5z"
+        fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+    </symbol>
+    <symbol id="i-cpu" viewBox="0 0 24 24">
+      <rect x="6.5" y="6.5" width="11" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M9.5 3v3.5M14.5 3v3.5M9.5 17.5V21M14.5 17.5V21M3 9.5h3.5M3 14.5h3.5M17.5 9.5H21M17.5 14.5H21" fill="none"
+        stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+    </symbol>
+    <symbol id="i-db" viewBox="0 0 24 24">
+      <ellipse cx="12" cy="6" rx="7" ry="2.5" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M5 6v12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5V6M5 12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5" fill="none"
+        stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+    </symbol>
+    <symbol id="i-cloud" viewBox="0 0 24 24">
+      <path d="M7.5 18.5a4 4 0 0 1-.6-8A5.5 5.5 0 0 1 17.4 9a4.5 4.5 0 0 1-.4 9.5z" fill="none" stroke="currentColor"
+        stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+    </symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24">
+      <path d="m12 4 8.5 4.5L12 13 3.5 8.5z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+        stroke-linejoin="round" />
+      <path d="m3.5 12.5 8.5 4.5 8.5-4.5M3.5 16.5 12 21l8.5-4.5" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round" />
+    </symbol>
+    <symbol id="i-plane" viewBox="0 0 24 24">
+      <path d="M10.5 20.5 12 15l-6.5 1.5L4 14.5l7-4.5-1-6 2-1 3 5.5 5.5-1.5c1.2-.3 2.2.7 1.6 1.7L14.5 13 15 20z"
+        fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+    </symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24">
+      <path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7a4.3 4.3 0 0 1 7.5 2.8C19.5 15.4 12 20 12 20z" fill="none"
+        stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M7.5 12h2.5l1.5-2.5 2 4 1.5-1.5h1.5" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round" />
+    </symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24">
+      <path d="M13 3 5 13.5h6l-1 7.5 8-10.5h-6z" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round" />
+    </symbol>
+    <symbol id="i-bank" viewBox="0 0 24 24">
+      <path d="M3.5 9 12 4.5 20.5 9M5 9.5v8M9.5 9.5v8M14.5 9.5v8M19 9.5v8M3.5 20h17" fill="none" stroke="currentColor"
+        stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+    </symbol>
+    <symbol id="i-building" viewBox="0 0 24 24">
+      <rect x="5" y="3.5" width="14" height="17" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M9 7.5h.01M15 7.5h.01M9 11.5h.01M15 11.5h.01M9 15.5h.01M15 15.5h.01M10.5 20.5v-3h3v3" fill="none"
+        stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+    </symbol>
+    <symbol id="i-git" viewBox="0 0 24 24">
+      <circle cx="6.5" cy="6" r="2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+        stroke-linejoin="round" />
+      <circle cx="6.5" cy="18" r="2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+        stroke-linejoin="round" />
+      <circle cx="17.5" cy="9" r="2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+        stroke-linejoin="round" />
+      <path d="M6.5 8v8M17.5 11c0 3-3 4-11 5" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round" />
+    </symbol>
+    <symbol id="i-gauge" viewBox="0 0 24 24">
+      <path d="M4 16a8 8 0 1 1 16 0" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+        stroke-linejoin="round" />
+      <path d="m12 16 4-5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+        stroke-linejoin="round" />
+    </symbol>
+    <symbol id="i-users" viewBox="0 0 24 24">
+      <circle cx="9" cy="8.5" r="3.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+        stroke-linejoin="round" />
+      <path d="M3 20c.5-3.5 3-5.5 6-5.5s5.5 2 6 5.5M16 5a3.5 3.5 0 0 1 0 7M18 14.8c1.7.7 2.8 2.5 3 5.2" fill="none"
+        stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+    </symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24">
+      <rect x="4" y="5.5" width="16" height="15" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M4 10h16M8.5 3.5v4M15.5 3.5v4" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round" />
+    </symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24">
+      <path d="M7 3.5h7l4.5 4.5v12.5H7z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+        stroke-linejoin="round" />
+      <path d="M14 3.5V8h4.5M9.5 12.5h6M9.5 16h6" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round" />
+    </symbol>
+    <symbol id="i-download" viewBox="0 0 24 24">
+      <path d="M12 4v11M7 10.5l5 5 5-5M5 20h14" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round" />
+    </symbol>
+    <symbol id="i-flask" viewBox="0 0 24 24">
+      <path d="M10 3.5h4M10.5 3.5v5.5L5.5 18a2 2 0 0 0 1.8 2.9h9.4A2 2 0 0 0 18.5 18l-5-9V3.5M8 15h8" fill="none"
+        stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+    </symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+        stroke-linejoin="round" />
+      <path d="M3.5 12h17M12 3.5c2.3 2.5 3.5 5.3 3.5 8.5s-1.2 6-3.5 8.5c-2.3-2.5-3.5-5.3-3.5-8.5s1.2-6 3.5-8.5z"
+        fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+    </symbol>
+  </svg>
+  <header class="gn">
+    <div class="wrap gn__row"><a class="gn__logo" href="index.html"><img src="images/neurosyn-logo-dark.svg" width="254"
+          height="34" alt="NeuroSyn home"></a>
+      <nav class="gn__nav" aria-label="Main">
+        <ul class="gn__list">
+          <li class="gn__item gn__item--mega" data-fly><a class="gn__link" href="services.html" aria-haspopup="true"
+              aria-expanded="false">Services</a>
+            <div class="flyout flyout--mega">
+              <div class="flyout__cols">
+                <div class="flyout__col">
+                  <p class="flyout__head">Build software</p><a href="services.html#software">Web and SaaS
+                    platforms</a><a href="services.html#software">High-throughput backends</a><a
+                    href="services.html#software">Internal portals and cockpits</a><a href="services.html#software">APIs
+                    and gateways</a><a href="services.html#software">MVPs in 4 to 8 weeks</a>
+                </div>
+                <div class="flyout__col">
+                  <p class="flyout__head">Add intelligence</p><a href="services.html#ai-ml">Custom and fine-tuned
+                    models</a><a href="services.html#ai-ml">Enterprise RAG search</a><a
+                    href="services.html#ai-ml">Multi-agent orchestration</a><a href="services.html#ai-ml">Document
+                    intelligence and OCR</a><a href="services.html#ai-ml">Edge AI and model tuning</a>
+                </div>
+                <div class="flyout__col">
+                  <p class="flyout__head">Run and protect</p><a href="services.html#cloud-devops">Cloud and
+                    Kubernetes</a><a href="services.html#data-bi">Data pipelines and lakehouses</a><a
+                    href="services.html#enterprise-erp">SAP S/4HANA integration</a><a
+                    href="services.html#security-airgap">Air-gapped and sovereign AI</a><a
+                    href="services.html#security-airgap">SOC 2, HIPAA and ISO 27001</a>
+                </div>
+              </div>
+              <div class="flyout__cards"><a class="fcard" href="case-studies.html"><span class="fcard__img"><img
+                      src="images/work-aaks-sm.webp" width="688" height="384" alt="" loading="lazy"
+                      decoding="async"></span><b>See it in production</b><small>AAKS ledger intelligence, live since
+                    launch</small></a><a class="fcard fcard--mark" href="index.html#scope"><span class="fcard__img"><img
+                      src="images/neurosyn-mark.webp" width="420" height="425" alt="" loading="lazy"
+                      decoding="async"></span><b>Scope it in 30 seconds</b><small>Get a team, stack and
+                    timeline</small></a></div>
+              <div class="flyout__foot">
+                <div class="flyout__picks"><span>Popular</span><button type="button"
+                    data-pick="Private AI search">Private AI search</button><button type="button"
+                    data-pick="SAP audit">SAP ledger audit</button><button type="button"
+                    data-pick="Kubernetes">Kubernetes and CI/CD</button><button type="button"
+                    data-pick="Air-gapped">Air-gapped AI</button></div><a class="btn btn--ghost btn--sm"
+                  href="services.html">See all services</a>
+              </div>
+            </div>
+          </li>
+          <li class="gn__item" data-fly><a class="gn__link" href="products.html" aria-haspopup="true"
+              aria-expanded="false">Solutions</a>
+            <div class="flyout flyout--list"><a href="products/sap.html"><b>NeuroSyn-SAP</b><small>Forensic audits and
+                  reconciliation inside SAP</small></a><a href="products/dev.html"><b>NeuroSyn-Dev</b><small>An AI
+                  engineering system that builds and self-heals code</small></a><a
+                href="products/aero.html"><b>NeuroSyn-Aero</b><small>Diagnostics and airworthiness for aerospace
+                  fleets</small></a><a href="products/copilot.html"><b>NeuroSyn-Copilot</b><small>Private analysis of
+                  repos, data and documents</small></a><a class="flyout__all" href="products.html">All solutions</a>
+            </div>
+          </li>
+          <li class="gn__item"><a class="gn__link" href="case-studies.html">Work</a></li>
+          <li class="gn__item" data-fly><a class="gn__link" href="industries.html" aria-haspopup="true"
+              aria-expanded="false">Industries</a>
+            <div class="flyout flyout--list"><a href="industries.html#finance"><b>Financial services</b><small>Banking,
+                  FinTech and capital markets</small></a><a href="industries.html#sap-supply-chain"><b>Enterprise
+                  ERP</b><small>SAP landscapes and global supply chains</small></a><a
+                href="industries.html#aerospace-defense"><b>High reliability</b><small>Aerospace, defence and fleet
+                  maintenance</small></a><a href="industries.html#healthcare-lifesciences"><b>Life
+                  sciences</b><small>Healthcare systems and clinical informatics</small></a><a
+                href="industries.html#energy-utilities"><b>Critical infrastructure</b><small>Energy, power grids and
+                  utilities</small></a><a href="industries.html#public-sector"><b>Sovereign systems</b><small>Public
+                  sector and sovereign institutions</small></a><a class="flyout__all" href="industries.html">All
+                industries</a></div>
+          </li>
+          <li class="gn__item"><a class="gn__link" href="technology.html">Technology</a></li>
+          <li class="gn__item" data-fly><a class="gn__link" href="research.html" aria-haspopup="true"
+              aria-expanded="false">Research</a>
+            <div class="flyout flyout--list"><a href="research/mamba.html"><b>Mamba v0.4.0</b><small>One source file
+                  becomes a native binary</small></a><a
+                href="research/synapsefabric.html"><b>SynapseFabric</b><small>Sends each prompt to the right reasoning
+                  mode</small></a><a href="research/nuclear-x.html"><b>Nuclear X</b><small>Turns plain directives into
+                  reviewed code changes</small></a><a
+                href="research/quantumverifier.html"><b>QuantumVerifier</b><small>Tests generated code in sealed
+                  sandboxes</small></a><a class="flyout__all" href="research.html">All 9 systems</a></div>
+          </li>
+          <li class="gn__item"><a class="gn__link" href="reviews.html">Reviews</a></li>
+          <li class="gn__item"><a class="gn__link" href="founder.html">Founder</a></li>
+          <li class="gn__item"><a class="gn__link" href="about.html">About</a></li>
+        </ul>
+      </nav>
+      <div class="gn__tools"><button class="gn__icon" type="button" data-open-search aria-label="Search the site"
+          aria-controls="search" aria-expanded="false"><svg aria-hidden="true">
+            <use href="#i-search" />
+          </svg></button><a class="btn btn--blue btn--sm gn__cta" href="contact.html">Let's talk</a><button
+          class="gn__icon gn__burger" type="button" data-open-drawer aria-label="Open menu" aria-controls="drawer"
+          aria-expanded="false"><svg aria-hidden="true">
+            <use href="#i-menu" />
+          </svg></button></div>
+    </div>
+  </header>
+  <div class="gn-scrim" aria-hidden="true"></div>
+
+  <main id="main">
+
+    <section class="hero-scroll-track" id="hero" aria-labelledby="hero-title">
+      <div class="hero-scroll-pin">
+        <div class="hero-scroll-pin__glow" aria-hidden="true"></div>
+
+        <!-- Full-stage WebGL Canvas Wrap -->
+        <div class="hero-stage-full" id="hero-canvas-wrap">
+          <div class="hero-3d-backdrop" aria-hidden="true">
+            <img src="images/hero-neural-gears.jpg" alt="" class="hero-3d-img" loading="eager" decoding="async">
+            <div class="hero-3d-scrim"></div>
+          </div>
+          <canvas id="neural-hero-canvas"></canvas>
+          <div class="hero-3d-tag"><span class="dot-live"></span><span>SCROLL TO ENTER COG ARCHITECTURE</span>
+          </div>
+        </div>
+
+        <!-- Split Content Overlay -->
+        <div class="wrap hero-content-overlay" id="hero-content">
+          <div class="hero-split__content">
+            <p class="pill"><span class="dot-live" aria-hidden="true"></span>RESEARCH &amp; ENGINEERING · COGNITIVE
+              ARCHITECTURE</p>
+            <h1 class="display" id="hero-title">Intelligence is an Architecture.</h1>
+            <p class="intro">A hybrid, self-evolving cognitive architecture for complex reasoning, autonomous
+              engineering, and verifiable progress.</p>
+            <div class="hero-spec">
+              <div class="hero-spec__meta">
+                <span class="hero-spec__id">INTERACTIVE SYSTEM / 001</span>
+                <span class="hero-spec__status"><span class="dot-live"></span>LIVE SIMULATION</span>
+              </div>
+              <p class="hero-spec__desc">Precision 3D neural-mechanical transmission. Scroll down to enter into the cog
+                architecture.</p>
+            </div>
+            <div class="ctas">
+              <a class="btn btn--blue btn--lg" href="#disciplines">Explore Architecture <svg aria-hidden="true"
+                  width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="m7 17 10-10M7 7h10v10" />
+                </svg></a>
+              <a class="more" href="contact.html">Discuss a project</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scroll Down Hint Indicator -->
+        <div class="hero-scroll-hint" id="hero-scroll-hint" aria-hidden="true">
+          <span class="hero-scroll-hint__text">Scroll to enter cog</span>
+          <span class="hero-scroll-hint__chevron"></span>
+        </div>
+      </div>
+    </section>
+    <section class="statement" aria-label="What we stand for">
+      <div class="wrap">
+        <p class="words" data-words>We help organisations solve real challenges and make informed decisions. Nothing
+          ships without thorough testing, practical validation, <span class="c">and complete client ownership.</span>
+        </p>
+      </div>
+    </section>
+    <section class="clients" aria-label="Collaborations & engineering in production">
+      <div class="wrap clients__row">
+        <p class="clients__lead">Working across business, research and engineering.</p>
+        <div class="marquee">
+          <ul class="marquee__list">
+            <li><b>AAKS</b><small>Capital and assets</small></li>
+            <li><b>Polarions</b><small>Cloud networks</small></li>
+            <li><b>IJAIKE</b><small>Intelligence labs</small></li>
+            <li><b>KSOL</b><small>OEM systems</small></li>
+            <li><b>NovaCrest</b><small>Enterprise ERP</small></li>
+            <li><b>Aero-Dynamics</b><small>Defence tech</small></li>
+            <li aria-hidden="true"><b>AAKS</b><small>Capital and assets</small></li>
+            <li aria-hidden="true"><b>Polarions</b><small>Cloud networks</small></li>
+            <li aria-hidden="true"><b>IJAIKE</b><small>Intelligence labs</small></li>
+            <li aria-hidden="true"><b>KSOL</b><small>OEM systems</small></li>
+            <li aria-hidden="true"><b>NovaCrest</b><small>Enterprise ERP</small></li>
+            <li aria-hidden="true"><b>Aero-Dynamics</b><small>Defence tech</small></li>
+          </ul>
+          <div class="ctas" style="margin-top:28px">
+            <a class="btn btn--blue" href="contact.html">Start a conversation</a>
+            <a class="more" href="#founder">Read founder profile</a>
+          </div>
+          <a class="more" href="case-studies.html" data-fade>Explore all case studies</a>
+        </div>
+        <figure class="feature-shot" data-zoom>
+          <div class="zoom"><img src="images/work-aaks.webp"
+              srcset="images/work-aaks-sm.webp 688w, images/work-aaks.webp 1376w"
+              sizes="(max-width: 1240px) 92vw, 1200px" width="1376" height="768"
+              alt="AAKS financial intelligence interface with real-time audit verification" loading="lazy"
+              decoding="async"></div>
+        </figure>
+        <div class="statrow">
+          <p class="stat stat--c" data-fade><b>Weeks to days</b><span>audit cycle reduction</span></p>
+          <p class="stat" data-fade style="--d:.08s"><b>Verified</b><span>ledger reconciliation accuracy</span></p>
+          <p class="stat" data-fade style="--d:.16s"><b>Private</b><span>on-premise security, zero external
+              leakage</span></p>
+        </div>
+      </div>
+    </section>
+    <section class="sec" id="engage" aria-labelledby="engage-title">
+      <div class="wrap">
+        <div class="head center"><h2 class="h2" id="engage-title" data-fade>Pick how we work together.</h2>
+        <p class="intro" data-fade style="--d:.08s">Choose by product stage, timeline and the team you already have. No red tape, and only senior engineers.</p></div>
+        <div class="compare"><article class="plan plan--top" data-fade style="--d:0.00s"><p class="plan__badge">Most chosen</p><h3>Dedicated engineering pod</h3><p>A senior squad that works inside your product roadmap.</p><p class="plan__terms"><b>3, 6 or 12 months</b><span>Monthly retainer per pod</span></p><p class="plan__label">Your squad</p><ul class="checks"><li>1 principal or lead architect</li><li>2 to 3 senior full-stack engineers</li><li>1 AI/ML or cloud DevOps specialist</li><li>1 embedded QA automation engineer</li></ul><p class="plan__label">You get</p><ul class="checks"><li>Production releases every two weeks</li><li>Direct Slack or Discord and Jira sync</li><li>Full CI/CD and automated tests</li><li>100% of the IP and source code</li></ul><a class="btn btn--blue" href="contact.html">Start with a pod</a></article><article class="plan" data-fade style="--d:0.08s"><p class="plan__badge">Fixed budget</p><h3>Turnkey fixed scope</h3><p>Milestone-based delivery with a timeline we commit to.</p><p class="plan__terms"><b>6 to 16 weeks</b><span>Fixed price by milestone</span></p><p class="plan__label">Your squad</p><ul class="checks"><li>Solution architect</li><li>Product delivery manager</li><li>Dedicated frontend and backend engineers</li><li>DevOps deployment engineer</li></ul><p class="plan__label">You get</p><ul class="checks"><li>A fixed-scope architecture spec</li><li>Staging review and demo at every milestone</li><li>Air-gapped or cloud production launch</li><li>30 days of hypercare and warranty</li></ul><a class="btn btn--ghost" href="contact.html">Plan a fixed build</a></article><article class="plan" data-fade style="--d:0.16s"><p class="plan__badge">Ready in 48 hours</p><h3>Embedded specialists</h3><p>Senior engineers who join your existing team fast.</p><p class="plan__terms"><b>1 month or more</b><span>Time and materials, or monthly</span></p><p class="plan__label">Your squad</p><ul class="checks"><li>Pre-vetted senior engineers, top 3%</li><li>Working in your time zone</li><li>Reporting to your engineering manager</li><li>No onboarding overhead for you</li></ul><p class="plan__label">You get</p><ul class="checks"><li>Commit access within 48 to 72 hours</li><li>Daily stand-ups with your team</li><li>Over 95% code review acceptance</li><li>Written knowledge transfer</li></ul><a class="btn btn--ghost" href="contact.html">Add specialists</a></article></div>
+        <div class="banner" data-fade><div><b>2-week risk-free start</b><p>Every dedicated pod begins with a 14-day evaluation sprint. If the quality or speed falls short, you don't pay.</p></div><a class="btn btn--white btn--sm" href="contact.html">Request our MSA</a></div>
+      </div>
+    </section>
+    <section class="sec sec--alt" id="scope" aria-labelledby="scope-title">
+      <div class="wrap">
+        <div class="head"><h2 class="h2" id="scope-title" data-fade>Scope your project in 30 seconds.</h2>
+        <p class="intro" data-fade style="--d:.08s">Pick what you're building. You'll see the team, stack and pace we'd recommend, before you talk to anyone.</p></div>
+        <form class="estimator" data-estimator onsubmit="return false">
+          <div class="estimator__steps">
+            <fieldset class="step"><legend><span>1.</span>What are you building?</legend><div class="choices choices--2">
+              <label class="choice"><input type="radio" name="sys" value="web"><span><b>Web or mobile app</b><small>Portals, SaaS products, native apps and fast APIs</small></span></label>
+              <label class="choice"><input type="radio" name="sys" value="ai" checked><span><b>Private AI and ML system</b><small>Search over your documents, agents and prediction models</small></span></label>
+              <label class="choice"><input type="radio" name="sys" value="cloud"><span><b>Cloud and DevOps overhaul</b><small>Containers, CI/CD pipelines and lower cloud bills</small></span></label>
+              <label class="choice"><input type="radio" name="sys" value="sap"><span><b>Enterprise ERP and SAP</b><small>Connect old databases and end manual audits</small></span></label>
+            </div></fieldset>
+            <fieldset class="step"><legend><span>2.</span>Where will it run?</legend><div class="choices choices--3">
+              <label class="choice"><input type="radio" name="env" value="cloud" checked><span><b>Cloud native</b><small>AWS, GCP or Azure</small></span></label>
+              <label class="choice"><input type="radio" name="env" value="hybrid"><span><b>Hybrid</b><small>Cloud plus on-premise</small></span></label>
+              <label class="choice"><input type="radio" name="env" value="airgap"><span><b>Air-gapped</b><small>Fully offline, on-prem</small></span></label>
+            </div></fieldset>
+            <fieldset class="step"><legend><span>3.</span>How fast?</legend><div class="choices choices--3">
+              <label class="choice"><input type="radio" name="pace" value="fast"><span><b>4 to 6 weeks</b><small>Production MVP</small></span></label>
+              <label class="choice"><input type="radio" name="pace" value="standard" checked><span><b>8 to 12 weeks</b><small>Enterprise scale</small></span></label>
+              <label class="choice"><input type="radio" name="pace" value="dedicated"><span><b>Ongoing</b><small>Dedicated pod</small></span></label>
+            </div></fieldset>
+          </div>
+          <aside class="brief" aria-live="polite" data-brief>
+            <p class="brief__head"><span>Your architecture brief</span><b><i class="dot-live" aria-hidden="true"></i>Live estimate</b></p>
+            <p class="brief__title" data-brief-title>Private AI and ML system, cloud native, 8 to 12 weeks</p>
+            <p class="brief__label">Recommended team</p>
+            <ul class="brief__team" data-brief-team><li>1 Senior AI / Systems Architect</li><li>2 Senior Machine Learning &amp; Full-Stack Engineers</li><li>1 Cloud &amp; MLOps Engineer</li></ul>
+            <p class="brief__label">Suggested stack</p>
+            <p class="brief__stack" data-brief-stack><span>Python</span><span>PyTorch</span><span>vLLM</span><span>Vector DB (Qdrant)</span></p>
+            <p class="brief__label">Pace</p>
+            <p class="brief__pace" data-brief-pace>Enterprise scale: full feature set, pentests and load testing</p>
+            <ul class="brief__inc"><li><svg aria-hidden="true"><use href="#i-check"/></svg>You own the source code</li><li><svg aria-hidden="true"><use href="#i-check"/></svg>Demos every two weeks</li><li><svg aria-hidden="true"><use href="#i-check"/></svg>Clear SLAs</li></ul>
+            <a class="btn btn--blue" href="contact.html" data-brief-cta>Discuss this scope</a>
+            <p class="brief__note">Free architecture review. Reply within 24 hours, under NDA.</p>
+          </aside>
+        </form>
+      </div>
+    </section>
+    <section class="sec" id="founder" aria-labelledby="founder-title">
+      <div class="wrap split">
+        <figure class="portrait" data-fade="scale"><img src="images/founder-muavia.webp" width="720" height="926" alt="Hon. Dr. Muavia Tanveer Khan, founder and lead architect of NeuroSyn" loading="lazy" decoding="async"></figure>
+        <div>
+          <p class="pill">Founder and lead architect</p>
+          <h2 class="h2" id="founder-title" data-fade>Hon. Dr. Muavia Tanveer Khan</h2>
+          <blockquote class="quote" data-fade style="--d:.08s;margin-top:18px"><p>“Artificial intelligence should work as dependable infrastructure, not as isolated tools.”</p><cite>Honorary Doctorate in Artificial Intelligence and Computer Sciences, honoris causa</cite></blockquote>
+          <ul class="honours">
+            <li><b>Asia Book of Records</b><span>Record holder for AI innovation and system architecture</span></li>
+            <li><b>International hackathon winner</b><span>Enterprise generative AI built under live deadlines</span></li>
+            <li><b>IJAIKE research scientist</b><span>Readers Committee and peer review</span></li>
+          </ul>
+          <div class="docrow">
+            <button class="docrow__thumb" type="button" data-film="https://drive.google.com/file/d/1bXstVCOEVZlkux4xUCZPXSe74I8dQ1J3/preview" data-film-title="Heroes of IBR, a documentary feature" aria-label="Play the Heroes of IBR documentary"><img src="images/heroes-of-ibr.webp" width="1024" height="571" alt="" loading="lazy" decoding="async"><i><svg aria-hidden="true"><use href="#i-play"/></svg></i></button>
+            <div><b>Heroes of IBR</b><p>A documentary feature on Muavia's work in technology and research.</p></div>
+          </div>
+          <div class="ctas"><a class="btn btn--blue" href="founder.html#book">Book a private meeting</a><a class="more" href="founder.html">Founder profile</a></div>
+        </div>
+      </div>
+    </section>
+    <section class="sec story" id="delivery" aria-labelledby="delivery-title" data-story>
+      <div class="wrap">
+        <div class="head">
+          <h2 class="h2" id="delivery-title" data-fade>A clear, structured way of working.</h2>
+          <p class="intro" data-fade style="--d:.08s">Four practical stages, each with tangible deliverables you review
+            and sign off.</p>
+        </div>
+        <div class="story__grid">
+          <div class="story__steps">
+            <div class="story__step is-on" data-check="Clear scope agreement and technical approach lock">
+              <small>Stage 01</small>
+              <h3>Understand</h3>
+              <p>We take time to learn about your business, current workflows, team setup and the specific challenge you
+                need solved.</p>
+              <ul class="story__mini">
+                <li>Stakeholder interviews and challenge definition</li>
+                <li>System architecture review and technical feasibility</li>
+                <li>Data and workflow gap analysis</li>
+                <li>Initial project blueprint and recommendation</li>
+              </ul>
+              <div class="ctas" style="margin-top:28px">
+                <a class="btn btn--blue" href="contact.html">Start a conversation</a>
+                <a class="more" href="founder.html">Read founder profile</a>
+              </div>
+            </div>
+          </div>
+    </section>
+    <section class="sec" id="papers" aria-labelledby="papers-title">
+      <div class="wrap">
+        <div class="head head--split">
+          <h2 class="h2" id="papers-title" data-fade>Field notes and technical briefings.</h2><a class="more"
+            href="case-studies.html" data-fade>Explore all notes</a>
+        </div>
+        <div class="papers"><a class="paper paper--lead" href="case-studies.html" data-fade style="--d:0.00s">
+            <p class="paper__meta"><span>Enterprise search</span>11 min read</p>
+            <h3>How Private AI Search Works on Company Documents</h3>
+            <p>Private AI search lets employees ask questions about internal documents and receive answers grounded in
+              company files, applying strict access permissions and verifiable citations.</p><span class="more">Read
+              more</span>
+          </a><a class="paper" href="case-studies.html" data-fade style="--d:0.08s">
+            <p class="paper__meta"><span>Software engineering</span>9 min read</p>
+            <h3>Reliable Engineering Loops in Production Software</h3>
+            <p>Building software that scales requires dependable architectures, automated test coverage, and transparent
+              verification before anything goes live.</p><span class="more">Read more</span>
+          </a><a class="paper" href="case-studies.html" data-fade style="--d:0.16s">
+            <p class="paper__meta"><span>Infrastructure &amp; Security</span>9 min read</p>
+            <h3>Deploying Secure, Air-Gapped Business Infrastructure</h3>
+            <p>How organizations with strict compliance, financial, or privacy mandates run reliable internal software
+              without external data leakage.</p><span class="more">Read more</span>
+          </a></div>
+      </div>
+    </section>
+    <section class="cta-band" aria-labelledby="talk-title">
+      <div class="wrap center">
+        <p class="pill"><i class="dot-live" aria-hidden="true"></i>Start a conversation</p>
+        <h2 class="h2" id="talk-title" data-fade>Have a challenge worth solving?</h2>
+        <p class="intro" data-fade style="--d:.08s">Tell us what you're working on. We'll explore your needs, discuss
+          possible approaches and see how NeuroSyn can help.</p>
+        <div class="ctas" data-fade style="--d:.16s"><a class="btn btn--blue btn--lg" href="contact.html">Start a
+            conversation</a><a class="more" href="founder.html#book">Book a meeting with the founder</a></div>
+        <ul class="phero__facts" data-fade style="--d:.24s">
+          <li><svg aria-hidden="true">
+              <use href="#i-clock" />
+            </svg>Reply within 1 business day</li>
+          <li><svg aria-hidden="true">
+              <use href="#i-check" />
+            </svg>No sales pressure</li>
+          <li><svg aria-hidden="true">
+              <use href="#i-shield" />
+            </svg>Clear, actionable next steps</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  <footer class="ft">
+    <div class="wrap">
+      <div class="ft__note">
+        <p>NeuroSyn replies to every brief within 1 business day, and signs a standard mutual NDA before you share
+          anything sensitive.</p>
+        <p>You own 100% of the code, models and infrastructure we build for you. Every dedicated pod starts with a
+          2-week risk-free sprint.</p>
+      </div>
+      <div class="ft__crumb"><a href="index.html" aria-label="NeuroSyn home"><img src="images/neurosyn-logo-dark.svg"
+            width="254" height="34" alt=""></a></div>
+      <nav class="ft__dir" aria-label="Site directory">
+        <div>
+          <h2>Products</h2>
+          <ul>
+            <li><a href="products/sap.html">NeuroSyn-SAP</a></li>
+            <li><a href="products/dev.html">NeuroSyn-Dev</a></li>
+            <li><a href="products/aero.html">NeuroSyn-Aero</a></li>
+            <li><a href="products/copilot.html">NeuroSyn-Copilot</a></li>
+            <li><a href="products.html">All solutions</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Services</h2>
+          <ul>
+            <li><a href="services.html#ai-ml">AI and machine learning</a></li>
+            <li><a href="services.html#software">Custom software</a></li>
+            <li><a href="services.html#enterprise-erp">Enterprise ERP and SAP</a></li>
+            <li><a href="services.html#cloud-devops">Cloud and DevOps</a></li>
+            <li><a href="services.html#data-bi">Data and analytics</a></li>
+            <li><a href="services.html#security-airgap">Security and air-gapped</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Company</h2>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="founder.html">Founder</a></li>
+            <li><a href="technology.html">Technology</a></li>
+            <li><a href="investors.html">Investors</a></li>
+            <li><a href="reviews.html">Client reviews</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Systems</h2>
+          <ul>
+            <li><a href="research.html">Research and systems</a></li>
+            <li><a href="case-studies.html">Selected work &amp; field notes</a></li>
+            <li><a href="industries.html">Industries</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Engage</h2>
+          <ul>
+            <li><a href="contact.html">Start a project</a></li>
+            <li><a href="founder.html#book">Book a meeting</a></li>
+            <li><a href="index.html#scope">Scope estimator</a></li>
+            <li><a href="products.html#pilot">Request a pilot</a></li>
+          </ul>
+        </div>
+      </nav>
+      <p class="ft__more">More ways to reach us: <a href="founder.html#book">book a private meeting</a> with the
+        founder, or <a href="contact.html">send us your brief</a>.</p>
+      <div class="ft__bottom">
+        <div class="ft__legal"><span>Copyright © 2026 NeuroSyn. All rights reserved.</span><span>Enterprise software and
+            AI engineering</span><button type="button" data-ck-settings>Cookie settings</button></div>
+        <div class="ft__social"><a href="https://www.linkedin.com/in/muavia-tanveer-9a6856328/" target="_blank"
+            rel="noopener" aria-label="LinkedIn"><svg aria-hidden="true">
+              <use href="#i-linkedin" />
+            </svg></a><a href="https://x.com/muaviakha83" target="_blank" rel="noopener" aria-label="X"><svg
+              aria-hidden="true">
+              <use href="#i-x" />
+            </svg></a><a href="https://github.com/Muaviatanveer" target="_blank" rel="noopener" aria-label="GitHub"><svg
+              aria-hidden="true">
+              <use href="#i-github" />
+            </svg></a></div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="layer-ov drawer" id="drawer" hidden role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="layer-ov__panel">
+      <div class="drawer__head"><a href="index.html"><img src="images/neurosyn-logo-dark.svg" width="254" height="34"
+            alt="NeuroSyn home"></a><button class="iconbtn" type="button" data-close aria-label="Close menu"><svg
+            aria-hidden="true">
+            <use href="#i-close" />
+          </svg></button></div>
+      <nav class="drawer__nav" aria-label="Phone menu"><a href="services.html" style="--i:0">Services</a><a
+          href="products.html" style="--i:1">Solutions</a><a href="case-studies.html" style="--i:2">Selected Work</a><a
+          href="industries.html" style="--i:3">Industries</a><a href="technology.html" style="--i:4">Technology</a><a
+          href="research.html" style="--i:5">Research</a><a href="reviews.html" style="--i:6">Reviews</a><a
+          href="founder.html" style="--i:7">Founder</a><a href="about.html" style="--i:8">About</a></nav>
+      <div class="drawer__sub"><a href="investors.html">Investors</a><a href="founder.html#book">Book a meeting</a><a
+          href="index.html#scope">Scope estimator</a><button class="linkbtn" type="button" data-open-search
+          style="text-align:left;font-size:1rem">Search the site</button></div>
+      <a class="btn btn--blue btn--lg" href="contact.html">Let's talk</a>
+    </div>
+  </div>
+  <div class="layer-ov search" id="search" hidden role="dialog" aria-modal="true" aria-label="Search">
+    <div class="layer-ov__panel search__panel">
+      <div class="search__bar"><svg aria-hidden="true">
+          <use href="#i-search" />
+        </svg><input id="q" type="search" placeholder="Search services, products, papers" autocomplete="off"
+          spellcheck="false" aria-label="Search the site" role="combobox" aria-expanded="true"
+          aria-controls="search-results" aria-autocomplete="list" data-autofocus><button class="iconbtn" type="button"
+          data-close aria-label="Close search"><svg aria-hidden="true">
+            <use href="#i-close" />
+          </svg></button></div>
+      <div class="search__body">
+        <div data-search-start>
+          <div data-recent-wrap hidden>
+            <p class="search__label">Recent</p>
+            <div class="qchips" data-recent></div>
+          </div>
+          <p class="search__label">Popular</p>
+          <div class="qchips" data-popular></div>
+          <p class="search__label">Quick links</p>
+          <div class="quick"><a href="services.html"><svg aria-hidden="true">
+                <use href="#i-chevr" />
+              </svg>Services</a><a href="products.html"><svg aria-hidden="true">
+                <use href="#i-chevr" />
+              </svg>Solutions</a><a href="case-studies.html"><svg aria-hidden="true">
+                <use href="#i-chevr" />
+              </svg>Selected Work</a><a href="contact.html"><svg aria-hidden="true">
+                <use href="#i-chevr" />
+              </svg>Contact</a></div>
+        </div>
+        <p class="search__dym" data-dym hidden></p>
+        <ul class="search__results" id="search-results" role="listbox" aria-label="Results" data-results></ul>
+      </div>
+      <div class="search__keys" aria-hidden="true"><span><kbd>↑</kbd><kbd>↓</kbd> to move</span><span><kbd>Enter</kbd>
+          to open</span><span><kbd>Esc</kbd> to close</span><span><kbd>/</kbd> to search from anywhere</span></div>
+    </div>
+  </div>
+  <div class="layer-ov film" id="film" hidden role="dialog" aria-modal="true" aria-label="Video">
+    <div class="layer-ov__panel film__panel">
+      <div class="film__head"><span data-film-title>Video</span><button class="iconbtn" type="button" data-close
+          aria-label="Close video"><svg aria-hidden="true">
+            <use href="#i-close" />
+          </svg></button></div>
+      <div class="film__frame" data-film-frame></div>
+    </div>
+  </div>
+  <section class="cookie" id="cookie" role="region" aria-labelledby="cookie-title">
+    <b id="cookie-title">Cookies</b>
+    <p>Essential cookies keep the site working. Optional ones show us how it's used.</p>
+    <div class="cookie__prefs" id="cookiePrefs" hidden>
+      <label class="switch"><input type="checkbox" checked disabled><span></span>Essential, always on</label>
+      <label class="switch"><input type="checkbox" data-ck-opt><span></span>Analytics</label>
+    </div>
+    <div class="cookie__row">
+      <button class="btn btn--blue btn--sm" type="button" data-ck="all">Accept all</button>
+      <button class="btn btn--ghost btn--sm" type="button" data-ck="essential">Essential only</button>
+      <button class="btn btn--ghost btn--sm" type="button" data-ck="save" hidden>Save choices</button>
+      <button class="linkbtn" type="button" data-ck-prefs aria-expanded="false"
+        aria-controls="cookiePrefs">Preferences</button>
+    </div>
+  </section>
+  <p class="toast" role="status" aria-live="polite" data-toast></p>
+  <button class="totop" type="button" data-totop aria-label="Back to top"><svg class="totop__ring" viewBox="0 0 46 46"
+      aria-hidden="true">
+      <circle cx="23" cy="23" r="20" />
+      <circle class="bar" cx="23" cy="23" r="20" />
+    </svg><svg class="totop__icon" aria-hidden="true">
+      <use href="#i-up" />
+    </svg></button>
+  <script src="js/data.js" defer></script>
+  <script src="js/three.min.js" defer></script>
+  <script src="js/neural-hero.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+
+</html>
