@@ -295,15 +295,15 @@
     cageMesh.position.set(0, 0, -3.8);
     coreGroup.add(cageMesh);
 
-    // Toroidal magnetic containment rings around the neural tunnel
+    // Toroidal magnetic containment rings around the neural tunnel (centered at z = -3.8)
     var coreRing1 = new THREE.Mesh(new THREE.TorusGeometry(1.45, 0.045, 16, 64), matPolishedChrome);
-    coreRing1.position.set(0, 0, -3.5);
-    coreRing1.rotation.x = Math.PI / 2.4;
+    coreRing1.position.set(0, 0, -3.8);
+    coreRing1.scale.set(1, 0.42, 1);
     coreGroup.add(coreRing1);
 
-    var coreRing2 = new THREE.Mesh(new THREE.TorusGeometry(1.5, 0.04, 16, 64), matDarkSteel);
-    coreRing2.position.set(0, 0, -4.2);
-    coreRing2.rotation.y = Math.PI / 2.7;
+    var coreRing2 = new THREE.Mesh(new THREE.TorusGeometry(1.45, 0.045, 16, 64), matDarkSteel);
+    coreRing2.position.set(0, 0, -3.8);
+    coreRing2.scale.set(0.42, 1, 1);
     coreGroup.add(coreRing2);
 
     // Dendritic branches arching outward into deep 3D space
